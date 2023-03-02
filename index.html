@@ -1,13 +1,44 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html>
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Responsif Button</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-	<button id="responsiveButton">Klik Saya!</button>
-	<script src="script.js"></script>
-</body>
+  <head>
+    <title>Countdown Timer</title>
+  </head>
+  <body>
+    <div id="countdown"></div>
+    
+    <script>
+      // Mengambil input dari pengguna
+      var seconds = prompt("Masukkan waktu dalam detik:");
+      
+      // Menghitung waktu akhir
+      var endDate = new Date().getTime() + seconds * 1000;
+      
+      // Memperbarui hitungan mundur setiap 1 detik
+      var countdownTimer = setInterval(function() {
+        
+        // Hitung selisih waktu antara waktu saat ini dan waktu akhir
+        var now = new Date().getTime();
+        var distance = endDate - now;
+        
+        // Menghitung waktu dalam format jam, menit, dan detik
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        // Membuat tampilan hitungan mundur
+        document.getElementById("countdown").innerHTML = hours + " jam "
+        + minutes + " menit " + seconds + " detik ";
+        
+        // Jika waktu hitungan mundur sudah habis
+        if (distance < 0) {
+          clearInterval(countdownTimer);
+          document.getElementById("countdown").innerHTML = "Waktu sudah habis!";
+          
+          // Memberikan notifikasi suara
+          var audio = new Audio("sound/notifikasi.mp3");
+          audio.play();
+        }
+      }, 1000);
+    </script>
+  </body>
 </html>
