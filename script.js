@@ -1,8 +1,11 @@
-const button = document.querySelector('#change-bg-color');
-const body = document.querySelector('body');
+let button = document.getElementById("responsiveButton");
 
-button.addEventListener('click', function() {
-	const randomColor = Math.floor(Math.random()*16777215).toString(16);
-	body.style.backgroundColor = '#' + randomColor;
+button.addEventListener("click", function() {
+  // generate random position
+  let x = Math.floor(Math.random() * (window.innerWidth - button.offsetWidth));
+  let y = Math.floor(Math.random() * (window.innerHeight - button.offsetHeight));
+
+  // set button position
+  button.style.left = x + "px";
+  button.style.top = y + "px";
 });
-
