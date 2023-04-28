@@ -1,44 +1,27 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Countdown Timer</title>
-  </head>
-  <body>
-    <div id="countdown"></div>
-    
-    <script>
-      // Mengambil input dari pengguna
-      var seconds = prompt("Masukkan waktu dalam detik:");
-      
-      // Menghitung waktu akhir
-      var endDate = new Date().getTime() + seconds * 1000;
-      
-      // Memperbarui hitungan mundur setiap 1 detik
-      var countdownTimer = setInterval(function() {
-        
-        // Hitung selisih waktu antara waktu saat ini dan waktu akhir
-        var now = new Date().getTime();
-        var distance = endDate - now;
-        
-        // Menghitung waktu dalam format jam, menit, dan detik
-        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        
-        // Membuat tampilan hitungan mundur
-        document.getElementById("countdown").innerHTML = hours + " jam "
-        + minutes + " menit " + seconds + " detik ";
-        
-        // Jika waktu hitungan mundur sudah habis
-        if (distance < 0) {
-          clearInterval(countdownTimer);
-          document.getElementById("countdown").innerHTML = "Waktu sudah habis!";
-          
-          // Memberikan notifikasi suara
-          var audio = new Audio("mixkit-melodic-airport-announcement-ding-1570.wav");
-          audio.play();
-        }
-      }, 1000);
-    </script>
-  </body>
+<head>
+	<title>Perbaikan Situs</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+	<header>
+		<h1>Situs Sedang Dalam Perbaikan</h1>
+	</header>
+	
+	<main>
+		<section id="content">
+			<h2>Kami sedang memperbaiki situs kami</h2>
+			<p>Mohon maaf atas ketidaknyamanan ini. Kami sedang melakukan perbaikan situs agar dapat memberikan pengalaman terbaik kepada pengunjung kami.</p>
+			<p>Situs kami akan segera kembali online. Terima kasih atas kesabaran dan pengertian Anda.</p>
+		</section>
+	</main>
+	
+	<footer>
+		<p>Hak Cipta © 2023 | [Nama Anda]</p>
+	</footer>
+	
+	<script src="script.js"></script>
+</body>
 </html>
