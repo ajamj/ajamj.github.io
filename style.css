@@ -7,3 +7,22 @@
 #project {
   background-color: #e2edff;
 }
+
+.card-img-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
+}
+
+#contact ul.list-unstyled {
+  text-align: left;
+}
+#contact h2,
+#contact h3,
+#contact ul.list-unstyled li {
+  color: #efefef;
+}
+#about h2,
+#about p {
+  color: #efefef;
+}
