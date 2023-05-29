@@ -269,7 +269,8 @@ function displayQuote() {
     fadeIn(quoteElement);
     fadeIn(authorElement);
   }, 500); // Delay setelah fadeOut selesai
-  index = (index + 1) % quotes.length;
+  /*index = (index + 1) % quotes.length;*/
+  index = Math.floor(Math.random() * 50) % quotes.length;
 }
 
 function fadeIn(element) {
