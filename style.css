@@ -14,15 +14,22 @@
   object-fit: cover;
 }
 
-#contact ul.list-unstyled {
-  text-align: left;
-}
 #contact h2,
 #contact h3,
 #contact ul.list-unstyled li {
   color: #efefef;
 }
+
 #about h2,
 #about p {
   color: #efefef;
+}
+.fade {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#about {
+  height: 200px;
+  /*overflow-y: scroll;  Untuk menambahkan scroll jika kontennya melebihi tinggi yang ditentukan */
 }
