@@ -281,4 +281,4 @@ function fadeOut(element) {
 }
 
 displayQuote();
-setInterval(displayQuote, 20000);
+setInterval(displayQuote, 5000);
