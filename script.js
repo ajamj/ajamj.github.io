@@ -160,11 +160,6 @@ const quotes = [
     author: "C.S. Lewis",
   },
   {
-    quote:
-      "The biggest wall you have to climb is the one you build in your mind: Never let your mind talk you out of your dreams, trick you into giving up. Never let your mind become the greatest obstacle to success. To get your mind on the right track, the rest will follow.",
-    author: "Roy T. Bennett",
-  },
-  {
     quote: "The only limit to our realization of tomorrow will be our doubts of today.",
     author: "Franklin D. Roosevelt",
   },
@@ -215,11 +210,6 @@ const quotes = [
   {
     quote: "You can't go back and change the beginning, but you can start where you are and change the ending.",
     author: "C.S. Lewis",
-  },
-  {
-    quote:
-      "The biggest wall you have to climb is the one you build in your mind: Never let your mind talk you out of your dreams, trick you into giving up. Never let your mind become the greatest obstacle to success. To get your mind on the right track, the rest will follow.",
-    author: "Roy T. Bennett",
   },
   {
     quote: "The only limit to our realization of tomorrow will be our doubts of today.",
@@ -277,11 +267,11 @@ function displayQuote() {
 let previousRandomNumber = null;
 
 function getRandomNumber() {
-  let randomNumber = Math.floor(Math.random() * 50);
+  let randomNumber = Math.floor(Math.random() * 48);
 
   // Memastikan nilai acak tidak sama dengan nilai sebelumnya
   while (randomNumber === previousRandomNumber) {
-    randomNumber = Math.floor(Math.random() * 50);
+    randomNumber = Math.floor(Math.random() * 48);
   }
 
   previousRandomNumber = randomNumber;
