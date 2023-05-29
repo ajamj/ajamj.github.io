@@ -270,7 +270,22 @@ function displayQuote() {
     fadeIn(authorElement);
   }, 500); // Delay setelah fadeOut selesai
   /*index = (index + 1) % quotes.length;*/
-  index = Math.floor(Math.random() * 50) % quotes.length;
+  /*index = Math.floor(Math.random() * 50) % quotes.length;*/
+  index = getRandomNumber() % quotes.length;
+}
+
+let previousRandomNumber = null;
+
+function getRandomNumber() {
+  let randomNumber = Math.floor(Math.random() * 50);
+
+  // Memastikan nilai acak tidak sama dengan nilai sebelumnya
+  while (randomNumber === previousRandomNumber) {
+    randomNumber = Math.floor(Math.random() * 50);
+  }
+
+  previousRandomNumber = randomNumber;
+  return randomNumber;
 }
 
 function fadeIn(element) {
