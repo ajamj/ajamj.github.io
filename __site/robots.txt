@@ -1,4 +1,0 @@
-Sitemap: https://ajamj.github.io\sitemap.xml
-
-User-agent: *
-Disallow:
