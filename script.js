@@ -128,10 +128,6 @@ const quotes = [
     author: "Stephen Richards",
   },
   {
-    quote: "You are stronger than you know. More capable than you ever dreamed. And you are loved more than you could possibly imagine.",
-    author: "Unknown",
-  },
-  {
     quote: "The past cannot be changed. The future is yet in your power.",
     author: "Unknown",
   },
