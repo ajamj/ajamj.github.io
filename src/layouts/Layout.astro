@@ -1,0 +1,125 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description = 'Personal portfolio of Ajam Jamaludin - Geophysics Researcher' } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --color-bg: #FAFAFA;
+    --color-text: #1A1A2E;
+    --color-accent: #0D7377;
+    --color-accent-secondary: #E8A838;
+    --space-xs: 0.5rem;
+    --space-sm: 0.75rem;
+    --space-md: 1rem;
+    --space-lg: 1.5rem;
+    --space-xl: 2rem;
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    padding-top: 60px;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  h1 {
+    font-size: 3.052rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0 0 var(--space-lg) 0;
+  }
+
+  h2 {
+    font-size: 1.953rem;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0 0 var(--space-md) 0;
+  }
+
+  h3 {
+    font-size: 1.563rem;
+    font-weight: 600;
+    margin: 0 0 var(--space-sm) 0;
+  }
+
+  p {
+    margin: 0 0 var(--space-md) 0;
+  }
+
+  a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  a:hover {
+    color: var(--color-accent-secondary);
+  }
+
+  section {
+    min-height: 100vh;
+    padding: var(--space-xl) var(--space-md);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  @media (min-width: 768px) {
+    body {
+      padding-top: 70px;
+    }
+
+    section {
+      padding: var(--space-3xl) var(--space-xl);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+</style>
