@@ -21,7 +21,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **CONT-03**: Projects section showcases seismic data processing software
 - [x] **CONT-04**: Projects section showcases earthquake monitoring tools
 - [x] **CONT-05**: Skills section lists seismology-related technical skills
-- [ ] **CONT-06**: Contact section provides email or contact form link
+- [x] **CONT-06**: Contact section provides email or contact form link
 
 ### Design
 
@@ -33,9 +33,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Technical
 
-- [ ] **TECH-01**: SEO-friendly with appropriate meta tags (title, description, og:*)
-- [ ] **TECH-02**: No intrusive tracking or dark patterns
-- [ ] **TECH-03**: Works on GitHub Pages (HTML served from root of main branch)
+- [x] **TECH-01**: SEO-friendly with appropriate meta tags (title, description, og:*)
+- [x] **TECH-02**: No intrusive tracking or dark patterns
+- [x] **TECH-03**: Works on GitHub Pages (HTML served from root of main branch)
 
 ## v2 Requirements
 
@@ -75,15 +75,15 @@ Which phases cover which requirements. Updated during roadmap creation.
 | CONT-03 | Phase 2 | Done |
 | CONT-04 | Phase 2 | Done |
 | CONT-05 | Phase 2 | Done |
-| CONT-06 | Phase 3 | Pending |
+| CONT-06 | Phase 3 | Complete |
 | DESN-01 | Phase 1 | Done |
 | DESN-02 | Phase 1 | Done |
 | DESN-03 | Phase 1 | Done |
 | DESN-04 | Phase 1 | Done |
 | DESN-05 | Phase 1 | Done |
-| TECH-01 | Phase 3 | Pending |
-| TECH-02 | Phase 3 | Pending |
-| TECH-03 | Phase 3 | Pending |
+| TECH-01 | Phase 3 | Complete |
+| TECH-02 | Phase 3 | Complete |
+| TECH-03 | Phase 3 | Complete |
 
 **Coverage:**
 - v1 requirements: 18 total
