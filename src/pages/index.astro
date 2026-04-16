@@ -182,10 +182,10 @@ const achievements = [
 
   .education-card,
   .experience-card {
-    background: #FFFFFF;
+    background: var(--color-white);
     padding: var(--space-lg);
-    border-radius: 8px;
-    border: 1px solid #e5e5e5;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
     margin-bottom: var(--space-lg);
   }
 
@@ -213,7 +213,7 @@ const achievements = [
   .thesis {
     margin-top: var(--space-md);
     padding-top: var(--space-md);
-    border-top: 1px solid #e5e5e5;
+    border-top: 1px solid var(--color-border);
   }
 
   .org {
@@ -230,7 +230,7 @@ const achievements = [
 
   .achievements-list li {
     padding: var(--space-sm) 0;
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid var(--color-border);
     padding-left: var(--space-lg);
     position: relative;
   }
@@ -253,11 +253,11 @@ const achievements = [
   }
 
   .project-card {
-    background: #FFFFFF;
+    background: var(--color-white);
     padding: var(--space-lg);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    border: 1px solid #e5e5e5;
+    border: 1px solid var(--color-border);
   }
 
   .project-card h3 {
@@ -274,9 +274,9 @@ const achievements = [
 
   .tag {
     background: var(--color-accent);
-    color: #FFFFFF;
+    color: var(--color-white);
     padding: 0.25rem 0.75rem;
-    border-radius: 999px;
+    border-radius: var(--radius-full);
     font-size: 0.75rem;
     font-weight: 500;
   }
@@ -300,7 +300,7 @@ const achievements = [
 
   .skill-group li {
     padding: var(--space-xs) 0;
-    border-bottom: 1px solid #e5e5e5;
+    border-bottom: 1px solid var(--color-border);
   }
 
   .skill-group li:last-child {
@@ -319,15 +319,15 @@ const achievements = [
     align-items: center;
     padding: var(--space-sm) var(--space-lg);
     background: var(--color-accent);
-    color: #FFFFFF;
-    border-radius: 6px;
+    color: var(--color-white);
+    border-radius: var(--radius-sm);
     font-weight: 500;
     transition: background-color 0.2s ease;
   }
 
   .contact-link:hover {
     background: var(--color-accent-secondary);
-    color: #FFFFFF;
+    color: var(--color-white);
   }
 
   .contact-link:focus-visible {
