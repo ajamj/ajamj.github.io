@@ -9,10 +9,10 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Structure
 
-- [ ] **STRU-01**: Website has a Home/About section introducing Ajam Jamaludin
-- [ ] **STRU-02**: Website has a Projects/Portfolio section showcasing work
-- [ ] **STRU-03**: Website has a Skills section listing technical competencies
-- [ ] **STRU-04**: Website has a Contact section with contact information
+- [x] **STRU-01**: Website has a Home/About section introducing Ajam Jamaludin
+- [x] **STRU-02**: Website has a Projects/Portfolio section showcasing work
+- [x] **STRU-03**: Website has a Skills section listing technical competencies
+- [x] **STRU-04**: Website has a Contact section with contact information
 
 ### Content
 
@@ -25,11 +25,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Design
 
-- [ ] **DESN-01**: Clean, academic/professional visual aesthetic
-- [ ] **DESN-02**: Responsive layout works on desktop and mobile
-- [ ] **DESN-03**: Fast page load (static HTML/CSS/JS only)
-- [ ] **DESN-04**: Accessible design with proper contrast and readable typography
-- [ ] **DESN-05**: Consistent color scheme and visual hierarchy
+- [x] **DESN-01**: Clean, academic/professional visual aesthetic
+- [x] **DESN-02**: Responsive layout works on desktop and mobile
+- [x] **DESN-03**: Fast page load (static HTML/CSS/JS only)
+- [x] **DESN-04**: Accessible design with proper contrast and readable typography
+- [x] **DESN-05**: Consistent color scheme and visual hierarchy
 
 ### Technical
 
@@ -66,30 +66,31 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| STRU-01 | Phase 1 | Pending |
-| STRU-02 | Phase 1 | Pending |
-| STRU-03 | Phase 1 | Pending |
-| STRU-04 | Phase 1 | Pending |
+| STRU-01 | Phase 1 | Done |
+| STRU-02 | Phase 1 | Done |
+| STRU-03 | Phase 1 | Done |
+| STRU-04 | Phase 1 | Done |
 | CONT-01 | Phase 2 | Pending |
 | CONT-02 | Phase 2 | Pending |
 | CONT-03 | Phase 2 | Pending |
 | CONT-04 | Phase 2 | Pending |
 | CONT-05 | Phase 2 | Pending |
 | CONT-06 | Phase 3 | Pending |
-| DESN-01 | Phase 1 | Pending |
-| DESN-02 | Phase 1 | Pending |
-| DESN-03 | Phase 1 | Pending |
-| DESN-04 | Phase 1 | Pending |
-| DESN-05 | Phase 1 | Pending |
+| DESN-01 | Phase 1 | Done |
+| DESN-02 | Phase 1 | Done |
+| DESN-03 | Phase 1 | Done |
+| DESN-04 | Phase 1 | Done |
+| DESN-05 | Phase 1 | Done |
 | TECH-01 | Phase 3 | Pending |
 | TECH-02 | Phase 3 | Pending |
 | TECH-03 | Phase 3 | Pending |
 
 **Coverage:**
 - v1 requirements: 18 total
-- Mapped to phases: 18
-- Unmapped: 0 ✓
+- Completed: 9 (STRU-01-04, DESN-01-05)
+- Pending: 9 (CONT-01-06, TECH-01-03)
+- Mapped to phases: 18 ✓
 
 ---
 *Requirements defined: 2026-04-16*
-*Last updated: 2026-04-16 after initial definition*
+*Last updated: 2026-04-16 after Phase 1 completion*
