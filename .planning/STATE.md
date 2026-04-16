@@ -33,7 +33,8 @@ See: .planning/PROJECT.md (updated 2026-04-16)
 ## Phase Context
 
 - **Phase 1 (Foundation)**: Completed — HTML/CSS foundation with semantic structure, responsive layout, Inter typography, teal/amber color scheme, mobile hamburger menu
-- **Phase 2 (Content)**: Next — Add About, Projects, Skills content with geophysics context
+- **Phase 2 (Content)**: Completed — Added About, Projects, Skills content with geophysics context. Accepted Astro implementation as valid.
+- **Phase 3 (Contact & SEO)**: Next — Contact section, meta tags, accessibility
 
 ## Notes
 
