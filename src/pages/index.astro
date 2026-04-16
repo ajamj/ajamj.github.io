@@ -1,5 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ProjectGallery from '../components/ProjectGallery.astro';
+import CareerTimeline from '../components/CareerTimeline.astro';
+import SkillsChart from '../components/SkillsChart.astro';
+import Testimonials from '../components/Testimonials.astro';
+import ContactForm from '../components/ContactForm.astro';
+import ResumeButton from '../components/ResumeButton.astro';
+import BlogPreview from '../components/BlogPreview.astro';
 
 const projects = [
   {
@@ -36,16 +43,34 @@ const skills = [
 
 const experience = [
   {
-    title: 'Earthquake Early Warning System Prototype Development',
-    organization: 'BMKG (Badan Meteorologi, Klimatologi, dan Geofisika)',
-    period: 'Feb 2024 – Jun 2024',
-    description: 'Internship developing ML-based earthquake early warning system for Indonesia\'s national seismic monitoring network.',
+    title: 'Research Assistant',
+    organization: 'Geoseismal Research Center',
+    period: 'Feb 2026 – Present',
+    description: 'Conducting geophysics research with focus on seismic data analysis and interpretation.',
   },
   {
-    title: 'Computational Methods Course Lab Assistant',
+    title: 'Geophysics Software Intern — Earthquake Early Warning Systems',
+    organization: 'BMKG (Badan Meteorologi, Klimatologi, dan Geofisika)',
+    period: 'Feb 2024 – Jun 2024',
+    highlights: [
+      'Supported a 3-person team developing EEWS prototype for Central & East Java — integrating source characterization, real-time processing, and alert delivery.',
+      'Engineered end-to-end data pipelines in Python (ObsPy, FDSN client) to ingest, process, and analyze 58-station seismic data in real time.',
+      'Optimized recursive STA/LTA parameters for P-wave detection, significantly reducing false triggers under noisy field conditions.',
+      'Implemented magnitude estimation using the Mpd method (peak displacement in first 3s of P-wave), achieving MAE ≈ 0.42.',
+      'Integrated HYPO71 for hypocenter calculation and developed PyQt5 GUI with Folium-based real-time mapping and Telegram Bot alerts.',
+      'Validated system: 52 detections, 28 official matches (53.8% accuracy), fastest alert at 24s post-origin time.',
+    ],
+  },
+  {
+    title: 'Laboratory Teaching Assistant — Computational Methods',
     organization: 'Universitas Gadjah Mada',
     period: 'Aug 2023 – Jan 2024',
-    description: 'Mentored 50+ undergraduate students in Python programming for scientific computing.',
+    highlights: [
+      'Mentored 50+ undergraduate students in Python programming for scientific computing, covering data structures, numerical methods, and visualization (Matplotlib).',
+      'Developed hands-on practicum on building interactive regression tools using Tkinter for GUI-based applications.',
+      'Evaluated student work with rubric-based feedback emphasizing reproducibility, code readability, and scientific communication.',
+      'Coordinated logistics and task allocation among 5 lab assistants for weekly sessions.',
+    ],
   },
 ];
 
@@ -58,11 +83,14 @@ const achievements = [
 ---
 
 <Layout title="Ajam Jamaludin | Geophysics Researcher">
-  <section id="about">
+  <section id="about" class="glass-card scroll-reveal">
     <h1>Ajam Jamaludin</h1>
+    <ResumeButton />
     <p class="subtitle">Junior Geophysics Researcher</p>
     <p class="location">Yogyakarta, Indonesia</p>
-    
+
+    <svg class="wave-divider" viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="var(--color-bg-wave)" d="M0,32 C360,64 1080,0 1440,32 L1440,48 L0,48 Z"/></svg>
+
     <h2>About Me</h2>
     <p>
       Geophysics graduate from Universitas Gadjah Mada with experience in evaluating machine learning systems for geophysical applications, particularly seismic signal processing and earthquake early warning. Skilled in building Python-based data pipelines for preprocessing, feature extraction, and performance validation of ML models under realistic conditions.
@@ -72,7 +100,7 @@ const achievements = [
     </p>
 
     <h2>Education</h2>
-    <div class="education-card">
+    <div class="education-card glass-card">
       <h3>Bachelor of Science in Geophysics</h3>
       <p class="gpa">GPA: 3.35</p>
       <p class="institution">Universitas Gadjah Mada, Sleman, Indonesia</p>
@@ -82,17 +110,7 @@ const achievements = [
       </p>
     </div>
 
-    <h2>Experience</h2>
-    <div class="experience-list">
-      {experience.map((exp) => (
-        <article class="experience-card">
-          <h3>{exp.title}</h3>
-          <p class="org">{exp.organization}</p>
-          <p class="period">{exp.period}</p>
-          <p>{exp.description}</p>
-        </article>
-      ))}
-    </div>
+    <CareerTimeline class="fade-in" />
 
     <h2>Achievements</h2>
     <ul class="achievements-list">
@@ -100,121 +118,32 @@ const achievements = [
         <li>{item}</li>
       ))}
     </ul>
+    <svg class="wave-divider" viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="var(--color-bg-wave-dark)" d="M0,16 C360,48 1080,0 1440,16 L1440,48 L0,48 Z"/></svg>
   </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="projects-grid">
-      {projects.map((project) => (
-        <article class="project-card">
-          <h3>{project.title}</h3>
-          <p>{project.description}</p>
-          <div class="tags">
-            {project.tags.map((tag) => (
-              <span class="tag">{tag}</span>
-            ))}
-          </div>
-        </article>
-      ))}
-    </div>
+
+  <section id="projects" class="glass-card scroll-reveal">
+    <svg class="wave-divider" viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="var(--color-bg-wave)" d="M0,32 C360,64 1080,0 1440,32 L1440,48 L0,48 Z"/></svg>
+    <ProjectGallery class="fade-in" />
+    <svg class="wave-divider" viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="var(--color-bg-wave-dark)" d="M0,16 C360,48 1080,0 1440,16 L1440,48 L0,48 Z"/></svg>
   </section>
 
-  <section id="skills">
-    <h2>Skills</h2>
-    <div class="skills-grid">
-      {skills.map((skillGroup) => (
-        <div class="skill-group">
-          <h3>{skillGroup.category}</h3>
-          <ul>
-            {skillGroup.items.map((item) => (
-              <li>{item}</li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </div>
-  </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Interested in collaboration or have questions? Feel free to reach out.</p>
-    <div class="contact-links">
-      <a href="mailto:jamaludinajam@gmail.com" rel="noopener noreferrer" class="contact-link">
-        <span>Email</span>
-      </a>
-      <a href="https://linkedin.com/in/ajam-jamaludin-56599a202" target="_blank" rel="noopener noreferrer" class="contact-link">
-        <span>LinkedIn</span>
-      </a>
-      <a href="https://github.com/ajamj" target="_blank" rel="noopener noreferrer" class="contact-link">
-        <span>GitHub</span>
-      </a>
-    </div>
-  </section>
+  <div class="glass-card scroll-reveal fade-in">
+    <SkillsChart />
+    <Testimonials />
+  </div>
+
+  <div class="glass-card scroll-reveal fade-in">
+    <ContactForm />
+  </div>
+
+  <div class="glass-card scroll-reveal fade-in">
+    <BlogPreview />
+  </div>
 </Layout>
 
-<style>
-  #about h1 {
-    color: var(--color-accent);
-    margin-bottom: var(--space-xs);
-  }
-
-  .subtitle {
-    font-size: 1.25rem;
-    color: var(--color-text);
-    opacity: 0.8;
-    margin-bottom: var(--space-xs);
-  }
-
-  .location {
-    font-size: 0.875rem;
-    color: var(--color-text);
-    opacity: 0.6;
-    margin-bottom: var(--space-xl);
-  }
-
-  #about h2 {
-    border-bottom: 3px solid var(--color-accent);
-    display: inline-block;
-    padding-bottom: var(--space-xs);
-    margin-top: var(--space-2xl);
-    margin-bottom: var(--space-lg);
-  }
-
-  .education-card,
-  .experience-card {
-    background: var(--color-white);
-    padding: var(--space-lg);
-    border-radius: var(--radius-md);
-    border: 1px solid var(--color-border);
-    margin-bottom: var(--space-lg);
-  }
-
-  .education-card h3,
-  .experience-card h3 {
-    color: var(--color-accent);
-    margin-bottom: var(--space-xs);
-  }
-
-  .gpa {
-    font-weight: 600;
-    color: var(--color-accent-secondary);
-  }
-
-  .institution {
-    font-style: italic;
-    opacity: 0.8;
-  }
-
-  .period {
-    font-size: 0.875rem;
-    opacity: 0.6;
-  }
-
-  .thesis {
-    margin-top: var(--space-md);
-    padding-top: var(--space-md);
-    border-top: 1px solid var(--color-border);
-  }
+</style>
 
   .org {
     font-weight: 500;

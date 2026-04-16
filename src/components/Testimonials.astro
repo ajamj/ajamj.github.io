@@ -1,0 +1,58 @@
+---
+// Testimonials.astro — Short endorsements/testimonials section
+---
+
+<section class="testimonials">
+  <h2 class="section-title">Testimonials</h2>
+  <div class="testimonials-list">
+    <blockquote class="testimonial">
+      <p>“Ajam consistently demonstrates strong analytical skills and a deep understanding of seismic data processing. His contributions to our EEWS project were invaluable.”</p>
+      <footer>— Dr. Budi Santoso, Geoseismal Research Center</footer>
+    </blockquote>
+    <blockquote class="testimonial">
+      <p>“Ajam’s ability to mentor and communicate complex concepts made a significant impact on our students’ learning outcomes.”</p>
+      <footer>— Dr. Siti Rahmawati, Universitas Gadjah Mada</footer>
+    </blockquote>
+  </div>
+</section>
+
+<style>
+.testimonials {
+  padding: 3rem 1rem;
+  background: #f1f5f9;
+}
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.testimonials-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.testimonial {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 2rem 2.5rem;
+  font-size: 1.1rem;
+  font-style: italic;
+  position: relative;
+}
+.testimonial footer {
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  color: #6366f1;
+  font-weight: 600;
+  text-align: right;
+}
+@media (max-width: 600px) {
+  .testimonial {
+    padding: 1.25rem 1rem;
+  }
+}
+</style>

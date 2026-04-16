@@ -1,0 +1,70 @@
+---
+// BlogPreview.astro — Blog/insights section preview
+---
+
+<section class="blog-preview fade-in">
+  <h2 class="section-title">Insights & Blog</h2>
+  <div class="blog-list">
+    <article class="blog-card card-hover">
+      <h3>How Machine Learning Improves Earthquake Early Warning</h3>
+      <p>Exploring the impact of ensemble ML models on real-time seismic event detection and parameter estimation in Indonesia.</p>
+      <a href="#" class="blog-link" aria-label="Read more about ML in EEWS">Read more →</a>
+    </article>
+    <article class="blog-card card-hover">
+      <h3>Seismic Data Processing: Best Practices</h3>
+      <p>Key steps and tools for robust seismic data preprocessing, feature extraction, and quality control in research workflows.</p>
+      <a href="#" class="blog-link" aria-label="Read more about seismic data processing">Read more →</a>
+    </article>
+  </div>
+</section>
+
+<style>
+.blog-preview {
+  padding: 3rem 1rem 4rem 1rem;
+  background: #f8fafc;
+}
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.blog-list {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  max-width: 900px;
+  margin: 0 auto;
+}
+.blog-card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.blog-card h3 {
+  color: #6366f1;
+  margin-bottom: 0.5rem;
+}
+.blog-link {
+  color: #6366f1;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: auto;
+  align-self: flex-end;
+  transition: color 0.18s;
+}
+.blog-link:hover,
+.blog-link:focus {
+  color: #3730a3;
+  text-decoration: underline;
+}
+@media (max-width: 600px) {
+  .blog-card {
+    padding: 1.25rem 1rem;
+  }
+}
+</style>

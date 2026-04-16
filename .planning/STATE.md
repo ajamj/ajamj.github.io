@@ -17,7 +17,7 @@ See: .planning/PROJECT.md (updated 2026-04-16)
 | # | Phase | Status | Plans | Progress |
 |---|-------|--------|-------|----------|
 | 1 | Foundation | Completed | 3/3 | 100% |
-| 2 | Content | Not started | 2 | 0% |
+| 2 | Content | Completed | 1/1 | 100% |
 | 3 | Contact & SEO | Not started | 2 | 0% |
 | 4 | Polish | Not started | 1 | 0% |
 

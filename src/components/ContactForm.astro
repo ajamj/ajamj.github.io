@@ -1,0 +1,111 @@
+---
+// ContactForm.astro — Accessible contact form and social links
+---
+
+<section class="contact-section">
+  <h2 class="section-title">Contact</h2>
+  <form class="contact-form" name="contact" method="POST" data-netlify="true" aria-label="Contact form">
+    <input type="hidden" name="form-name" value="contact" />
+    <label for="name">Name</label>
+    <input id="name" name="name" type="text" required autocomplete="name" />
+
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" required autocomplete="email" />
+
+    <label for="message">Message</label>
+    <textarea id="message" name="message" rows="5" required></textarea>
+
+    <button type="submit">Send Message</button>
+  </form>
+  <div class="contact-social">
+    <a href="mailto:jamaludinajam@gmail.com" aria-label="Email" class="contact-icon">
+      <img src="/public/icons/email.svg" alt="Email" />
+    </a>
+    <a href="https://linkedin.com/in/ajam-jamaludin-56599a202" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="contact-icon">
+      <img src="/public/icons/linkedin.svg" alt="LinkedIn" />
+    </a>
+    <a href="https://github.com/ajamj" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="contact-icon">
+      <img src="/public/icons/github.svg" alt="GitHub" />
+    </a>
+  </div>
+</section>
+
+<style>
+.contact-section {
+  padding: 3rem 1rem;
+  background: #f8fafc;
+}
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  max-width: 420px;
+  margin: 0 auto 2.5rem auto;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 2rem 2.5rem;
+}
+.contact-form label {
+  font-weight: 600;
+  color: #6366f1;
+}
+.contact-form input,
+.contact-form textarea {
+  border: 1.5px solid #c7d2fe;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-family: inherit;
+  background: #f1f5f9;
+  transition: border-color 0.2s;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #6366f1;
+}
+.contact-form button {
+  background: linear-gradient(90deg, #6366f1 60%, #818cf8 100%);
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.9rem 0;
+  font-size: 1.1rem;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  transition: background 0.2s;
+}
+.contact-form button:hover {
+  background: #6366f1;
+}
+.contact-social {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+.contact-icon img {
+  width: 36px;
+  height: 36px;
+  filter: grayscale(0.2);
+  transition: filter 0.2s, transform 0.2s;
+}
+.contact-icon:hover img,
+.contact-icon:focus img {
+  filter: grayscale(0) drop-shadow(0 2px 8px #6366f1aa);
+  transform: scale(1.1);
+}
+@media (max-width: 600px) {
+  .contact-form {
+    padding: 1.25rem 1rem;
+  }
+}
+</style>

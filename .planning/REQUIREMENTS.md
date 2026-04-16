@@ -16,11 +16,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Content
 
-- [ ] **CONT-01**: About section includes background (geophysics researcher, UGM alumni 2026)
-- [ ] **CONT-02**: About section includes research focus (seismology, seismic exploration for oil & gas)
-- [ ] **CONT-03**: Projects section showcases seismic data processing software
-- [ ] **CONT-04**: Projects section showcases earthquake monitoring tools
-- [ ] **CONT-05**: Skills section lists seismology-related technical skills
+- [x] **CONT-01**: About section includes background (geophysics researcher, UGM alumni 2026)
+- [x] **CONT-02**: About section includes research focus (seismology, seismic exploration for oil & gas)
+- [x] **CONT-03**: Projects section showcases seismic data processing software
+- [x] **CONT-04**: Projects section showcases earthquake monitoring tools
+- [x] **CONT-05**: Skills section lists seismology-related technical skills
 - [ ] **CONT-06**: Contact section provides email or contact form link
 
 ### Design
@@ -70,11 +70,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | STRU-02 | Phase 1 | Done |
 | STRU-03 | Phase 1 | Done |
 | STRU-04 | Phase 1 | Done |
-| CONT-01 | Phase 2 | Pending |
-| CONT-02 | Phase 2 | Pending |
-| CONT-03 | Phase 2 | Pending |
-| CONT-04 | Phase 2 | Pending |
-| CONT-05 | Phase 2 | Pending |
+| CONT-01 | Phase 2 | Done |
+| CONT-02 | Phase 2 | Done |
+| CONT-03 | Phase 2 | Done |
+| CONT-04 | Phase 2 | Done |
+| CONT-05 | Phase 2 | Done |
 | CONT-06 | Phase 3 | Pending |
 | DESN-01 | Phase 1 | Done |
 | DESN-02 | Phase 1 | Done |
@@ -87,8 +87,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 **Coverage:**
 - v1 requirements: 18 total
-- Completed: 9 (STRU-01-04, DESN-01-05)
-- Pending: 9 (CONT-01-06, TECH-01-03)
+- Completed: 14 (STRU-01-04, CONT-01-05, DESN-01-05)
+- Pending: 4 (CONT-06, TECH-01-03)
 - Mapped to phases: 18 ✓
 
 ---

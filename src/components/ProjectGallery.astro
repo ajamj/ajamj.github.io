@@ -1,0 +1,84 @@
+---
+// ProjectGallery.astro — Interactive project showcase for portfolio
+---
+
+<section class="project-gallery">
+  <h2 class="section-title">Projects</h2>
+  <div class="gallery-grid">
+    <!-- Example project cards, replace with dynamic data if needed -->
+    <article class="project-card" tabindex="0">
+      <img src="/public/project1.jpg" alt="Seismic Data Processing" class="project-image" loading="lazy" />
+      <div class="project-content">
+        <h3>Seismic Data Processing</h3>
+        <p>Advanced workflows for seismic reflection and refraction data interpretation.</p>
+        <span class="project-tag">Seismology</span>
+      </div>
+    </article>
+    <article class="project-card" tabindex="0">
+      <img src="/public/project2.jpg" alt="Earthquake Monitoring" class="project-image" loading="lazy" />
+      <div class="project-content">
+        <h3>Earthquake Monitoring</h3>
+        <p>Real-time event detection and visualization for regional seismicity.</p>
+        <span class="project-tag">Monitoring</span>
+      </div>
+    </article>
+    <!-- Add more project cards as needed -->
+  </div>
+</section>
+
+<style>
+.project-gallery {
+  padding: 3rem 1rem;
+  background: var(--color-bg, #f8fafc);
+}
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+.project-card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  min-height: 340px;
+}
+.project-card:focus,
+.project-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+}
+.project-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+.project-content {
+  padding: 1.25rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.project-tag {
+  display: inline-block;
+  margin-top: 1rem;
+  background: #e0e7ff;
+  color: #3730a3;
+  font-size: 0.85rem;
+  padding: 0.3em 0.8em;
+  border-radius: 0.5em;
+  font-weight: 600;
+}
+</style>
