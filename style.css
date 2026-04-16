@@ -1,0 +1,112 @@
+/* ========================================
+   CSS Custom Properties - Color Palette
+   ======================================== */
+:root {
+  /* Colors from D-07, D-08, D-09 */
+  --color-bg: #FAFAFA;
+  --color-text: #1A1A2E;
+  --color-accent: #0D7377;
+  --color-accent-secondary: #E8A838;
+
+  /* Spacing scale: 1.25 modular (D-48) */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+}
+
+/* ========================================
+   Base Reset & Smooth Scroll
+   ======================================== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding-top: 60px; /* Header height offset */
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* ========================================
+   Fixed Header Styles (D-11)
+   ======================================== */
+#site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: var(--color-bg);
+  border-bottom: 1px solid #e0e0e0;
+}
+
+#main-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  padding: var(--space-sm) var(--space-md);
+}
+
+#main-nav a {
+  text-decoration: none;
+  color: var(--color-text);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* ========================================
+   Section Base Styles (Mobile-First)
+   ======================================== */
+section {
+  min-height: 100vh;
+  padding: var(--space-xl) var(--space-md);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+section h2 {
+  font-size: 1.75rem;
+  margin: 0 0 var(--space-md) 0;
+}
+
+/* ========================================
+   Tablet Breakpoint (768px)
+   ======================================== */
+@media (min-width: 768px) {
+  body {
+    padding-top: 70px;
+  }
+
+  section {
+    padding: var(--space-3xl) var(--space-xl);
+  }
+
+  section h2 {
+    font-size: 2rem;
+  }
+}
+
+/* ========================================
+   Desktop Breakpoint (1024px)
+   ======================================== */
+@media (min-width: 1024px) {
+  body {
+    padding-top: 80px;
+  }
+
+  #main-nav {
+    gap: var(--space-xl);
+  }
+}
