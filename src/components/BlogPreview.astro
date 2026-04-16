@@ -1,70 +1,129 @@
 ---
-// BlogPreview.astro — Blog/insights section preview
+// BlogPreview.astro — Technical research blog/insights section preview
+import { getCollection } from 'astro:content';
+
+const latestPosts = (await getCollection('blog'))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 2);
 ---
 
-<section class="blog-preview fade-in">
-  <h2 class="section-title">Insights & Blog</h2>
-  <div class="blog-list">
-    <article class="blog-card card-hover">
-      <h3>How Machine Learning Improves Earthquake Early Warning</h3>
-      <p>Exploring the impact of ensemble ML models on real-time seismic event detection and parameter estimation in Indonesia.</p>
-      <a href="#" class="blog-link" aria-label="Read more about ML in EEWS">Read more →</a>
-    </article>
-    <article class="blog-card card-hover">
-      <h3>Seismic Data Processing: Best Practices</h3>
-      <p>Key steps and tools for robust seismic data preprocessing, feature extraction, and quality control in research workflows.</p>
-      <a href="#" class="blog-link" aria-label="Read more about seismic data processing">Read more →</a>
-    </article>
+<section id="blog" class="blog-section scroll-reveal">
+  <div class="section-header">
+    <h2 class="section-title text-center">Technical Research Blog</h2>
+    <p class="section-subtitle hud-label text-center">Insights into Computational Geophysics</p>
+  </div>
+
+  <div class="blog-grid">
+    {latestPosts.map((post) => (
+      <article class="blog-card glass-card card-hover">
+        <div class="card-hud hud-label">TOPIC: {post.data.tags[0] || 'RESEARCH'}</div>
+        <h3>{post.data.title}</h3>
+        <p class="blog-summary">
+          {post.data.description}
+        </p>
+        <div class="blog-footer">
+          <a href={`/blog/${post.slug}`} class="btn-animated">Read Full Article</a>
+        </div>
+      </article>
+    ))}
+    
+    {latestPosts.length === 1 && (
+      <article class="blog-card glass-card card-hover">
+        <div class="card-hud hud-label">TOPIC: MACHINE LEARNING</div>
+        <h3>Ensemble ML in Early Warning Systems</h3>
+        <p class="blog-summary">
+          Technical breakdown of how multi-model voting enhances P-wave detection reliability in the BMKG EEWS prototype.
+        </p>
+        <div class="blog-footer">
+          <a href="#" class="btn-animated">Coming Soon</a>
+        </div>
+      </article>
+    )}
+  </div>
+
+  <div class="blog-view-all">
+    <a href="/blog" class="contact-icon">View All Insights →</a>
   </div>
 </section>
 
 <style>
-.blog-preview {
-  padding: 3rem 1rem 4rem 1rem;
-  background: #f8fafc;
-}
-.section-title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-.blog-list {
-  display: grid;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  max-width: 900px;
-  margin: 0 auto;
-}
-.blog-card {
-  background: #fff;
-  border-radius: 1rem;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-  padding: 2rem 2.5rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.2rem;
-}
-.blog-card h3 {
-  color: #6366f1;
-  margin-bottom: 0.5rem;
-}
-.blog-link {
-  color: #6366f1;
-  font-weight: 600;
-  text-decoration: none;
-  margin-top: auto;
-  align-self: flex-end;
-  transition: color 0.18s;
-}
-.blog-link:hover,
-.blog-link:focus {
-  color: #3730a3;
-  text-decoration: underline;
-}
-@media (max-width: 600px) {
-  .blog-card {
-    padding: 1.25rem 1rem;
+  .blog-section {
+    padding: var(--space-3xl) var(--space-md);
+    background-color: var(--color-surface-low);
   }
-}
+
+  .text-center {
+    text-align: center;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-xl);
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .blog-card {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-xl);
+    min-height: 300px;
+  }
+
+  .card-hud {
+    margin-bottom: var(--space-sm);
+  }
+
+  .blog-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-md);
+    color: var(--color-accent);
+  }
+
+  .blog-summary {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.8;
+    margin-bottom: var(--space-xl);
+    flex-grow: 1;
+  }
+
+  .blog-footer {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .blog-view-all {
+    margin-top: var(--space-2xl);
+    text-align: center;
+  }
+
+  .contact-icon {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--color-text-muted);
+    opacity: 0.7;
+    transition: all 0.2s ease;
+  }
+
+  .contact-icon:hover {
+    color: var(--color-accent);
+    opacity: 1;
+    text-shadow: 0 0 10px var(--color-accent-glow);
+  }
+
+  @media (max-width: 600px) {
+    .blog-card {
+      padding: var(--space-lg);
+    }
+  }
 </style>

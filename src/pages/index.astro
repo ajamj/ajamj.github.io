@@ -1,273 +1,92 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
 import ProjectGallery from '../components/ProjectGallery.astro';
+import ResearchDataViz from '../components/ResearchDataViz.astro';
 import CareerTimeline from '../components/CareerTimeline.astro';
 import SkillsChart from '../components/SkillsChart.astro';
-import Testimonials from '../components/Testimonials.astro';
-import ContactForm from '../components/ContactForm.astro';
-import ResumeButton from '../components/ResumeButton.astro';
 import BlogPreview from '../components/BlogPreview.astro';
-
-const projects = [
-  {
-    title: 'Earthquake Early Warning System (EEWS)',
-    description: 'Developed ensemble ML-based EEWS prototype with real-time P-wave detection and magnitude estimation using ObsPy and FDSN client. Achieved MAE ≈ 0.42 against BMKG catalog with fastest alert at 24s post-origin time.',
-    tags: ['Python', 'ObsPy', 'Machine Learning', 'Seismic Processing'],
-  },
-  {
-    title: 'Thesis: ML-Based Earthquake Parameter Estimation',
-    description: 'Performance evaluation of ensemble ML-based early warning system analyzing input duration and station location effects on model generalization using real seismic data from BMKG catalog.',
-    tags: ['Python', 'Machine Learning', 'Seismic Analysis'],
-  },
-  {
-    title: 'Real-time Seismic Monitoring Dashboard',
-    description: 'PyQt5 GUI with Folium-based real-time mapping and Telegram Bot API for automated earthquake alerts at BMKG.',
-    tags: ['Python', 'PyQt5', 'Folium', 'Telegram API'],
-  },
-];
-
-const skills = [
-  { 
-    category: 'Programming', 
-    items: ['Python', 'Bash', 'SQL', 'MATLAB'],
-  },
-  { 
-    category: 'Seismic & Geophysical Tools', 
-    items: ['ObsPy', 'SeisComP', 'Waveform Visualization', 'Phase Picking', 'SEED/MiniSEED'],
-  },
-  { 
-    category: 'Languages', 
-    items: ['Indonesian (Native)', 'English (Professional)'],
-  },
-];
-
-const experience = [
-  {
-    title: 'Research Assistant',
-    organization: 'Geoseismal Research Center',
-    period: 'Feb 2026 – Present',
-    description: 'Conducting geophysics research with focus on seismic data analysis and interpretation.',
-  },
-  {
-    title: 'Geophysics Software Intern — Earthquake Early Warning Systems',
-    organization: 'BMKG (Badan Meteorologi, Klimatologi, dan Geofisika)',
-    period: 'Feb 2024 – Jun 2024',
-    highlights: [
-      'Supported a 3-person team developing EEWS prototype for Central & East Java — integrating source characterization, real-time processing, and alert delivery.',
-      'Engineered end-to-end data pipelines in Python (ObsPy, FDSN client) to ingest, process, and analyze 58-station seismic data in real time.',
-      'Optimized recursive STA/LTA parameters for P-wave detection, significantly reducing false triggers under noisy field conditions.',
-      'Implemented magnitude estimation using the Mpd method (peak displacement in first 3s of P-wave), achieving MAE ≈ 0.42.',
-      'Integrated HYPO71 for hypocenter calculation and developed PyQt5 GUI with Folium-based real-time mapping and Telegram Bot alerts.',
-      'Validated system: 52 detections, 28 official matches (53.8% accuracy), fastest alert at 24s post-origin time.',
-    ],
-  },
-  {
-    title: 'Laboratory Teaching Assistant — Computational Methods',
-    organization: 'Universitas Gadjah Mada',
-    period: 'Aug 2023 – Jan 2024',
-    highlights: [
-      'Mentored 50+ undergraduate students in Python programming for scientific computing, covering data structures, numerical methods, and visualization (Matplotlib).',
-      'Developed hands-on practicum on building interactive regression tools using Tkinter for GUI-based applications.',
-      'Evaluated student work with rubric-based feedback emphasizing reproducibility, code readability, and scientific communication.',
-      'Coordinated logistics and task allocation among 5 lab assistants for weekly sessions.',
-    ],
-  },
-];
-
-const achievements = [
-  '3rd Place, Three-Minute Thesis (3MT) Competition, UGM Faculty of Math & Natural Sciences (2025)',
-  'Earthquake Preparedness Pocket Book for Elementary School Students (2025)',
-  'SeisComP Software Training – End-to-end seismic data processing (2024)',
-  'Perintis Scholarship Recipient (2018)',
-];
+import ContactForm from '../components/ContactForm.astro';
 ---
 
 <Layout title="Ajam Jamaludin | Geophysics Researcher">
-  <section id="about" class="glass-card scroll-reveal">
-    <h1>Ajam Jamaludin</h1>
-    <ResumeButton />
-    <p class="subtitle">Junior Geophysics Researcher</p>
-    <p class="location">Yogyakarta, Indonesia</p>
+  <!-- Hero Section with Seismic Background -->
+  <Hero />
 
-    <svg class="wave-divider" viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="var(--color-bg-wave)" d="M0,32 C360,64 1080,0 1440,32 L1440,48 L0,48 Z"/></svg>
+  <main>
+    <!-- Featured Projects -->
+    <section id="projects" class="scroll-reveal">
+      <div class="section-header">
+        <h2 class="section-title text-center">Featured Research Projects</h2>
+        <p class="section-subtitle hud-label text-center">Core Computational Contributions</p>
+      </div>
+      <ProjectGallery />
+    </section>
 
-    <h2>About Me</h2>
-    <p>
-      Geophysics graduate from Universitas Gadjah Mada with experience in evaluating machine learning systems for geophysical applications, particularly seismic signal processing and earthquake early warning. Skilled in building Python-based data pipelines for preprocessing, feature extraction, and performance validation of ML models under realistic conditions.
-    </p>
-    <p>
-      Strong foundation in signal processing, statistical analysis, and scientific computing. Eager to expand expertise into deep learning applications in geophysics, leveraging domain knowledge and research-oriented mindset.
-    </p>
+    <!-- Research Data Visualization (Empirical Evidence) -->
+    <ResearchDataViz />
 
-    <h2>Education</h2>
-    <div class="education-card glass-card">
-      <h3>Bachelor of Science in Geophysics</h3>
-      <p class="gpa">GPA: 3.35</p>
-      <p class="institution">Universitas Gadjah Mada, Sleman, Indonesia</p>
-      <p class="period">2019 – 2026</p>
-      <p class="thesis">
-        <strong>Thesis:</strong> Performance Evaluation of Earthquake Parameter Estimation in an Ensemble Machine Learning-Based Early Warning System: Analysis of Input Duration and Station Location Effects on Model Generalization
-      </p>
-    </div>
+    <!-- Vertical Experience Timeline -->
+    <CareerTimeline />
 
-    <CareerTimeline class="fade-in" />
+    <!-- Skills & Tools -->
+    <section id="skills" class="scroll-reveal">
+      <div class="section-header">
+        <h2 class="section-title text-center">Technical Stack</h2>
+        <p class="section-subtitle hud-label text-center">Computational & Domain Tools</p>
+      </div>
+      <SkillsChart />
+    </section>
 
-    <h2>Achievements</h2>
-    <ul class="achievements-list">
-      {achievements.map((item) => (
-        <li>{item}</li>
-      ))}
-    </ul>
-    <svg class="wave-divider" viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="var(--color-bg-wave-dark)" d="M0,16 C360,48 1080,0 1440,16 L1440,48 L0,48 Z"/></svg>
-  </section>
-
-
-  <section id="projects" class="glass-card scroll-reveal">
-    <svg class="wave-divider" viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="var(--color-bg-wave)" d="M0,32 C360,64 1080,0 1440,32 L1440,48 L0,48 Z"/></svg>
-    <ProjectGallery class="fade-in" />
-    <svg class="wave-divider" viewBox="0 0 1440 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill="var(--color-bg-wave-dark)" d="M0,16 C360,48 1080,0 1440,16 L1440,48 L0,48 Z"/></svg>
-  </section>
-
-
-  <div class="glass-card scroll-reveal fade-in">
-    <SkillsChart />
-    <Testimonials />
-  </div>
-
-  <div class="glass-card scroll-reveal fade-in">
-    <ContactForm />
-  </div>
-
-  <div class="glass-card scroll-reveal fade-in">
+    <!-- Technical Blog -->
     <BlogPreview />
-  </div>
+
+    <!-- Contact Section -->
+    <section id="contact" class="scroll-reveal">
+      <div class="section-header">
+        <h2 class="section-title text-center">Connect</h2>
+        <p class="section-subtitle hud-label text-center">Collaboration & Inquiries</p>
+      </div>
+      <ContactForm />
+    </section>
+  </main>
 </Layout>
 
-</style>
-
-  .org {
-    font-weight: 500;
-    color: var(--color-text);
-    opacity: 0.9;
-  }
-
-  .achievements-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .achievements-list li {
-    padding: var(--space-sm) 0;
-    border-bottom: 1px solid var(--color-border);
-    padding-left: var(--space-lg);
+<style>
+  main {
     position: relative;
   }
 
-  .achievements-list li:before {
-    content: '▸';
-    position: absolute;
-    left: 0;
-    color: var(--color-accent);
+  .text-center {
+    text-align: center;
   }
 
-  .achievements-list li:last-child {
-    border-bottom: none;
+  .section-header {
+    margin-bottom: var(--space-2xl);
   }
 
-  .projects-grid {
-    display: grid;
-    gap: var(--space-lg);
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  }
-
-  .project-card {
-    background: var(--color-white);
-    padding: var(--space-lg);
-    border-radius: var(--radius-md);
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    border: 1px solid var(--color-border);
-  }
-
-  .project-card h3 {
-    color: var(--color-accent);
-    margin-bottom: var(--space-sm);
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-xs);
-    margin-top: var(--space-md);
-  }
-
-  .tag {
-    background: var(--color-accent);
-    color: var(--color-white);
-    padding: 0.25rem 0.75rem;
-    border-radius: var(--radius-full);
-    font-size: 0.75rem;
-    font-weight: 500;
-  }
-
-  .skills-grid {
-    display: grid;
-    gap: var(--space-xl);
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  }
-
-  .skill-group h3 {
-    color: var(--color-accent);
-    margin-bottom: var(--space-sm);
-  }
-
-  .skill-group ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  .skill-group li {
-    padding: var(--space-xs) 0;
-    border-bottom: 1px solid var(--color-border);
-  }
-
-  .skill-group li:last-child {
-    border-bottom: none;
-  }
-
-  .contact-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-md);
-    margin-top: var(--space-lg);
-  }
-
-  .contact-link {
-    display: inline-flex;
-    align-items: center;
-    padding: var(--space-sm) var(--space-lg);
-    background: var(--color-accent);
-    color: var(--color-white);
-    border-radius: var(--radius-sm);
-    font-weight: 500;
-    transition: background-color 0.2s ease;
-  }
-
-  .contact-link:hover {
-    background: var(--color-accent-secondary);
-    color: var(--color-white);
-  }
-
-  .contact-link:focus-visible {
-    outline: 2px solid var(--color-accent);
-    outline-offset: 2px;
-  }
-
-  section h2 {
-    border-bottom: 3px solid var(--color-accent);
-    display: inline-block;
-    padding-bottom: var(--space-xs);
-    margin-bottom: var(--space-xl);
+  .section-title {
+    margin-bottom: var(--space-xs);
   }
 </style>
+
+<script>
+  // Simple intersection observer for scroll-reveal
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+
+  document.querySelectorAll('.scroll-reveal').forEach(el => {
+    observer.observe(el);
+  });
+</script>

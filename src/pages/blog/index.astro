@@ -1,0 +1,109 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+---
+
+<Layout title="Technical Research Blog | Ajam Jamaludin">
+	<section class="blog-index">
+		<div class="section-header">
+			<h1 class="section-title">Technical Research Blog</h1>
+			<p class="section-subtitle hud-label">Insights into Computational Geophysics & Life</p>
+		</div>
+
+		<div class="blog-grid">
+			{posts.map((post) => (
+				<article class="blog-card glass-card card-hover">
+					<div class="card-hud hud-label">
+						{post.data.date.toLocaleDateString('en-US', {
+							year: 'numeric',
+							month: 'long',
+							day: 'numeric',
+						})}
+					</div>
+					<h3>{post.data.title}</h3>
+					<p class="blog-summary">{post.data.description}</p>
+					<div class="tags">
+						{post.data.tags.map((tag) => (
+							<span class="project-tag">{tag}</span>
+						))}
+					</div>
+					<div class="blog-footer">
+						<a href={`/blog/${post.slug}`} class="btn-animated">Read Full Article</a>
+					</div>
+				</article>
+			))}
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.blog-index {
+		max-width: 1000px;
+		margin: 0 auto;
+		padding: var(--space-3xl) var(--space-md);
+	}
+
+	.section-header {
+		text-align: center;
+		margin-bottom: var(--space-3xl);
+	}
+
+	.blog-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+		gap: var(--space-xl);
+	}
+
+	.blog-card {
+		display: flex;
+		flex-direction: column;
+		padding: var(--space-xl);
+		min-height: 350px;
+	}
+
+	.card-hud {
+		margin-bottom: var(--space-sm);
+	}
+
+	.blog-card h3 {
+		font-size: 1.75rem;
+		margin-bottom: var(--space-md);
+		color: var(--color-accent);
+	}
+
+	.blog-summary {
+		font-size: 1rem;
+		line-height: 1.6;
+		opacity: 0.85;
+		margin-bottom: var(--space-xl);
+		flex-grow: 1;
+	}
+
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-xs);
+		margin-bottom: var(--space-lg);
+	}
+
+	.project-tag {
+		font-family: var(--font-heading);
+		font-size: 0.7rem;
+		padding: 0.2rem 0.6rem;
+		background: rgba(16, 185, 129, 0.1);
+		color: var(--color-accent);
+		border: 1px solid rgba(16, 185, 129, 0.2);
+		border-radius: var(--radius-sm);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.blog-footer {
+		display: flex;
+		justify-content: flex-end;
+	}
+</style>

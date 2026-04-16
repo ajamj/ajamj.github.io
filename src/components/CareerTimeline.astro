@@ -1,116 +1,189 @@
 ---
-// CareerTimeline.astro — Visual timeline for career/education journey
+// CareerTimeline.astro — Vertical technical timeline for research journey
+const experience = [
+  {
+    title: 'Research Assistant',
+    organization: 'Geoseismal Research Center',
+    period: 'Feb 2026 – Present',
+    highlights: [
+      'Conducting geophysics research with focus on seismic data analysis and interpretation.',
+      'Developing Python-based data pipelines for real-time waveform processing using ObsPy.',
+      'Automating seismic metadata extraction and indexing into a knowledge graph system.'
+    ],
+  },
+  {
+    title: 'Geophysics Software Intern — Earthquake Early Warning Systems',
+    organization: 'BMKG (Badan Meteorologi, Klimatologi, dan Geofisika)',
+    period: 'Feb 2024 – Jun 2024',
+    highlights: [
+      'Engineered end-to-end data pipelines in Python (ObsPy, FDSN client) to ingest, process, and analyze 58-station seismic data in real time.',
+      'Optimized recursive STA/LTA parameters for P-wave detection, significantly reducing false triggers under noisy field conditions.',
+      'Implemented magnitude estimation using the Mpd method, achieving MAE ≈ 0.42.',
+      'Integrated HYPO71 for hypocenter calculation and developed PyQt5 GUI with Folium-based real-time mapping.'
+    ],
+  },
+  {
+    title: 'Laboratory Teaching Assistant — Computational Methods',
+    organization: 'Universitas Gadjah Mada',
+    period: 'Aug 2023 – Jan 2024',
+    highlights: [
+      'Mentored 50+ undergraduate students in Python programming for scientific computing.',
+      'Developed hands-on practicum on building interactive regression tools using Tkinter.',
+      'Evaluated student work with rubric-based feedback emphasizing reproducibility and code readability.'
+    ],
+  },
+  {
+    title: 'Bachelor of Science in Geophysics',
+    organization: 'Universitas Gadjah Mada',
+    period: '2019 – 2026',
+    highlights: [
+      'GPA: 3.35 / 4.00',
+      'Thesis: Performance Evaluation of Earthquake Parameter Estimation in an Ensemble Machine Learning-Based Early Warning System.',
+      'Specialization in Signal Processing, Statistical Analysis, and Scientific Computing.'
+    ],
+  },
+];
 ---
 
-<section class="career-timeline">
-  <h2 class="section-title">Career Journey</h2>
-  <ol class="timeline-list">
-    <li class="timeline-item">
-      <div class="timeline-marker"></div>
-      <div class="timeline-content">
-        <h3>Research Assistant</h3>
-        <span class="timeline-org">Geoseismal Research Center</span>
-        <span class="timeline-period">Feb 2026 – Present</span>
-        <p>Conducting geophysics research with focus on seismic data analysis and interpretation.</p>
-      </div>
-    </li>
-    <li class="timeline-item">
-      <div class="timeline-marker"></div>
-      <div class="timeline-content">
-        <h3>Geophysics Software Intern — Earthquake Early Warning Systems</h3>
-        <span class="timeline-org">BMKG (Badan Meteorologi, Klimatologi, dan Geofisika)</span>
-        <span class="timeline-period">Feb 2024 – Jun 2024</span>
-        <ul>
-          <li>Developed EEWS prototype for Central & East Java, integrating real-time processing and alert delivery.</li>
-          <li>Engineered Python pipelines for 58-station seismic data analysis.</li>
-          <li>Optimized P-wave detection and magnitude estimation (MAE ≈ 0.42).</li>
-        </ul>
-      </div>
-    </li>
-    <li class="timeline-item">
-      <div class="timeline-marker"></div>
-      <div class="timeline-content">
-        <h3>Laboratory Teaching Assistant — Computational Methods</h3>
-        <span class="timeline-org">Universitas Gadjah Mada</span>
-        <span class="timeline-period">Aug 2023 – Jan 2024</span>
-        <ul>
-          <li>Mentored 50+ students in Python for scientific computing.</li>
-          <li>Developed hands-on practicum and evaluated student work.</li>
-        </ul>
-      </div>
-    </li>
-    <li class="timeline-item">
-      <div class="timeline-marker"></div>
-      <div class="timeline-content">
-        <h3>Bachelor of Science in Geophysics</h3>
-        <span class="timeline-org">Universitas Gadjah Mada</span>
-        <span class="timeline-period">2019 – 2026</span>
-        <p>Graduated with GPA 3.35. Thesis: ML-based earthquake parameter estimation for early warning systems.</p>
-      </div>
-    </li>
-  </ol>
+<section id="experience" class="timeline-section scroll-reveal">
+  <div class="section-header">
+    <h2 class="section-title">Research & Career Journey</h2>
+    <p class="section-subtitle hud-label">System Logs: Professional History</p>
+  </div>
+
+  <div class="timeline-container">
+    <div class="timeline-track"></div>
+    
+    <div class="timeline-items">
+      {experience.map((item) => (
+        <div class="timeline-item">
+          <div class="timeline-node timeline-pulse"></div>
+          <div class="timeline-content glass-card card-hover">
+            <span class="timeline-period hud-label">{item.period}</span>
+            <h3>{item.title}</h3>
+            <span class="timeline-org">{item.organization}</span>
+            <ul class="timeline-highlights">
+              {item.highlights.map((bullet) => (
+                <li>{bullet}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
 </section>
 
 <style>
-.career-timeline {
-  padding: 3rem 1rem;
-  background: var(--color-bg, #f8fafc);
-}
-.section-title {
-  font-size: 2rem;
-  font-weight: 700;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-.timeline-list {
-  position: relative;
-  margin: 0 auto;
-  padding: 0 0 0 2rem;
-  max-width: 700px;
-  border-left: 3px solid #c7d2fe;
-  list-style: none;
-}
-.timeline-item {
-  position: relative;
-  margin-bottom: 2.5rem;
-}
-.timeline-marker {
-  position: absolute;
-  left: -1.25rem;
-  top: 0.5rem;
-  width: 1.25rem;
-  height: 1.25rem;
-  background: #6366f1;
-  border-radius: 50%;
-  border: 3px solid #fff;
-  box-shadow: 0 0 0 3px #c7d2fe;
-}
-.timeline-content {
-  background: #fff;
-  border-radius: 0.75rem;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-  padding: 1.25rem 1.5rem;
-  margin-left: 0.5rem;
-}
-.timeline-org {
-  display: block;
-  font-size: 1rem;
-  color: #6366f1;
-  font-weight: 600;
-  margin-bottom: 0.25rem;
-}
-.timeline-period {
-  display: block;
-  font-size: 0.95rem;
-  color: #64748b;
-  margin-bottom: 0.5rem;
-}
-@media (max-width: 600px) {
-  .timeline-list {
-    padding-left: 1rem;
+  .timeline-section {
+    position: relative;
+    padding: var(--space-3xl) var(--space-md);
+    background-color: var(--color-surface-low);
   }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+  }
+
+  .timeline-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding-left: var(--space-2xl);
+  }
+
+  .timeline-track {
+    position: absolute;
+    left: 7px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, var(--color-accent) 15%, var(--color-accent) 85%, transparent);
+    opacity: 0.3;
+  }
+
+  .timeline-items {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl);
+  }
+
+  .timeline-item {
+    position: relative;
+  }
+
+  .timeline-node {
+    position: absolute;
+    left: -33px;
+    top: 24px;
+    width: 16px;
+    height: 16px;
+    background-color: var(--color-accent);
+    border-radius: 50%;
+    z-index: 5;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: crosshair;
+  }
+
+  .timeline-node:hover {
+    transform: scale(1.6);
+    box-shadow: 0 0 20px var(--color-accent);
+  }
+
   .timeline-content {
-    padding: 1rem;
+    padding: var(--space-xl);
+    border-left: 2px solid transparent;
   }
-}
+
+  .timeline-content:hover {
+    border-left-color: var(--color-accent);
+  }
+
+  .timeline-period {
+    display: block;
+    margin-bottom: var(--space-xs);
+  }
+
+  .timeline-org {
+    display: block;
+    color: var(--color-accent);
+    font-family: var(--font-heading);
+    font-weight: 500;
+    margin-bottom: var(--space-md);
+  }
+
+  .timeline-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .timeline-highlights li {
+    position: relative;
+    padding-left: var(--space-lg);
+    margin-bottom: var(--space-sm);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    opacity: 0.85;
+  }
+
+  .timeline-highlights li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+  }
+
+  @media (max-width: 768px) {
+    .timeline-container {
+      padding-left: var(--space-xl);
+    }
+    .timeline-node {
+      left: -25px;
+    }
+    .timeline-track {
+      left: 15px;
+    }
+  }
 </style>

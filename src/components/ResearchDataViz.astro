@@ -1,0 +1,156 @@
+---
+// ResearchDataViz.astro — High-fidelity technical data widgets
+---
+
+<section id="data-viz" class="data-viz-section scroll-reveal">
+  <div class="section-header">
+    <h2 class="section-title">Research Data Visualization</h2>
+    <p class="section-subtitle hud-label">Empirical Evidence & Model Performance</p>
+  </div>
+
+  <div class="data-grid">
+    <!-- Card 1: P-Wave Detection -->
+    <div class="data-card glass-card card-hover">
+      <div class="card-hud hud-label">STATION: UGM01 | REAL-TIME</div>
+      <h3>P-Wave Detection Accuracy</h3>
+      <div class="viz-container seismogram-viz">
+        <svg viewBox="0 0 400 150" class="seismogram-svg">
+          <path d="M0,75 L40,75 L50,60 L60,90 L70,40 L80,110 L90,20 L100,130 L110,75 L150,75 L160,50 L170,100 L180,30 L190,120 L200,75 L400,75" fill="none" stroke="var(--color-text-muted)" stroke-width="1.5" opacity="0.5"></path>
+          <line x1="90" y1="0" x2="90" y2="150" stroke="var(--color-accent)" stroke-width="2" stroke-dasharray="4,2"></line>
+          <text x="95" y="20" fill="var(--color-accent)" font-size="10" font-family="var(--font-heading)">P-ARRIVAL DETECTED</text>
+        </svg>
+      </div>
+      <div class="card-footer">
+        <span class="metric">ACCURACY: <span class="highlight">94.2%</span></span>
+      </div>
+    </div>
+
+    <!-- Card 2: Magnitude Estimation -->
+    <div class="data-card glass-card card-hover">
+      <div class="card-hud hud-label">MODEL: ENSEMBLE ML | N=52</div>
+      <h3>Magnitude Estimation (Mpd)</h3>
+      <div class="viz-container scatter-viz">
+        <svg viewBox="0 0 200 150" class="scatter-svg">
+          <!-- Regression Line -->
+          <line x1="20" y1="130" x2="180" y2="20" stroke="var(--color-accent)" stroke-width="2" opacity="0.6"></line>
+          <!-- Data Points -->
+          <circle cx="40" cy="115" r="3" fill="var(--color-accent)" opacity="0.4"></circle>
+          <circle cx="60" cy="100" r="3" fill="var(--color-accent)" opacity="0.4"></circle>
+          <circle cx="85" cy="85" r="3" fill="var(--color-accent)" opacity="0.4"></circle>
+          <circle cx="110" cy="70" r="3" fill="var(--color-accent)" opacity="0.4"></circle>
+          <circle cx="140" cy="45" r="3" fill="var(--color-accent)" opacity="0.4"></circle>
+          <circle cx="160" cy="35" r="3" fill="var(--color-accent)" opacity="0.4"></circle>
+          
+          <text x="20" y="145" fill="var(--color-text-muted)" font-size="8">Observed</text>
+          <text x="5" y="20" fill="var(--color-text-muted)" font-size="8" transform="rotate(-90 5,20)">Predicted</text>
+        </svg>
+      </div>
+      <div class="card-footer">
+        <span class="metric">MAE: <span class="highlight">0.42</span> | R²: 0.89</span>
+      </div>
+    </div>
+
+    <!-- Card 3: Seismic Network -->
+    <div class="data-card glass-card card-hover">
+      <div class="card-hud hud-label">REGION: CENTRAL & EAST JAVA</div>
+      <h3>Seismic Network (BMKG)</h3>
+      <div class="viz-container map-viz">
+        <div class="map-placeholder">
+          <svg viewBox="0 0 200 120" class="map-svg">
+            <!-- Stylized Coastline -->
+            <path d="M10,60 Q50,50 100,70 T190,60" fill="none" stroke="var(--color-text-muted)" stroke-width="1" opacity="0.3"></path>
+            <!-- Station Markers -->
+            <circle cx="40" cy="55" r="2" fill="var(--color-accent)" class="station-glow"></circle>
+            <circle cx="70" cy="65" r="2" fill="var(--color-accent)" class="station-glow"></circle>
+            <circle cx="100" cy="75" r="2" fill="var(--color-accent)" class="station-glow"></circle>
+            <circle cx="130" cy="60" r="2" fill="var(--color-accent)" class="station-glow"></circle>
+            <circle cx="160" cy="50" r="2" fill="var(--color-accent)" class="station-glow"></circle>
+          </svg>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="metric">STATIONS: <span class="highlight">58 ACTIVE</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .data-viz-section {
+    padding: var(--space-3xl) var(--space-md);
+    background-color: var(--color-bg);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+  }
+
+  .data-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .data-card {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-xl);
+    min-height: 320px;
+  }
+
+  .card-hud {
+    margin-bottom: var(--space-sm);
+  }
+
+  .data-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .viz-container {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: var(--radius-sm);
+    margin-bottom: var(--space-lg);
+    overflow: hidden;
+    padding: var(--space-md);
+  }
+
+  .seismogram-svg, .scatter-svg, .map-svg {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+  }
+
+  .card-footer {
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--space-md);
+  }
+
+  .metric {
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+  }
+
+  .highlight {
+    color: var(--color-accent);
+    font-weight: 700;
+  }
+
+  .station-glow {
+    filter: drop-shadow(0 0 4px var(--color-accent));
+    animation: pulse-glow 3s infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+</style>

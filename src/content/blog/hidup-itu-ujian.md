@@ -1,10 +1,10 @@
-+++
-title = "Hidup itu Ujian"
-author = "Ajam Jamaludin"
-hascode = true
-date = Date(2023, 5, 6)
-tags = ["jurnal"]
-+++
+---
+title: "Hidup itu Ujian"
+author: "Ajam Jamaludin"
+date: 2023-05-06
+tags: ["jurnal"]
+description: "A brief intro about resilience and testing in both life and seismic modeling."
+---
 
 # “Hidup itu Ujian”
 > “You have to be at your strongest when you’re feeling at your weakest.”
@@ -24,8 +24,7 @@ Hmmm…, serumit itukah keadaan saya? Mungkin memang rumit.
 
 Pada pertemuan itu, beliau banyak bertanya kepada saya, mulai dari jumlah saudara, asal, hobi, cita-cita, nilai akademik (… mengsedih), hingga pertanyaan-pertanyaan agak aneh seperti “suka nonton TV, kah?”. Berbanding terbalik dengan saya yang hanya bertanya satu pertanyaan tentang “Apa itu retardasi?” 🙃
 
-Retardasi
-: n perlambatan pembaharuan (sebagai lawan akselerasi)
+**Retardasi**: n perlambatan pembaharuan (sebagai lawan akselerasi)
 
 Selain sesi tanya jawab, ada juga sesi “ujian”. Ujian yang dimaksud adalah saya menjawab beberapa pertanyaan secara tertulis, serta saya juga melakukan beberapa tes, termasuk tes yang sudah tak asing lagi, The House Tree Person Test.
 

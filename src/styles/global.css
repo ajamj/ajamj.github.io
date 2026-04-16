@@ -1,4 +1,6 @@
-/* Global styles - imported by Layout.astro */
+@import "tailwindcss";
+
+/* Global styles - Academic Dark Mode / Digital Lithosphere */
 
 /* Subtle fade-in animation for sections */
 .fade-in {
@@ -14,90 +16,56 @@
 	}
 }
 
-/* Card hover scale effect */
+/* Digital Lithosphere Card Hover */
 .card-hover {
-	transition: transform 0.18s cubic-bezier(.4,0,.2,1), box-shadow 0.18s;
+	transition: all 0.3s cubic-bezier(.4,0,.2,1);
 }
 .card-hover:hover,
 .card-hover:focus {
-	transform: translateY(-6px) scale(1.03);
-	box-shadow: 0 6px 24px rgba(99,102,241,0.12);
+	transform: translateY(-4px) scale(1.02);
+	box-shadow: 0 0 30px var(--color-accent-glow);
+	border-color: var(--color-accent);
 }
 
-/* Button microinteraction */
+/* Technical Button Animation */
 .btn-animated {
-	transition: background 0.18s, box-shadow 0.18s, transform 0.18s;
+	display: inline-block;
+	padding: var(--space-sm) var(--space-lg);
+	background: var(--color-surface-high);
+	color: var(--color-accent);
+	border: 1px solid var(--color-accent);
+	border-radius: var(--radius-sm);
+	font-family: var(--font-heading);
+	font-weight: 500;
+	transition: all 0.2s ease;
 }
+
 .btn-animated:hover,
 .btn-animated:focus {
-	background: #6366f1;
-	box-shadow: 0 2px 12px #6366f1aa;
-	transform: translateY(-2px) scale(1.04);
+	background: var(--color-accent);
+	color: var(--color-bg);
+	box-shadow: 0 0 15px var(--color-accent-glow);
+	transform: translateY(-2px);
 }
 
-/* --- Custom Visual Enhancements --- */
+/* --- Digital Lithosphere Surface Logic --- */
 
 body {
-	background: linear-gradient(135deg, #e0f2fe 0%, #f0fdfa 100%);
-	font-family: 'Inter', 'Poppins', 'Montserrat', Arial, sans-serif;
-	color: #1e293b;
+	background-color: var(--color-bg);
+	font-family: var(--font-body);
+	color: var(--color-text);
 }
 
-section {
-	position: relative;
-	z-index: 1;
+/* Tonal Sectioning (No-Line Rule) */
+section:nth-child(even) {
+	background-color: var(--color-surface-low);
 }
 
-/* Glassmorphism card effect */
-.glass-card {
-	background: rgba(255,255,255,0.7);
-	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.10);
-	backdrop-filter: blur(8px);
-	border-radius: 1.25rem;
-	border: 1px solid rgba(255,255,255,0.18);
+section:nth-child(odd) {
+	background-color: var(--color-bg);
 }
 
-/* Section divider wave */
-.wave-divider {
-	display: block;
-	width: 100%;
-	height: 48px;
-	margin: 0;
-	padding: 0;
-	line-height: 0;
-}
-
-/* Expressive heading font */
-h1, h2, h3 {
-	font-family: 'Poppins', 'Montserrat', 'Inter', Arial, sans-serif;
-	font-weight: 700;
-	letter-spacing: -0.5px;
-}
-
-/* Color palette */
-:root {
-	--color-accent: #2563eb;
-	--color-accent-secondary: #06b6d4;
-	--color-bg-glass: rgba(255,255,255,0.7);
-	--color-bg-wave: #e0f2fe;
-	--color-bg-wave-dark: #bae6fd;
-	--color-text: #1e293b;
-	--color-white: #fff;
-	--color-border: #e5e7eb;
-	--radius-md: 1.25rem;
-}
-
-/* Divider zigzag (optional) */
-.zigzag-divider {
-	display: block;
-	width: 100%;
-	height: 32px;
-	background: repeating-linear-gradient(-45deg, #bae6fd, #bae6fd 8px, #e0f2fe 8px, #e0f2fe 16px);
-	margin: 0;
-	border: none;
-}
-
-/* Section scroll reveal animation */
+/* Scroll Reveal */
 .scroll-reveal {
 	opacity: 0;
 	transform: translateY(32px);
@@ -108,3 +76,31 @@ h1, h2, h3 {
 	transform: none;
 }
 
+/* --- Technical HUD Labels --- */
+.hud-label {
+	font-family: var(--font-heading);
+	font-size: 0.65rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	color: var(--color-text-muted);
+	opacity: 0.7;
+}
+
+/* Wave Divider (Refined for Dark Mode) */
+.wave-divider {
+	display: block;
+	width: 100%;
+	height: 48px;
+	fill: var(--color-surface-low);
+}
+
+/* Vertical Timeline Pulse Animation */
+@keyframes seismic-pulse {
+	0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+	70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
+	100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+}
+
+.timeline-pulse {
+	animation: seismic-pulse 5s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}

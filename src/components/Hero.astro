@@ -1,0 +1,116 @@
+---
+import ResumeButton from './ResumeButton.astro';
+---
+
+<section id="hero" class="hero-section">
+  <div class="seismic-bg" aria-hidden="true">
+    <svg viewBox="0 0 1000 300" preserveAspectRatio="none" class="waveform">
+      <path d="M0,150 Q50,140 100,160 T200,140 T300,160 T400,130 T500,170 T600,140 T700,160 T800,130 T900,170 T1000,150" fill="none" stroke="var(--color-accent)" stroke-width="2" class="wave-path"></path>
+      <path d="M0,170 Q50,160 100,180 T200,160 T300,180 T400,150 T500,190 T600,160 T700,180 T800,150 T900,190 T1000,170" fill="none" stroke="var(--color-accent)" stroke-width="1" opacity="0.4" class="wave-path delay-1"></path>
+    </svg>
+  </div>
+
+  <div class="hud-top-left hud-label">LAT: -7.7956 / LON: 110.3695</div>
+  <div class="hud-top-right hud-label">STATION: UGM01 | 100Hz</div>
+  <div class="hud-bottom-left hud-label">SYSTEM STATUS: ACTIVE</div>
+  <div class="hud-bottom-right hud-label">REAL-TIME MONITORING</div>
+
+  <div class="hero-content fade-in">
+    <h1 class="hero-title">Ajam Jamaludin</h1>
+    <p class="hero-subtitle">Junior Geophysics Researcher | Computational Seismology</p>
+    <div class="hero-actions">
+      <ResumeButton />
+      <a href="#projects" class="btn-animated">Explore Research</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--color-bg);
+    min-height: 100vh;
+  }
+
+  .seismic-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    opacity: 0.25;
+    pointer-events: none;
+    background-image: radial-gradient(circle at 2px 2px, rgba(16, 185, 129, 0.05) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+
+  .waveform {
+    width: 100%;
+    height: 100%;
+  }
+
+  .wave-path {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: draw 8s linear infinite;
+  }
+
+  .delay-1 {
+    animation-delay: -4s;
+  }
+
+  @keyframes draw {
+    to {
+      stroke-dashoffset: -1000;
+    }
+  }
+
+  .hud-label {
+    position: absolute;
+    padding: var(--space-md);
+    z-index: 2;
+  }
+
+  .hud-top-left { top: 0; left: 0; }
+  .hud-top-right { top: 0; right: 0; }
+  .hud-bottom-left { bottom: 0; left: 0; }
+  .hud-bottom-right { bottom: 0; right: 0; }
+
+  .hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 800px;
+    padding: var(--space-xl);
+    background: rgba(11, 19, 38, 0.6);
+    backdrop-filter: blur(8px);
+    border-radius: var(--radius-md);
+  }
+
+  .hero-title {
+    margin-bottom: var(--space-xs);
+    text-shadow: 0 0 20px var(--color-accent-glow);
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-accent);
+    font-family: var(--font-heading);
+    margin-bottom: var(--space-xl);
+    font-weight: 500;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 768px) {
+    .hud-label { display: none; }
+    .hero-title { font-size: 2.5rem; }
+  }
+</style>

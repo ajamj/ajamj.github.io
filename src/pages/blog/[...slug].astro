@@ -1,0 +1,112 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+	const blogEntries = await getCollection('blog');
+	return blogEntries.map(entry => ({
+		params: { slug: entry.slug }, props: { entry },
+	}));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+---
+
+<Layout title={`${entry.data.title} | Ajam Jamaludin`} description={entry.data.description}>
+	<article class="blog-post">
+		<header class="post-header scroll-reveal">
+			<div class="hud-label">{entry.data.date.toLocaleDateString('en-US', {
+				year: 'numeric',
+				month: 'long',
+				day: 'numeric',
+			})} | BY {entry.data.author}</div>
+			<h1 class="post-title">{entry.data.title}</h1>
+			<div class="tags">
+				{entry.data.tags.map((tag) => (
+					<span class="project-tag">{tag}</span>
+				))}
+			</div>
+		</header>
+
+		<div class="post-content glass-card scroll-reveal">
+			<Content />
+		</div>
+
+		<footer class="post-footer scroll-reveal">
+			<a href="/blog" class="btn-animated">← Back to Blog</a>
+		</footer>
+	</article>
+</Layout>
+
+<style>
+	.blog-post {
+		max-width: 850px;
+		margin: 0 auto;
+		padding: var(--space-3xl) var(--space-md);
+	}
+
+	.post-header {
+		text-align: center;
+		margin-bottom: var(--space-2xl);
+	}
+
+	.post-title {
+		margin: var(--space-sm) 0 var(--space-lg) 0;
+		color: var(--color-accent);
+	}
+
+	.tags {
+		display: flex;
+		justify-content: center;
+		gap: var(--space-xs);
+	}
+
+	.project-tag {
+		font-family: var(--font-heading);
+		font-size: 0.75rem;
+		padding: 0.2rem 0.8rem;
+		background: rgba(16, 185, 129, 0.1);
+		color: var(--color-accent);
+		border: 1px solid rgba(16, 185, 129, 0.2);
+		border-radius: var(--radius-sm);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.post-content {
+		line-height: 1.8;
+		font-size: 1.1rem;
+		padding: var(--space-2xl);
+	}
+
+	.post-content :global(h2) {
+		color: var(--color-accent);
+		margin-top: var(--space-2xl);
+		font-size: 1.75rem;
+	}
+
+	.post-content :global(blockquote) {
+		border-left: 4px solid var(--color-accent);
+		margin: var(--space-xl) 0;
+		padding: var(--space-md) var(--space-xl);
+		background: rgba(16, 185, 129, 0.05);
+		font-style: italic;
+		opacity: 0.9;
+	}
+
+	.post-content :global(p) {
+		margin-bottom: var(--space-lg);
+	}
+
+	.post-footer {
+		margin-top: var(--space-3xl);
+		text-align: center;
+	}
+
+	@media (max-width: 600px) {
+		.post-content {
+			padding: var(--space-xl);
+		}
+	}
+</style>
