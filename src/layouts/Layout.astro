@@ -30,6 +30,7 @@ const {
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content="Ajam Jamaludin Portfolio" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={new URL(image, Astro.url)} />
@@ -40,6 +41,7 @@ const {
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
+    <meta property="twitter:creator" content="@ajamj" />
 
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -48,6 +50,12 @@ const {
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
   </head>
   <body>
+    <div class="hud-corners">
+      <div class="corner top-left"></div>
+      <div class="corner top-right"></div>
+      <div class="corner bottom-left"></div>
+      <div class="corner bottom-right"></div>
+    </div>
     <a href="#main-content" class="skip-link">Skip to main content</a>
     <Header />
     <main id="main-content">
@@ -88,6 +96,21 @@ const {
     --radius-md: 0.5rem;
     --radius-full: 999px;
   }
+
+  .hud-corners .corner {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--color-accent);
+    z-index: 1000;
+    pointer-events: none;
+    opacity: 0.4;
+  }
+
+  .corner.top-left { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+  .corner.top-right { top: 10px; right: 10px; border-left: none; border-bottom: none; }
+  .corner.bottom-left { bottom: 10px; left: 10px; border-right: none; border-top: none; }
+  .corner.bottom-right { bottom: 10px; right: 10px; border-left: none; border-top: none; }
 
   * {
     box-sizing: border-box;

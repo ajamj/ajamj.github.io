@@ -2,6 +2,36 @@
 
 /* Global styles - Academic Dark Mode / Digital Lithosphere */
 
+:root {
+	--grid-size: 40px;
+	--grid-color: rgba(16, 185, 129, 0.03);
+}
+
+body {
+	background-color: var(--color-bg);
+	background-image: 
+		linear-gradient(var(--grid-color) 1px, transparent 1px),
+		linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+	background-size: var(--grid-size) var(--grid-size);
+	font-family: var(--font-body);
+	color: var(--color-text);
+	position: relative;
+}
+
+body::before {
+	content: "";
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+	background-size: 100% 3px, 3px 100%;
+	pointer-events: none;
+	z-index: 100;
+	opacity: 0.3;
+}
+
 /* Subtle fade-in animation for sections */
 .fade-in {
 	opacity: 0;
