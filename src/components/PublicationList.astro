@@ -1,0 +1,92 @@
+---
+// PublicationList.astro — Structured academic publications
+const publications = [
+  {
+    title: 'Performance Evaluation of Earthquake Parameter Estimation in an Ensemble Machine Learning-Based Early Warning System',
+    venue: 'Undergraduate Thesis, Universitas Gadjah Mada',
+    year: '2026',
+    doi: '#',
+  },
+  {
+    title: 'Real-time Waveform Processing Pipeline for Seismic Monitoring',
+    venue: 'BMKG Technical Report',
+    year: '2024',
+    doi: '#',
+  },
+];
+---
+
+<section id="publications" class="publications-section scroll-reveal">
+  <div class="section-header">
+    <h2 class="section-title">Selected Publications</h2>
+    <p class="section-subtitle hud-label">Academic Contributions & Research</p>
+  </div>
+
+  <div class="pub-container glass-card">
+    <div class="pub-list">
+      {publications.map((pub) => (
+        <div class="pub-item">
+          <div class="pub-meta">
+            <span class="pub-year">{pub.year}</span>
+            <span class="pub-venue">{pub.venue}</span>
+          </div>
+          <h3>{pub.title}</h3>
+          <a href={pub.doi} class="pub-link">DOI / Link →</a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .publications-section {
+    padding: var(--space-3xl) var(--space-md);
+    background-color: var(--color-bg);
+  }
+
+  .pub-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: var(--space-2xl);
+  }
+
+  .pub-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2xl);
+  }
+
+  .pub-item {
+    border-left: 2px solid var(--color-accent);
+    padding-left: var(--space-lg);
+  }
+
+  .pub-meta {
+    display: flex;
+    gap: var(--space-md);
+    margin-bottom: var(--space-sm);
+  }
+
+  .pub-year {
+    font-family: var(--font-heading);
+    color: var(--color-accent);
+    font-weight: 700;
+  }
+
+  .pub-venue {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+
+  .pub-item h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-sm);
+    color: var(--color-text);
+  }
+
+  .pub-link {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-accent);
+  }
+</style>
