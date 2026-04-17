@@ -38,6 +38,10 @@ See: .planning/PROJECT.md (updated 2026-04-17)
 - **Phase 5 (Blog)**: Pending — Technical blog using Markdown/MDX.
 - **Phase 6 (Data Viz)**: Pending — Interactive geophysics visualizations with D3.js.
 
+## Pending Todos
+
+- [ ] **integrate-personal-portrait**: Integrate personal portrait into website (`img/self-portrait.jpg`)
+
 ## Notes
 
 - **Tech Stack**: Astro, TypeScript, Vanilla CSS.
