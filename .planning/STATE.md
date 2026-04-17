@@ -1,16 +1,16 @@
-# State: Personal Portfolio Website
+# State: Personal Portfolio Website & Blog
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-04-16)
+See: .planning/PROJECT.md (updated 2026-04-17)
 
-**Core value:** Visitors can quickly understand Ajam's expertise, explore portfolio projects, and make contact — conveying professional credibility for a junior researcher building their academic presence.
+**Core value:** Visitors can quickly understand Ajam's expertise, explore portfolio projects, engage with interactive geophysics data visualizations, and read in-depth analysis.
 
-**Current focus:** Phase 2 (Content)
+**Current focus:** Phase 3 (Contact & SEO)
 
 ## Current Milestone
 
-- **v1.0 MVP**: Phases 1-4 (Phase 1 complete)
+- **v1.0 MVP**: Phases 1-6 (Phases 1-2 complete)
 
 ## Phase Status
 
@@ -18,29 +18,31 @@ See: .planning/PROJECT.md (updated 2026-04-16)
 |---|-------|--------|-------|----------|
 | 1 | Foundation | Completed | 3/3 | 100% |
 | 2 | Content | Completed | 1/1 | 100% |
-| 3 | Contact & SEO | Not started | 2 | 0% |
+| 3 | Contact & SEO | In Progress | 2 | 50% |
 | 4 | Polish | Not started | 1 | 0% |
+| 5 | Blog Implementation | Not started | 0 | 0% |
+| 6 | Interactive Data Visualizations | Not started | 0 | 0% |
 
 ## Recent Activity
 
-- 2026-04-16: Project initialized — config, PROJECT.md, REQUIREMENTS.md, ROADMAP.md created
-- 2026-04-16: GSD workflow configured (Fine granularity, parallel, quality model, research+plan_check+verifier enabled)
-- 2026-04-16: Phase 1 context gathered — single-page layout, teal aesthetic, mobile-first responsive design
-- 2026-04-16: **Phase 1 completed** — HTML skeleton, responsive CSS, typography, mobile menu built
-  - index.html and style.css created
-  - 3 commits: HTML skeleton, responsive CSS, typography+mobile menu
+- 2026-04-17: **Project Vision Updated** — Added Blog and Interactive Data Visualization requirements. Shifted to Astro/TypeScript stack.
+- 2026-04-16: Phase 2 completed — Added About, Projects, Skills content.
+- 2026-04-16: Phase 1 completed — Astro foundation, responsive CSS, typography built.
+- 2026-04-16: Project initialized.
 
 ## Phase Context
 
-- **Phase 1 (Foundation)**: Completed — HTML/CSS foundation with semantic structure, responsive layout, Inter typography, teal/amber color scheme, mobile hamburger menu
-- **Phase 2 (Content)**: Completed — Added About, Projects, Skills content with geophysics context. Accepted Astro implementation as valid.
-- **Phase 3 (Contact & SEO)**: Next — Contact section, meta tags, accessibility
+- **Phase 1 (Foundation)**: Completed — Astro framework setup, responsive layout, Inter typography, teal/amber color scheme.
+- **Phase 2 (Content)**: Completed — Content sections filled with geophysics researcher profile info.
+- **Phase 3 (Contact & SEO)**: In Progress — Building Contact section and SEO meta tags.
+- **Phase 5 (Blog)**: Pending — Technical blog using Markdown/MDX.
+- **Phase 6 (Data Viz)**: Pending — Interactive geophysics visualizations with D3.js.
 
 ## Notes
 
-- Static HTML/CSS/JS only — no framework, no build step
-- GitHub Pages deployment from main branch, root folder
-- Auto-advance enabled — chains to next phase after completion
+- **Tech Stack**: Astro, TypeScript, Vanilla CSS.
+- **Deployment**: GitHub Pages (main branch via automated workflows).
+- **Git Strategy**: Strict feature branch development, no direct main commits.
 
 ---
-*Last updated: 2026-04-16 after Phase 1 completion*
+*Last updated: 2026-04-17 after project vision update*
