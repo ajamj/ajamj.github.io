@@ -40,6 +40,7 @@ See: .planning/PROJECT.md (updated 2026-04-17)
 
 ## Pending Todos
 
+- [ ] **fix-blog-content-visibility**: Fix blog content visibility issue (text not visible)
 - [ ] **integrate-personal-portrait**: Integrate personal portrait into website (`img/self-portrait.jpg`)
 
 ## Notes
