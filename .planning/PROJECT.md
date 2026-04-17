@@ -2,11 +2,11 @@
 
 ## What This Is
 
-A personal academic/research portfolio website for Ajam Jamaludin, a junior geophysics researcher specializing in seismology and seismic exploration. The site showcases professional background, research projects, technical skills, and contact information. Deployed as a static site via GitHub Pages at https://ajamj.github.io.
+A personal academic/research portfolio website and blog for Ajam Jamaludin, a junior geophysics researcher specializing in seismology and seismic exploration. The site showcases professional background, research projects, technical skills, and features a blog for posts, analysis, and interactive data visualization within a geophysics context. Deployed as a static site via GitHub Pages at https://ajamj.github.io.
 
 ## Core Value
 
-Visitors can quickly understand Ajam's expertise, explore portfolio projects (seismic data processing, earthquake monitoring), and make contact — conveying professional credibility for a junior researcher building their academic presence.
+Visitors can quickly understand Ajam's expertise, explore portfolio projects (seismic data processing, earthquake monitoring), engage with interactive data visualizations, and read in-depth geophysics analysis — conveying professional credibility and unique technical insight for a researcher building their academic presence.
 
 ## Requirements
 
@@ -15,61 +15,52 @@ Visitors can quickly understand Ajam's expertise, explore portfolio projects (se
 - [ ] Personal portfolio website with About/Bio, Projects, Skills, and Contact sections
 - [ ] Professional academic aesthetic suitable for research audience
 - [ ] Responsive design accessible on desktop and mobile
-- [ ] Fast page load (static HTML/CSS/JS, no framework overhead)
+- [ ] Fast page load (Static Site Generation using Astro)
 - [ ] SEO-friendly with appropriate meta tags
 - [ ] Project showcase for seismic data processing software
 - [ ] Project showcase for earthquake monitoring tools
 - [ ] Technical skills section (seismology, seismic processing tools)
 - [ ] Contact information / contact form or links
 - [ ] Clean, academic visual design
+- [ ] **Blog system** with Markdown/MDX support for geophysics analysis posts
+- [ ] **Interactive Data Visualization** (D3.js or similar) using geophysics datasets
+- [ ] Use agents and skills for development workflow
 
 ### Out of Scope
 
-- Blog or CMS functionality
 - Multi-language support
 - Backend API or server-side processing
 - E-commerce or paid features
 - User authentication
+- Dynamic CMS (using static Markdown/MDX instead)
 
 ## Context
 
 - **Owner**: Ajam Jamaludin — junior geophysics researcher, class of 2026, Universitas Gadjah Mada
-- **Domain**: Personal portfolio / academic research website
-- **Audience**: Academic peers, potential collaborators, prospective employers
-- **Stack preference**: HTML/CSS/JS, no framework, or lightweight static generator
-- **Deployment**: GitHub Pages (push to main branch, served from root)
+- **Domain**: Personal portfolio / academic research / technical blog
+- **Audience**: Academic peers, potential collaborators, prospective employers, geophysics enthusiasts
+- **Stack preference**: Astro, TypeScript, Vanilla CSS
+- **Deployment**: GitHub Pages (using git best practices: feature branches, no direct push to main)
 
 ## Constraints
 
-- **Tech Stack**: Static HTML/CSS/JS only — no server, no build step preferred
-- **Deployment**: GitHub Pages from `main` branch, root path — no `gh-pages` or CI/CD
-- **Design**: Clean, academic/professional — no dark patterns, no intrusive tracking
-- **Performance**: Fast loading essential for accessibility
+- **Tech Stack**: Astro (Static Site Generation), TypeScript, Vanilla CSS — unique and interactive features
+- **Deployment**: GitHub Pages via automated workflows — strictly following branch-based development (no direct main commits)
+- **Design**: Clean, academic/professional — interactive but performant
+- **Performance**: Fast loading essential for accessibility, optimized data visualizations
 
 ## Key Decisions
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
-| Plain HTML/CSS/JS, no framework | GitHub Pages compatibility, simplicity, fast load | — Pending |
-| GitHub Pages (main branch, root) | Zero-cost hosting, native GitHub integration | — Pending |
-| Single-page or multi-page layout | TBD — will decide during design phase | — Pending |
+| Astro Framework | Static Site Generation, better performance, component-based development | Adopted |
+| Markdown/MDX for Blog | Simplicity, version-controlled content, support for interactive components | Adopted |
+| D3.js for Visualizations | Industry standard for interactive, high-performance data viz | Adopted |
+| Branch-based Development | Git best practices, safety, clean history | Adopted |
 
 ## Evolution
 
 This document evolves at phase transitions and milestone boundaries.
 
-**After each phase transition** (via `/gsd-transition`):
-1. Requirements invalidated? → Move to Out of Scope with reason
-2. Requirements validated? → Move to Validated with phase reference
-3. New requirements emerged? → Add to Active
-4. Decisions to log? → Add to Key Decisions
-5. "What This Is" still accurate? → Update if drifted
-
-**After each milestone** (via `/gsd-complete-milestone`):
-1. Full review of all sections
-2. Core Value check — still the right priority?
-3. Audit Out of Scope — reasons still valid?
-4. Update Context with current state
-
 ---
-*Last updated: 2026-04-16 after initialization*
+*Last updated: 2026-04-17 based on new project directive*

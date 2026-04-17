@@ -10,11 +10,16 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/mdx": "^5.0.3",
     "@astrojs/sitemap": "^3.7.2",
     "@tailwindcss/vite": "^4.2.2",
     "astro": "^5.0.0",
     "astro-icon": "^1.1.5",
     "astro-seo": "^1.1.0",
+    "d3": "^7.9.0",
     "tailwindcss": "^4.2.2"
+  },
+  "devDependencies": {
+    "@types/d3": "^7.4.3"
   }
 }

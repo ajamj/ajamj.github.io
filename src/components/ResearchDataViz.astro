@@ -1,11 +1,16 @@
 ---
 // ResearchDataViz.astro — High-fidelity technical data widgets
+import InteractiveSeismogram from './InteractiveSeismogram.astro';
 ---
 
 <section id="data-viz" class="data-viz-section scroll-reveal">
   <div class="section-header">
     <h2 class="section-title">Research Data Visualization</h2>
     <p class="section-subtitle hud-label">Empirical Evidence & Model Performance</p>
+  </div>
+
+  <div class="data-main">
+    <InteractiveSeismogram />
   </div>
 
   <div class="data-grid">
@@ -84,6 +89,11 @@
   .section-header {
     text-align: center;
     margin-bottom: var(--space-3xl);
+  }
+
+  .data-main {
+    max-width: 1000px;
+    margin: 0 auto var(--space-2xl) auto;
   }
 
   .data-grid {

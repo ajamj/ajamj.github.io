@@ -1,0 +1,41 @@
+---
+title: "Interactive Seismology: Visualizing Waveforms"
+author: "Ajam Jamaludin"
+date: 2026-04-17
+tags: ["geophysics", "data-viz", "d3js"]
+description: "Exploring real-time seismic waveform analysis using interactive D3.js visualizations in the browser."
+---
+
+import InteractiveSeismogram from '../../components/InteractiveSeismogram.astro';
+
+# Interactive Seismology: Visualizing Waveforms
+
+In modern geophysics, the ability to interactively explore seismic data is crucial for accurate phase picking and event analysis. Traditional static plots often hide the fine details of P-wave and S-wave arrivals.
+
+## Real-Time Waveform Exploration
+
+Below is a synthetic seismogram generated to simulate a regional earthquake recorded at station **UGM-01**. You can **zoom** into the waveform using your mouse wheel or by double-clicking, and **pan** to move across the time series.
+
+<InteractiveSeismogram />
+
+### Key Observations:
+1. **P-Arrival (Primary Wave)**: Detected at approximately 3.0s. It represents the fastest seismic wave.
+2. **S-Arrival (Secondary Wave)**: Arrives at 5.5s with higher amplitude and lower frequency.
+3. **Signal-to-Noise Ratio (SNR)**: Interactively zooming allows researchers to distinguish small micro-seismic events from ambient background noise.
+
+## Technical Implementation
+
+This visualization is built using **D3.js** integrated directly into this **Astro MDX** post. By leveraging the client-side power of D3, we can handle thousands of data points with smooth interactions (60fps zooming and panning).
+
+```javascript
+// Sample D3.js Zoom implementation used here
+const zoom = d3.zoom()
+  .scaleExtent([1, 100])
+  .on('zoom', (event) => {
+    const newX = event.transform.rescaleX(x);
+    gX.call(xAxis.scale(newX));
+    path.attr('d', line.x(d => newX(d.t)));
+  });
+```
+
+Using these interactive tools, we can provide a more immersive experience for scientific communication and data analysis.
