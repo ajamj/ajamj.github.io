@@ -40,6 +40,7 @@ See: .planning/PROJECT.md (updated 2026-04-17)
 
 ## Pending Todos
 
+- [ ] **update-blog-description-hidup-itu-ujian**: Update description for blog post 'Hidup itu Ujian'
 - [ ] **disable-contact-form-resize**: Disable vertical resize on contact form message box
 - [ ] **standardize-color-palette**: Standardize consistent design color palette
 - [ ] **improve-mobile-responsiveness**: Improve mobile responsiveness across all devices
