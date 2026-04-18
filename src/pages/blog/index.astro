@@ -5,6 +5,9 @@ import { getCollection } from 'astro:content';
 const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.date.valueOf() - a.data.date.valueOf()
 );
+
+// Get all unique tags from posts
+const allTags = [...new Set(posts.flatMap(post => post.data.tags))].sort();
 ---
 
 <Layout title="Technical Research Blog | Ajam Jamaludin">
@@ -14,9 +17,20 @@ const posts = (await getCollection('blog')).sort(
 			<p class="section-subtitle hud-label">Insights into Computational Geophysics & Life</p>
 		</div>
 
-		<div class="blog-grid">
+		<!-- Tag Filter UI -->
+		<div class="filter-container">
+			<div class="filter-label hud-label">Filter by tag:</div>
+			<div class="filter-buttons">
+				<button class="filter-btn active" data-tag="all">All</button>
+				{allTags.map((tag) => (
+					<button class="filter-btn" data-tag={tag}>{tag}</button>
+				))}
+			</div>
+		</div>
+
+		<div class="blog-grid" id="blog-grid">
 			{posts.map((post) => (
-				<article class="blog-card glass-card card-hover">
+				<article class="blog-card glass-card card-hover" data-tags={JSON.stringify(post.data.tags)}>
 					<div class="card-hud hud-label">
 						{post.data.date.toLocaleDateString('en-US', {
 							year: 'numeric',
@@ -28,7 +42,7 @@ const posts = (await getCollection('blog')).sort(
 					<p class="blog-summary">{post.data.description}</p>
 					<div class="tags">
 						{post.data.tags.map((tag) => (
-							<span class="project-tag">{tag}</span>
+							<span class="project-tag" data-tag={tag}>{tag}</span>
 						))}
 					</div>
 					<div class="blog-footer">
@@ -37,8 +51,68 @@ const posts = (await getCollection('blog')).sort(
 				</article>
 			))}
 		</div>
+
+		<!-- No results message -->
+		<div class="no-results" id="no-results" style="display: none;">
+			<p>No posts found for the selected tag.</p>
+		</div>
 	</section>
 </Layout>
+
+<script>
+	// Tag filtering functionality
+	const filterButtons = document.querySelectorAll('.filter-btn');
+	const blogCards = document.querySelectorAll('.blog-card');
+	const noResults = document.getElementById('no-results');
+	const tagSpans = document.querySelectorAll('.project-tag');
+
+	// Function to filter by tag
+	function filterByTag(tag: string) {
+		// Update active button
+		filterButtons.forEach(b => {
+			b.classList.remove('active');
+			if (b.getAttribute('data-tag') === tag) {
+				b.classList.add('active');
+			}
+		});
+
+		// Filter cards
+		let visibleCount = 0;
+		blogCards.forEach(card => {
+			const cardTags = JSON.parse(card.getAttribute('data-tags') || '[]');
+			if (tag === 'all' || cardTags.includes(tag)) {
+				(card as HTMLElement).style.display = 'flex';
+				visibleCount++;
+			} else {
+				(card as HTMLElement).style.display = 'none';
+			}
+		});
+
+		// Show/hide no results message
+		if (noResults) {
+			noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+		}
+	}
+
+	// Filter button click handlers
+	filterButtons.forEach(btn => {
+		btn.addEventListener('click', () => {
+			const selectedTag = btn.getAttribute('data-tag');
+			filterByTag(selectedTag);
+		});
+	});
+
+	// Tag span click handlers (click on tag in card to filter)
+	tagSpans.forEach(tagSpan => {
+		tagSpan.addEventListener('click', (e) => {
+			e.preventDefault();
+			const tag = tagSpan.getAttribute('data-tag');
+			if (tag) {
+				filterByTag(tag);
+			}
+		});
+	});
+</script>
 
 <style>
 	.blog-index {
@@ -50,6 +124,62 @@ const posts = (await getCollection('blog')).sort(
 	.section-header {
 		text-align: center;
 		margin-bottom: var(--space-3xl);
+	}
+
+	/* Filter Container Styles */
+	.filter-container {
+		display: flex;
+		align-items: center;
+		gap: var(--space-md);
+		flex-wrap: wrap;
+		margin-bottom: var(--space-2xl);
+		padding: var(--space-lg);
+		background: rgba(16, 185, 129, 0.03);
+		border-radius: var(--radius-md);
+		border: 1px solid rgba(16, 185, 129, 0.1);
+	}
+
+	.filter-label {
+		font-size: 0.85rem;
+		opacity: 0.8;
+	}
+
+	.filter-buttons {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-xs);
+	}
+
+	.filter-btn {
+		font-family: var(--font-heading);
+		font-size: 0.75rem;
+		padding: 0.4rem 0.8rem;
+		background: transparent;
+		color: var(--color-text);
+		border: 1px solid rgba(255, 255, 255, 0.15);
+		border-radius: var(--radius-sm);
+		cursor: pointer;
+		transition: all 0.2s ease;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+	}
+
+	.filter-btn:hover {
+		background: rgba(16, 185, 129, 0.1);
+		border-color: rgba(16, 185, 129, 0.3);
+		color: var(--color-accent);
+	}
+
+	.filter-btn.active {
+		background: var(--color-accent);
+		color: var(--color-bg);
+		border-color: var(--color-accent);
+	}
+
+	.no-results {
+		text-align: center;
+		padding: var(--space-3xl);
+		opacity: 0.6;
 	}
 
 	.blog-grid {
@@ -100,6 +230,12 @@ const posts = (await getCollection('blog')).sort(
 		border-radius: var(--radius-sm);
 		text-transform: uppercase;
 		letter-spacing: 0.05em;
+		cursor: pointer;
+		transition: all 0.2s ease;
+	}
+
+	.project-tag:hover {
+		background: rgba(16, 185, 129, 0.2);
 	}
 
 	.blog-footer {

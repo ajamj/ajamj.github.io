@@ -2,6 +2,9 @@
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 
+// Highlight.js for syntax highlighting
+const highlightJs = 'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js';
+
 export async function getStaticPaths() {
 	const blogEntries = await getCollection('blog');
 	return blogEntries.map(entry => ({
@@ -15,6 +18,16 @@ console.log('Rendering content for:', entry.slug);
 ---
 
 <Layout title={`${entry.data.title} | Ajam Jamaludin`} description={entry.data.description}>
+	<!-- Syntax Highlighting -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" />
+	<script is:inline src={highlightJs}></script>
+	<script is:inline>
+		// Initialize highlight.js after DOM loads
+		document.addEventListener('DOMContentLoaded', () => {
+			hljs.highlightAll();
+		});
+	</script>
+
 	<article class="blog-post">
 		<header class="post-header scroll-reveal">
 			<div class="hud-label">{entry.data.date.toLocaleDateString('en-US', {
@@ -119,6 +132,30 @@ console.log('Rendering content for:', entry.slug);
 
 	.post-content :global(p) {
 		margin-bottom: var(--space-lg);
+	}
+
+	/* Code block styling */
+	.post-content :global(pre) {
+		background: #1a1a2e;
+		border-radius: var(--radius-md);
+		padding: var(--space-lg);
+		margin: var(--space-xl) 0;
+		overflow-x: auto;
+		font-size: 0.9rem;
+		line-height: 1.6;
+		border: 1px solid rgba(16, 185, 129, 0.15);
+	}
+
+	.post-content :global(code) {
+		font-family: 'Fira Code', 'Consolas', monospace;
+	}
+
+	.post-content :global(p code) {
+		background: rgba(16, 185, 129, 0.1);
+		padding: 0.15rem 0.4rem;
+		border-radius: var(--radius-sm);
+		font-size: 0.9em;
+		color: var(--color-accent);
 	}
 
 	.post-footer {
