@@ -86,7 +86,7 @@ Build a clean, fast, academic personal portfolio website and blog for Ajam Jamal
   1. Interactive D3.js (or similar) visualizations are embedded in the site
   2. Visualizations can handle and display geophysics-related data (e.g., wave charts)
   3. User can interact with the data (zoom, pan, or filter)
-**Plans**: TBD
+**Plans**: 1 plan (PLANNED)
 **UI hint**: yes
 
 ## Progress
@@ -101,7 +101,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | 3. Contact & SEO | 2/2 | Complete | 2026-04-18 |
 | 4. Polish | 1/1 | Complete | 2026-04-18 |
 | 5. Blog Implementation | 1/1 | In Progress | - |
-| 6. Interactive Data Visualizations | 0/0 | Not started | - |
+| 6. Interactive Data Visualizations | 1/1 | Planned | - |
 
 ---
 *Last updated: 2026-04-17 after project directive update*
