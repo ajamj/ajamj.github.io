@@ -75,22 +75,31 @@ import ContactForm from '../components/ContactForm.astro';
 </style>
 
 <script>
-  // Simple intersection observer for scroll-reveal
-  const observerOptions = {
-    root: null,
-    rootMargin: '0px',
-    threshold: 0.15
-  };
+  // Respect reduced motion preference
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
+  if (!prefersReducedMotion) {
+    const observerOptions = {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.scroll-reveal').forEach(el => {
+      observer.observe(el);
     });
-  }, observerOptions);
-
-  document.querySelectorAll('.scroll-reveal').forEach(el => {
-    observer.observe(el);
-  });
+  } else {
+    // Show all immediately for users who prefer reduced motion
+    document.querySelectorAll('.scroll-reveal').forEach(el => {
+      el.classList.add('visible');
+    });
+  }
 </script>

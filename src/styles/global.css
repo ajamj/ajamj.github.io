@@ -134,3 +134,39 @@ section:nth-child(odd) {
 .timeline-pulse {
 	animation: seismic-pulse 5s infinite cubic-bezier(0.4, 0, 0.6, 1);
 }
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+	.fade-in {
+		opacity: 1;
+		transform: none;
+		animation: none;
+	}
+
+	.scroll-reveal {
+		opacity: 1;
+		transform: none;
+		transition: none;
+	}
+
+	.card-hover,
+	.card-hover:hover,
+	.card-hover:focus {
+		transform: none;
+		transition: none;
+	}
+
+	.btn-animated,
+	.btn-animated:hover,
+	.btn-animated:focus {
+		transform: none;
+	}
+
+	.timeline-pulse {
+		animation: none;
+	}
+
+	body {
+		animation: none;
+	}
+}

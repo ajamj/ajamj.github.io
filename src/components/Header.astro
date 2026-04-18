@@ -9,8 +9,13 @@ const navItems = [
 ---
 
 <header id="site-header">
-  <button id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">
-    <span class="visually-hidden">Menu</span>☰
+  <button id="menu-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="main-nav">
+    <span class="visually-hidden">Menu</span>
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <line x1="4" y1="6" x2="20" y2="6"></line>
+      <line x1="4" y1="12" x2="20" y2="12"></line>
+      <line x1="4" y1="18" x2="20" y2="18"></line>
+    </svg>
   </button>
   <nav id="main-nav" aria-label="Main navigation">
     {navItems.map((item) => (
@@ -100,15 +105,35 @@ const navItems = [
     display: none;
     background: none;
     border: none;
-    font-size: 1.5rem;
     cursor: pointer;
     color: var(--color-text);
-    padding: var(--space-xs) var(--space-sm);
+    padding: 10px;
+    min-width: 44px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--radius-sm);
+    transition: all 0.2s ease;
+  }
+
+  #menu-toggle svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  #menu-toggle:hover {
+    color: var(--color-accent);
+  }
+
+  #menu-toggle:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
   }
 
   @media (max-width: 767px) {
     #menu-toggle {
-      display: block;
+      display: flex;
     }
 
     #main-nav {
@@ -121,6 +146,17 @@ const navItems = [
 
     #main-nav.is-open {
       display: flex;
+    }
+
+    #main-nav a:focus-visible {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 4px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    #menu-toggle {
+      display: none;
     }
   }
 </style>
