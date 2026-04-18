@@ -1,0 +1,394 @@
+---
+// EarthquakeViz.astro — D3.js Earthquake Magnitude vs Depth Scatterplot
+---
+
+<div class="earthquake-viz-container glass-card">
+  <div class="viz-header">
+    <div class="card-hud hud-label">DATASET: BMKG Java 2024-2025 | N=15</div>
+    <h3>Magnitude vs Depth Distribution</h3>
+  </div>
+  
+  <div class="viz-wrapper">
+    <svg id="earthquake-scatter" class="scatter-plot"></svg>
+    <div id="tooltip" class="tooltip" hidden></div>
+  </div>
+  
+  <div class="viz-controls">
+    <div class="control-group">
+      <label class="hud-label">View</label>
+      <button id="btn-scatter" class="control-btn active">Scatter</button>
+      <button id="btn-hist" class="control-btn">Histogram</button>
+    </div>
+  </div>
+  
+  <div class="viz-legend">
+    <div class="legend-item">
+      <span class="legend-dot shallow"></span>
+      <span class="legend-label">Shallow (&lt;20 km)</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-dot intermediate"></span>
+      <span class="legend-label">Intermediate (20-40 km)</span>
+    </div>
+    <div class="legend-item">
+      <span class="legend-dot deep"></span>
+      <span class="legend-label">Deep (&gt;40 km)</span>
+    </div>
+  </div>
+</div>
+
+<style>
+  .earthquake-viz-container {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-xl);
+    min-height: 450px;
+  }
+
+  .viz-header {
+    margin-bottom: var(--space-lg);
+  }
+
+  .viz-header h3 {
+    font-size: 1.1rem;
+    margin: var(--space-xs) 0 0 0;
+  }
+
+  .viz-wrapper {
+    flex-grow: 1;
+    position: relative;
+    min-height: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .scatter-plot {
+    width: 100%;
+    height: 280px;
+    overflow: visible;
+  }
+
+  .tooltip {
+    position: absolute;
+    background: var(--color-surface-highest);
+    border: 1px solid var(--color-accent);
+    border-radius: var(--radius-sm);
+    padding: var(--space-sm) var(--space-md);
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    color: var(--color-text);
+    pointer-events: none;
+    z-index: 100;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    max-width: 220px;
+    line-height: 1.4;
+  }
+
+  .tooltip.hidden {
+    display: none;
+  }
+
+  .tooltip-location {
+    color: var(--color-accent);
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .tooltip-meta {
+    color: var(--color-text-muted);
+    font-size: 0.7rem;
+  }
+
+  .viz-controls {
+    margin-top: var(--space-lg);
+    display: flex;
+    justify-content: center;
+  }
+
+  .control-group {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .control-btn {
+    background: transparent;
+    border: 1px solid var(--color-border);
+    color: var(--color-text-muted);
+    padding: var(--space-xs) var(--space-md);
+    border-radius: var(--radius-sm);
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .control-btn:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+
+  .control-btn.active {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-bg);
+  }
+
+  .viz-legend {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-xl);
+    margin-top: var(--space-lg);
+    padding-top: var(--space-md);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+  }
+
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .legend-dot.shallow {
+    background: #10b981;
+    box-shadow: 0 0 8px #10b981;
+  }
+
+  .legend-dot.intermediate {
+    background: #f59e0b;
+    box-shadow: 0 0 8px #f59e0b;
+  }
+
+  .legend-dot.deep {
+    background: #ef4444;
+    box-shadow: 0 0 8px #ef4444;
+  }
+
+  .legend-label {
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+  }
+
+  @media (max-width: 640px) {
+    .viz-legend {
+      flex-direction: column;
+      gap: var(--space-sm);
+      align-items: flex-start;
+      padding-left: var(--space-md);
+    }
+  }
+</style>
+
+<script>
+  import * as d3 from 'd3';
+
+  // Load earthquake data
+  const earthquakeData = [
+    {id: "eq001", datetime: "2024-01-15T03:24:00Z", latitude: -7.912, longitude: 110.543, magnitude: 4.8, depth: 15.2, location: "Banyumas, Central Java", region: "Java"},
+    {id: "eq002", datetime: "2024-02-08T11:45:00Z", latitude: -8.234, longitude: 111.876, magnitude: 5.2, depth: 23.4, location: "East Java Sea", region: "Java"},
+    {id: "eq003", datetime: "2024-03-12T22:13:00Z", latitude: -6.893, longitude: 109.652, magnitude: 3.9, depth: 8.7, location: "Pekalongan, Central Java", region: "Java"},
+    {id: "eq004", datetime: "2024-04-05T06:38:00Z", latitude: -7.456, longitude: 108.234, magnitude: 4.2, depth: 12.1, location: "Ciamis, West Java", region: "Java"},
+    {id: "eq005", datetime: "2024-05-19T14:52:00Z", latitude: -8.789, longitude: 110.123, magnitude: 5.6, depth: 31.5, location: "Yogyakarta Sea", region: "Java"},
+    {id: "eq006", datetime: "2024-06-22T08:17:00Z", latitude: -7.123, longitude: 109.876, magnitude: 4.5, depth: 9.8, location: "Wonosobo, Central Java", region: "Java"},
+    {id: "eq007", datetime: "2024-07-14T19:44:00Z", latitude: -8.567, longitude: 111.234, magnitude: 6.1, depth: 42.3, location: "Bali Sea", region: "Nusa Tenggara"},
+    {id: "eq008", datetime: "2024-08-03T02:29:00Z", latitude: -6.678, longitude: 108.987, magnitude: 3.7, depth: 6.2, location: "Cirebon, West Java", region: "Java"},
+    {id: "eq009", datetime: "2024-09-11T15:06:00Z", latitude: -7.891, longitude: 110.456, magnitude: 4.9, depth: 18.7, location: "Magelang, Central Java", region: "Java"},
+    {id: "eq010", datetime: "2024-10-28T21:33:00Z", latitude: -8.123, longitude: 112.345, magnitude: 5.4, depth: 28.9, location: "Malang, East Java", region: "Java"},
+    {id: "eq011", datetime: "2024-11-05T10:18:00Z", latitude: -7.345, longitude: 109.234, magnitude: 4.1, depth: 11.4, location: "Bandung, West Java", region: "Java"},
+    {id: "eq012", datetime: "2024-12-17T04:47:00Z", latitude: -6.543, longitude: 108.123, magnitude: 3.5, depth: 5.1, location: "Patrol, West Java", region: "Java"},
+    {id: "eq013", datetime: "2025-01-09T12:22:00Z", latitude: -8.678, longitude: 111.678, magnitude: 5.8, depth: 35.6, location: "Madura Strait", region: "Java"},
+    {id: "eq014", datetime: "2025-02-21T17:55:00Z", latitude: -7.234, longitude: 110.789, magnitude: 4.4, depth: 14.3, location: "Surakarta, Central Java", region: "Java"},
+    {id: "eq015", datetime: "2025-03-08T23:41:00Z", latitude: -6.891, longitude: 107.456, magnitude: 3.8, depth: 7.9, location: "Sukabumi, West Java", region: "Java"}
+  ];
+
+  // Color scale based on depth
+  function getColor(depth) {
+    if (depth < 20) return '#10b981';  // Shallow - green
+    if (depth < 40) return '#f59e0b'; // Intermediate - amber
+    return '#ef4444';                   // Deep - red
+  }
+
+  // Initialize visualization
+  function initViz() {
+    const container = document.querySelector('.viz-wrapper');
+    const svg = d3.select('#earthquake-scatter');
+    
+    // Get actual dimensions
+    const rect = container.getBoundingClientRect();
+    const width = Math.min(rect.width, 500);
+    const height = 280;
+    const margin = { top: 20, right: 30, bottom: 50, left: 50 };
+    const innerWidth = width - margin.left - margin.right;
+    const innerHeight = height - margin.top - margin.bottom;
+
+    // Clear previous content
+    svg.selectAll('*').remove();
+    svg.attr('width', width).attr('height', height);
+
+    const g = svg.append('g')
+      .attr('transform', `translate(${margin.left},${margin.top})`);
+
+    // Scales
+    const xScale = d3.scaleLinear()
+      .domain([3, 7])
+      .range([0, innerWidth]);
+
+    const yScale = d3.scaleLinear()
+      .domain([0, 50])
+      .range([innerHeight, 0]);
+
+    // Grid lines
+    g.append('g')
+      .attr('class', 'grid-y')
+      .selectAll('line')
+      .data(yScale.ticks(5))
+      .enter()
+      .append('line')
+      .attr('x1', 0)
+      .attr('x2', innerWidth)
+      .attr('y1', d => yScale(d))
+      .attr('y2', d => yScale(d))
+      .attr('stroke', 'rgba(60, 74, 66, 0.15)')
+      .attr('stroke-width', 1);
+
+    g.append('g')
+      .attr('class', 'grid-x')
+      .selectAll('line')
+      .data(xScale.ticks(5))
+      .enter()
+      .append('line')
+      .attr('x1', d => xScale(d))
+      .attr('x2', d => xScale(d))
+      .attr('y1', 0)
+      .attr('y2', innerHeight)
+      .attr('stroke', 'rgba(60, 74, 66, 0.15)')
+      .attr('stroke-width', 1);
+
+    // Axes
+    const xAxis = d3.axisBottom(xScale).ticks(5).tickFormat(d => `M${d}`);
+    const yAxis = d3.axisLeft(yScale).ticks(5).tickFormat(d => `${d}km`);
+
+    g.append('g')
+      .attr('transform', `translate(0,${innerHeight})`)
+      .call(xAxis)
+      .attr('color', 'rgba(107, 114, 128, 0.7)')
+      .selectAll('text')
+      .attr('font-family', 'var(--font-heading)')
+      .attr('font-size', '10px');
+
+    g.append('g')
+      .call(yAxis)
+      .attr('color', 'rgba(107, 114, 128, 0.7)')
+      .selectAll('text')
+      .attr('font-family', 'var(--font-heading)')
+      .attr('font-size', '10px');
+
+    // Axis labels
+    g.append('text')
+      .attr('x', innerWidth / 2)
+      .attr('y', innerHeight + 40)
+      .attr('text-anchor', 'middle')
+      .attr('fill', 'rgba(107, 114, 128, 0.7)')
+      .attr('font-family', 'var(--font-heading)')
+      .attr('font-size', '11px')
+      .text('Magnitude (Mw)');
+
+    g.append('text')
+      .attr('transform', 'rotate(-90)')
+      .attr('x', -innerHeight / 2)
+      .attr('y', -35)
+      .attr('text-anchor', 'middle')
+      .attr('fill', 'rgba(107, 114, 128, 0.7)')
+      .attr('font-family', 'var(--font-heading)')
+      .attr('font-size', '11px')
+      .text('Depth');
+
+    // Tooltip element
+    const tooltip = d3.select('#tooltip');
+
+    // Data points with interaction
+    g.selectAll('circle')
+      .data(earthquakeData)
+      .enter()
+      .append('circle')
+      .attr('cx', d => xScale(d.magnitude))
+      .attr('cy', d => yScale(d.depth))
+      .attr('r', 0)
+      .attr('fill', d => getColor(d.depth))
+      .attr('fill-opacity', 0.7)
+      .attr('stroke', d => getColor(d.depth))
+      .attr('stroke-width', 1.5)
+      .attr('stroke-opacity', 0.9)
+      .attr('cursor', 'pointer')
+      .on('mouseenter', function(event, d) {
+        d3.select(this)
+          .transition()
+          .duration(150)
+          .attr('r', 12)
+          .attr('fill-opacity', 1);
+
+        const date = new Date(d.datetime);
+        const formattedDate = date.toLocaleDateString('en-US', { 
+          year: 'numeric', 
+          month: 'short', 
+          day: 'numeric' 
+        });
+
+        tooltip
+          .attr('hidden', null)
+          .html(`
+            <div class="tooltip-location">${d.location}</div>
+            <div class="tooltip-meta">
+              M${d.magnitude} | ${d.depth}km depth<br>
+              ${formattedDate}
+            </div>
+          `);
+
+        const containerRect = container.getBoundingClientRect();
+        const point = d3.select(this).node().getBoundingClientRect();
+        const tooltipNode = tooltip.node();
+        
+        let left = point.left - containerRect.left + 15;
+        let top = point.top - containerRect.top - 10;
+
+        // Keep tooltip in bounds
+        if (left + 180 > containerRect.width) {
+          left = point.left - containerRect.left - 200;
+        }
+
+        tooltip.style('left', `${left}px`);
+        tooltip.style('top', `${top}px`);
+      })
+      .on('mouseleave', function() {
+        d3.select(this)
+          .transition()
+          .duration(150)
+          .attr('r', 8)
+          .attr('fill-opacity', 0.7);
+        
+        tooltip.attr('hidden', true);
+      })
+      .transition()
+      .duration(800)
+      .delay((d, i) => i * 50)
+      .attr('r', 8);
+  }
+
+  // Initialize on load
+  document.addEventListener('DOMContentLoaded', initViz);
+  
+  // Also init on resize (debounced)
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(initViz, 250);
+  });
+</script>

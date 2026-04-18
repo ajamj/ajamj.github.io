@@ -1,0 +1,154 @@
+{
+  "earthquakes": [
+    {
+      "id": "eq001",
+      "datetime": "2024-01-15T03:24:00Z",
+      "latitude": -7.912,
+      "longitude": 110.543,
+      "magnitude": 4.8,
+      "depth": 15.2,
+      "location": "Banyumas, Central Java",
+      "region": "Java"
+    },
+    {
+      "id": "eq002",
+      "datetime": "2024-02-08T11:45:00Z",
+      "latitude": -8.234,
+      "longitude": 111.876,
+      "magnitude": 5.2,
+      "depth": 23.4,
+      "location": "East Java Sea",
+      "region": "Java"
+    },
+    {
+      "id": "eq003",
+      "datetime": "2024-03-12T22:13:00Z",
+      "latitude": -6.893,
+      "longitude": 109.652,
+      "magnitude": 3.9,
+      "depth": 8.7,
+      "location": "Pekalongan, Central Java",
+      "region": "Java"
+    },
+    {
+      "id": "eq004",
+      "datetime": "2024-04-05T06:38:00Z",
+      "latitude": -7.456,
+      "longitude": 108.234,
+      "magnitude": 4.2,
+      "depth": 12.1,
+      "location": "Ciamis, West Java",
+      "region": "Java"
+    },
+    {
+      "id": "eq005",
+      "datetime": "2024-05-19T14:52:00Z",
+      "latitude": -8.789,
+      "longitude": 110.123,
+      "magnitude": 5.6,
+      "depth": 31.5,
+      "location": "Yogyakarta Sea",
+      "region": "Java"
+    },
+    {
+      "id": "eq006",
+      "datetime": "2024-06-22T08:17:00Z",
+      "latitude": -7.123,
+      "longitude": 109.876,
+      "magnitude": 4.5,
+      "depth": 9.8,
+      "location": "Wonosobo, Central Java",
+      "region": "Java"
+    },
+    {
+      "id": "eq007",
+      "datetime": "2024-07-14T19:44:00Z",
+      "latitude": -8.567,
+      "longitude": 111.234,
+      "magnitude": 6.1,
+      "depth": 42.3,
+      "location": "Bali Sea",
+      "region": "Nusa Tenggara"
+    },
+    {
+      "id": "eq008",
+      "datetime": "2024-08-03T02:29:00Z",
+      "latitude": -6.678,
+      "longitude": 108.987,
+      "magnitude": 3.7,
+      "depth": 6.2,
+      "location": "Cirebon, West Java",
+      "region": "Java"
+    },
+    {
+      "id": "eq009",
+      "datetime": "2024-09-11T15:06:00Z",
+      "latitude": -7.891,
+      "longitude": 110.456,
+      "magnitude": 4.9,
+      "depth": 18.7,
+      "location": "Magelang, Central Java",
+      "region": "Java"
+    },
+    {
+      "id": "eq010",
+      "datetime": "2024-10-28T21:33:00Z",
+      "latitude": -8.123,
+      "longitude": 112.345,
+      "magnitude": 5.4,
+      "depth": 28.9,
+      "location": "Malang, East Java",
+      "region": "Java"
+    },
+    {
+      "id": "eq011",
+      "datetime": "2024-11-05T10:18:00Z",
+      "latitude": -7.345,
+      "longitude": 109.234,
+      "magnitude": 4.1,
+      "depth": 11.4,
+      "location": "Bandung, West Java",
+      "region": "Java"
+    },
+    {
+      "id": "eq012",
+      "datetime": "2024-12-17T04:47:00Z",
+      "latitude": -6.543,
+      "longitude": 108.123,
+      "magnitude": 3.5,
+      "depth": 5.1,
+      "location": "Patrol, West Java",
+      "region": "Java"
+    },
+    {
+      "id": "eq013",
+      "datetime": "2025-01-09T12:22:00Z",
+      "latitude": -8.678,
+      "longitude": 111.678,
+      "magnitude": 5.8,
+      "depth": 35.6,
+      "location": "Madura Strait",
+      "region": "Java"
+    },
+    {
+      "id": "eq014",
+      "datetime": "2025-02-21T17:55:00Z",
+      "latitude": -7.234,
+      "longitude": 110.789,
+      "magnitude": 4.4,
+      "depth": 14.3,
+      "location": "Surakarta, Central Java",
+      "region": "Java"
+    },
+    {
+      "id": "eq015",
+      "datetime": "2025-03-08T23:41:00Z",
+      "latitude": -6.891,
+      "longitude": 107.456,
+      "magnitude": 3.8,
+      "depth": 7.9,
+      "location": "Sukabumi, West Java",
+      "region": "Java"
+    }
+  ]
+}

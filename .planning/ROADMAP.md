@@ -10,8 +10,8 @@ Build a clean, fast, academic personal portfolio website and blog for Ajam Jamal
 - [x] **Phase 2: Content** - Portfolio content with geophysics research focus (COMPLETE)
 - [x] **Phase 3: Contact & SEO** - Contact section, meta tags, accessibility (COMPLETE)
 - [x] **Phase 4: Polish** - Visual refinement, responsive testing, final deploy (COMPLETE)
-- [ ] **Phase 5: Blog Implementation** - Markdown/MDX blog system, listing, and post layouts
-- [ ] **Phase 6: Interactive Data Visualizations** - Geophysics data viz integration using D3.js
+- [x] **Phase 5: Blog Implementation** - Markdown/MDX blog system, listing, and post layouts (COMPLETE)
+- [x] **Phase 6: Interactive Data Visualizations** - D3.js earthquake scatterplot (COMPLETE)
 
 ---
 
@@ -19,6 +19,15 @@ Build a clean, fast, academic personal portfolio website and blog for Ajam Jamal
 
 - [x] **Phase 1.1: Accessibility Fixes** - SVG icons, 44×44pt touch, reduced motion, contrast (COMPLETE)
 - [x] **Phase 1.2: UI Improvements** - Contact form resize, blog scroll-reveal (COMPLETE)
+
+---
+
+## v1.2 Enhancement Phase (2026-04-18)
+
+- [ ] **Phase 7: Multi-Page Structure** - Add /about, /cv, /projects pages
+- [ ] **Phase 8: Personal Portrait** - Add photo to Hero section
+
+---
 
 ## Phase Details
 
@@ -81,12 +90,12 @@ Build a clean, fast, academic personal portfolio website and blog for Ajam Jamal
 ### Phase 6: Interactive Data Visualizations
 **Goal**: Embedding interactive geophysics visualizations into the site/blog
 **Depends on**: Phase 5
-**Requirements**: VIZ-01, VIZ-02, VIZ-03
+**Requirements**: VIZ-01, VIZ-02, VIZ-03, DATAVIZ-01, DATAVIZ-02, DATAVIZ-03
 **Success Criteria** (what must be TRUE):
-  1. Interactive D3.js (or similar) visualizations are embedded in the site
-  2. Visualizations can handle and display geophysics-related data (e.g., wave charts)
-  3. User can interact with the data (zoom, pan, or filter)
-**Plans**: 1 plan (PLANNED)
+  1. Interactive D3.js scatterplot visualization is embedded in the site
+  2. Visualizations display earthquake magnitude vs depth data (15 events)
+  3. User can interact with data points (tooltips on hover)
+**Plans**: 1 plan (COMPLETE)
 **UI hint**: yes
 
 ## Progress
@@ -100,8 +109,8 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | 2. Content | 1/1 | Complete | 2026-04-16 |
 | 3. Contact & SEO | 2/2 | Complete | 2026-04-18 |
 | 4. Polish | 1/1 | Complete | 2026-04-18 |
-| 5. Blog Implementation | 1/1 | In Progress | - |
-| 6. Interactive Data Visualizations | 1/1 | Planned | - |
+| 5. Blog Implementation | 1/1 | Complete | 2026-04-18 |
+| 6. Interactive Data Visualizations | 1/1 | Complete | 2026-04-18 |
 
 ---
 *Last updated: 2026-04-17 after project directive update*
