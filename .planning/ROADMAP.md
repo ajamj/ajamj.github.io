@@ -8,10 +8,17 @@ Build a clean, fast, academic personal portfolio website and blog for Ajam Jamal
 
 - [x] **Phase 1: Foundation** - Astro project setup, responsive layout, typography (COMPLETE)
 - [x] **Phase 2: Content** - Portfolio content with geophysics research focus (COMPLETE)
-- [ ] **Phase 3: Contact & SEO** - Contact section, meta tags, accessibility
-- [ ] **Phase 4: Polish** - Visual refinement, responsive testing, final deploy
+- [x] **Phase 3: Contact & SEO** - Contact section, meta tags, accessibility (COMPLETE)
+- [x] **Phase 4: Polish** - Visual refinement, responsive testing, final deploy (COMPLETE)
 - [ ] **Phase 5: Blog Implementation** - Markdown/MDX blog system, listing, and post layouts
 - [ ] **Phase 6: Interactive Data Visualizations** - Geophysics data viz integration using D3.js
+
+---
+
+## v1.1 Enhancement Phase (2026-04-18)
+
+- [x] **Phase 1.1: Accessibility Fixes** - SVG icons, 44×44pt touch, reduced motion, contrast (COMPLETE)
+- [x] **Phase 1.2: UI Improvements** - Contact form resize, blog scroll-reveal (COMPLETE)
 
 ## Phase Details
 

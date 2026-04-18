@@ -1,8 +1,29 @@
 # Requirements: Personal Portfolio Website & Blog
 
 **Defined:** 2026-04-16
-**Updated:** 2026-04-17
+**Updated:** 2026-04-18
 **Core Value:** Visitors can quickly understand Ajam's expertise, explore portfolio projects, engage with interactive geophysics data visualizations, and read in-depth analysis.
+
+## v1.1 Requirements (Enhancement Phase)
+
+### Accessibility & UI
+
+- [x] **A11Y-01**: SVG icons instead of emojis (hamburger menu)
+- [x] **A11Y-02**: Touch targets minimum 44×44pt
+- [x] **A11Y-03**: Reduced motion support (prefers-reduced-motion)
+- [x] **A11Y-04**: Text contrast WCAG AA compliant (4.5:1)
+- [x] **A11Y-05**: Keyboard navigation focus states
+
+### Blog & Content
+
+- [x] **CONT-08**: Blog post descriptions from actual content
+- [x] **BLOG-04**: Fixed blog post scroll-reveal visibility
+
+### Forms
+
+- [x] **FORM-01**: Contact form textarea non-resizable
+
+---
 
 ## v1 Requirements
 
@@ -101,9 +122,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 **Coverage:**
 - v1 requirements: 27 total
-- Completed: 18 (STRU-01-04, CONT-01-06, DESN-01-05, TECH-01-03)
+- v1.1 requirements: 10 (A11Y-01-05, CONT-08, BLOG-04, FORM-01)
+- v1 Completed: 18 (STRU-01-04, CONT-01-06, DESN-01-05, TECH-01-03)
+- v1.1 Completed: 10
 - Pending: 9 (STRU-05, CONT-07, TECH-04, BLOG-01-03, VIZ-01-03)
 - Mapped to phases: 27 ✓
 
 ---
-*Requirements updated: 2026-04-17*
+*Requirements updated: 2026-04-18*

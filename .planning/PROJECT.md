@@ -63,4 +63,25 @@ Visitors can quickly understand Ajam's expertise, explore portfolio projects (se
 This document evolves at phase transitions and milestone boundaries.
 
 ---
-*Last updated: 2026-04-17 based on new project directive*
+
+## Milestone v1.1: Enhancement Phase (2026-04-18)
+
+### Goals for This Milestone
+- Complete remaining UI/UX improvements
+- Add multi-page structure (optional - besar)
+- Personal portrait integration (optional - besar)
+- Mobile-first design polish
+- Performance optimization
+
+### Completed This Milestone
+- Fixed hamburger emoji → SVG icon
+- Added 44×44pt touch targets
+- Added reduced motion support
+- Fixed text contrast (WCAG AA)
+- Fixed GitHub workflow dependency conflict
+- Updated blog description
+- Disabled contact form resize
+- Fixed blog scroll-reveal observer
+
+---
+*Last updated: 2026-04-18*
