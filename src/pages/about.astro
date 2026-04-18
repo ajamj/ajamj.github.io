@@ -1,0 +1,441 @@
+---
+import Layout from '../layouts/Layout.astro';
+import PublicationList from '../components/PublicationList.astro';
+import SkillsChart from '../components/SkillsChart.astro';
+
+const education = [
+  {
+    degree: 'Bachelor of Science in Geophysics',
+    institution: 'Universitas Gadjah Mada',
+    period: '2019 – 2026',
+    details: [
+      'GPA: 3.35 / 4.00',
+      'Specialization: Signal Processing, Statistical Analysis, Scientific Computing',
+    ],
+  },
+];
+
+const researchInterests = [
+  {
+    title: 'Seismic Data Processing',
+    description: 'Developing automated algorithms for earthquake detection, phase picking, and magnitude estimation using machine learning approaches.',
+    icon: '〰',
+  },
+  {
+    title: 'Earthquake Early Warning Systems',
+    description: 'Building real-time seismic monitoring pipelines with optimized parameter estimation for rapid and accurate hazard assessment.',
+    icon: '⚡',
+  },
+  {
+    title: 'Seismic Hazard Analysis',
+    description: 'Analyzing ground motion characteristics and probabilistic seismic hazard modeling for infrastructure resilience.',
+    icon: '📊',
+  },
+  {
+    title: 'Knowledge Graph Integration',
+    description: 'Connecting seismic metadata into structured knowledge systems for enhanced data discovery and analysis.',
+    icon: '🔗',
+  },
+];
+
+const timeline = [
+  {
+    year: '2026',
+    title: 'Research Assistant',
+    organization: 'Geoseismal Research Center',
+    description: 'Continuing seismic research with focus on computational methods and real-time data processing pipelines.',
+  },
+  {
+    year: '2024',
+    title: 'Software Intern',
+    organization: 'BMKG',
+    description: 'Developed EEW data pipelines and magnitude estimation algorithms for Indonesia\'s seismic network.',
+  },
+  {
+    year: '2023',
+    title: 'Teaching Assistant',
+    organization: 'UGM',
+    description: 'Mentored undergraduates in Python for scientific computing and computational methods.',
+  },
+  {
+    year: '2019',
+    title: 'Began Studies',
+    organization: 'Universitas Gadjah Mada',
+    description: 'Started undergraduate journey in geophysics.',
+  },
+];
+---
+
+<Layout 
+  title="About | Ajam Jamaludin"
+  description="Extended biography and research interests of Ajam Jamaludin, Geophysics Researcher"
+>
+  <main>
+    <!-- Hero Section -->
+    <section class="about-hero">
+      <div class="container">
+        <div class="hero-content">
+          <span class="hud-label">PROFILE EXTENDED</span>
+          <h1>About Me</h1>
+          <p class="hero-intro">
+            I'm a geophysics researcher focused on seismic data analysis and earthquake early warning systems. 
+            My work combines computational methods with real-time seismic monitoring to improve earthquake 
+            detection and hazard assessment.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research Interests -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Research Interests</h2>
+          <p class="section-subtitle hud-label">Core Focus Areas</p>
+        </div>
+        
+        <div class="interests-grid">
+          {researchInterests.map((interest) => (
+            <div class="interest-card glass-card">
+              <span class="interest-icon">{interest.icon}</span>
+              <h3>{interest.title}</h3>
+              <p>{interest.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Education</h2>
+          <p class="section-subtitle hud-label">Academic Background</p>
+        </div>
+        
+        <div class="education-list">
+          {education.map((edu) => (
+            <div class="education-item glass-card">
+              <span class="hud-label">{edu.period}</span>
+              <h3>{edu.degree}</h3>
+              <span class="edu-institution">{edu.institution}</span>
+              <ul class="edu-details">
+                {edu.details.map((detail) => (
+                  <li>{detail}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Timeline -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Journey</h2>
+          <p class="section-subtitle hud-label">Key Milestones</p>
+        </div>
+        
+        <div class="journey-timeline">
+          {timeline.map((item, index) => (
+            <div class="journey-item">
+              <div class="journey-marker">
+                <span class="journey-year">{item.year}</span>
+              </div>
+              <div class="journey-content glass-card">
+                <h3>{item.title}</h3>
+                <span class="journey-org">{item.organization}</span>
+                <p>{item.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Summary -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Technical Skills</h2>
+          <p class="section-subtitle hud-label">Tools & Technologies</p>
+        </div>
+        <SkillsChart />
+      </div>
+    </section>
+
+    <!-- CV Link -->
+    <section class="section">
+      <div class="container text-center">
+        <div class="cta-content">
+          <h2>View Full Curriculum Vitae</h2>
+          <p>Download or view my complete CV with all publications, experience, and details.</p>
+          <a href="/cv" class="btn btn-primary">
+            <span>View CV</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+  }
+
+  .about-hero {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(180deg, var(--color-surface-low) 0%, var(--color-bg) 100%);
+    padding: var(--space-3xl) 0;
+  }
+
+  .hero-content {
+    max-width: 700px;
+  }
+
+  .hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero-intro {
+    font-size: 1.25rem;
+    opacity: 0.85;
+    line-height: 1.7;
+  }
+
+  .section {
+    padding: var(--space-3xl) 0;
+  }
+
+  .section-alt {
+    background-color: var(--color-surface-low);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+  }
+
+  .section-title {
+    margin-bottom: var(--space-xs);
+  }
+
+  .section-subtitle {
+    color: var(--color-accent);
+  }
+
+  /* Interests Grid */
+  .interests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .interest-card {
+    padding: var(--space-xl);
+    transition: all 0.3s ease;
+  }
+
+  .interest-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-accent);
+  }
+
+  .interest-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: var(--space-md);
+  }
+
+  .interest-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .interest-card p {
+    opacity: 0.8;
+    margin: 0;
+  }
+
+  /* Education */
+  .education-list {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .education-item {
+    padding: var(--space-xl);
+  }
+
+  .education-item h3 {
+    margin: var(--space-sm) 0;
+  }
+
+  .edu-institution {
+    display: block;
+    color: var(--color-accent);
+    font-family: var(--font-heading);
+    font-weight: 500;
+    margin-bottom: var(--space-md);
+  }
+
+  .edu-details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .edu-details li {
+    position: relative;
+    padding-left: var(--space-lg);
+    margin-bottom: var(--space-xs);
+    opacity: 0.85;
+  }
+
+  .edu-details li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+  }
+
+  /* Journey Timeline */
+  .journey-timeline {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+    padding-left: var(--space-2xl);
+  }
+
+  .journey-timeline::before {
+    content: '';
+    position: absolute;
+    left: 24px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--color-accent), transparent);
+    opacity: 0.3;
+  }
+
+  .journey-item {
+    position: relative;
+    margin-bottom: var(--space-xl);
+  }
+
+  .journey-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .journey-marker {
+    position: absolute;
+    left: -49px;
+    top: 0;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg);
+    border: 2px solid var(--color-accent);
+    border-radius: 50%;
+  }
+
+  .journey-year {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--color-accent);
+  }
+
+  .journey-content {
+    padding: var(--space-lg);
+  }
+
+  .journey-content h3 {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-xs);
+  }
+
+  .journey-org {
+    display: block;
+    color: var(--color-accent);
+    font-weight: 500;
+    margin-bottom: var(--space-sm);
+  }
+
+  .journey-content p {
+    margin: 0;
+    opacity: 0.8;
+  }
+
+  /* CTA */
+  .cta-content {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .cta-content h2 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .cta-content p {
+    margin-bottom: var(--space-xl);
+    opacity: 0.8;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-xl);
+    background: var(--color-accent);
+    color: var(--color-white);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease;
+  }
+
+  .btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .hero-content h1 {
+      font-size: 2.5rem;
+    }
+
+    .journey-timeline {
+      padding-left: var(--space-xl);
+    }
+
+    .journey-marker {
+      left: -37px;
+      width: 40px;
+      height: 40px;
+    }
+
+    .journey-timeline::before {
+      left: 19px;
+    }
+  }
+</style>

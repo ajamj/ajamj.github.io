@@ -1,0 +1,447 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const projects = [
+  {
+    title: 'Seismic EEW Pipeline',
+    description: 'Real-time earthquake early warning data pipeline processing 58-station seismic network data. Features optimized STA/LTA P-wave detection, magnitude estimation using Mpd method, and hypocenter calculation via HYPO71 integration.',
+    tags: ['Python', 'ObsPy', 'FDSN', 'PyQt5', 'Folium'],
+    year: '2024',
+    category: 'Infrastructure',
+    links: [
+      { label: 'View Code', url: 'https://github.com/ajamj/seismic-pipeline' },
+    ],
+  },
+  {
+    title: 'Seismogram Visualizer',
+    description: 'Interactive web application for visualizing seismic waveforms with real-time data fetching from FDSN networks. Features waveform display, filtering controls, and travel-time calculations.',
+    tags: ['JavaScript', 'D3.js', 'FDSN', 'Web APIs'],
+    year: '2024',
+    category: 'Visualization',
+    links: [
+      { label: 'Live Demo', url: 'https://ajamj.github.io/seismogram' },
+      { label: 'View Code', url: 'https://github.com/ajamj/seismogram' },
+    ],
+  },
+  {
+    title: 'Earthquake Knowledge Graph',
+    description: 'Automated system for extracting and indexing seismic metadata into a structured knowledge graph. Enables advanced querying of earthquake catalogs and pattern analysis across historical seismic data.',
+    tags: ['Python', 'Knowledge Graph', 'RDF', 'SPARQL'],
+    year: '2024',
+    category: 'Data Science',
+    links: [
+      { label: 'View Code', url: 'https://github.com/ajamj/earthquake-kg' },
+    ],
+  },
+  {
+    title: 'ML Earthquake Classifier',
+    description: 'Machine learning-based system for earthquake detection and classification using ensemble methods. Evaluates different ML approaches for P-wave detection and magnitude prediction.',
+    tags: ['Python', 'Scikit-learn', 'TensorFlow', 'ObsPy'],
+    year: '2024',
+    category: 'Machine Learning',
+    links: [
+      { label: 'View Code', url: 'https://github.com/ajamj/ml-earthquake' },
+    ],
+  },
+  {
+    title: 'Seismic Data Processing Scripts',
+    description: 'Collection of Python scripts for seismic data processing including filtering, spectral analysis, and ground motion calculations using ObsPy.',
+    tags: ['Python', 'ObsPy', 'NumPy', 'SciPy'],
+    year: '2023',
+    category: 'Tools',
+    links: [
+      { label: 'View Code', url: 'https://github.com/ajamj/seismic-scripts' },
+    ],
+  },
+  {
+    title: 'Gravitational Terrain Correction Tool',
+    description: 'Interactive GUI application for calculating gravitational terrain corrections using digital elevation models. Built for geophysics surveys.',
+    tags: ['Python', 'MATLAB', 'GDAL', 'Qt'],
+    year: '2022',
+    category: 'Geophysics',
+    links: [],
+  },
+];
+
+const categories = [...new Set(projects.map(p => p.category))];
+---
+
+<Layout 
+  title="Projects | Ajam Jamaludin"
+  description="Research projects and portfolio of Ajam Jamaludin - Geophysics Researcher"
+>
+  <main>
+    <!-- Hero Section -->
+    <section class="projects-hero">
+      <div class="container">
+        <span class="hud-label">PORTFOLIO</span>
+        <h1>Projects</h1>
+        <p class="hero-intro">
+          A collection of research projects, tools, and applications in seismology 
+          and seismic data processing. Each project explores different aspects of 
+          computational geophysics.
+        </p>
+      </div>
+    </section>
+
+    <!-- Filter Tags -->
+    <section class="filter-section">
+      <div class="container">
+        <div class="filter-tags">
+          <button class="filter-tag active" data-category="all">All</button>
+          {categories.map((cat) => (
+            <button class="filter-tag" data-category={cat}>{cat}</button>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Grid -->
+    <section class="section">
+      <div class="container">
+        <div class="projects-grid">
+          {projects.map((project) => (
+            <article class="project-card glass-card" data-category={project.category}>
+              <div class="project-header">
+                <span class="project-category hud-label">{project.category}</span>
+                <span class="project-year">{project.year}</span>
+              </div>
+              <h2>{project.title}</h2>
+              <p class="project-description">{project.description}</p>
+              <div class="project-tags">
+                {project.tags.map((tag) => (
+                  <span class="tag">{tag}</span>
+                ))}
+              </div>
+              {project.links.length > 0 && (
+                <div class="project-links">
+                  {project.links.map((link) => (
+                    <a href={link.url} target="_blank" rel="noopener noreferrer" class="project-link">
+                      {link.label}
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+                      </svg>
+                    </a>
+                  ))}
+                </div>
+              )}
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Stats -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="stats-grid">
+          <div class="stat-card glass-card">
+            <span class="stat-number">{projects.length}</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat-card glass-card">
+            <span class="stat-number">{categories.length}</span>
+            <span class="stat-label">Categories</span>
+          </div>
+          <div class="stat-card glass-card">
+            <span class="stat-number">{new Set(projects.flatMap(p => p.tags)).size}</span>
+            <span class="stat-label">Technologies</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contribute -->
+    <section class="section">
+      <div class="container text-center">
+        <div class="cta-content">
+          <h2>Want to Collaborate?</h2>
+          <p>I'm always open to discussing research collaborations, open-source projects, or opportunities in seismology and geophysics.</p>
+          <a href="/#contact" class="btn btn-primary">
+            <span>Get in Touch</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<script>
+  const filterTags = document.querySelectorAll('.filter-tag');
+  const projectCards = document.querySelectorAll('.project-card');
+
+  filterTags.forEach(tag => {
+    tag.addEventListener('click', () => {
+      const category = tag.getAttribute('data-category');
+      
+      // Update active state
+      filterTags.forEach(t => t.classList.remove('active'));
+      tag.classList.add('active');
+      
+      // Filter projects
+      projectCards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        if (category === 'all' || cardCategory === category) {
+          (card as HTMLElement).style.display = 'block';
+        } else {
+          (card as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
+
+<style>
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+  }
+
+  .projects-hero {
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(180deg, var(--color-surface-low) 0%, var(--color-bg) 100%);
+    padding: var(--space-3xl) 0;
+  }
+
+  .projects-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: var(--space-lg);
+  }
+
+  .hero-intro {
+    font-size: 1.15rem;
+    max-width: 600px;
+    opacity: 0.85;
+    line-height: 1.7;
+  }
+
+  /* Filter Section */
+  .filter-section {
+    padding: var(--space-lg) 0;
+    border-bottom: 1px solid var(--color-border);
+    position: sticky;
+    top: 60px;
+    background: var(--color-bg);
+    z-index: 100;
+  }
+
+  .filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .filter-tag {
+    padding: var(--space-sm) var(--space-md);
+    background: var(--color-surface-low);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-full);
+    color: var(--color-text);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .filter-tag:hover {
+    border-color: var(--color-accent);
+  }
+
+  .filter-tag.active {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-white);
+  }
+
+  /* Projects Grid */
+  .section {
+    padding: var(--space-3xl) 0;
+  }
+
+  .section-alt {
+    background-color: var(--color-surface-low);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .project-card {
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    animation: fadeIn 0.5s ease;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .project-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-accent);
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-md);
+  }
+
+  .project-category {
+    color: var(--color-accent);
+    font-size: 0.75rem;
+  }
+
+  .project-year {
+    font-size: 0.85rem;
+    opacity: 0.6;
+    font-family: var(--font-heading);
+  }
+
+  .project-card h2 {
+    font-size: 1.3rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .project-description {
+    flex: 1;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.85;
+    margin-bottom: var(--space-lg);
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-lg);
+  }
+
+  .tag {
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--color-surface-high);
+    border-radius: var(--radius-sm);
+    font-size: 0.8rem;
+    font-family: var(--font-body);
+  }
+
+  .project-links {
+    display: flex;
+    gap: var(--space-md);
+  }
+
+  .project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-xs);
+    color: var(--color-accent);
+    font-size: 0.9rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .project-link:hover {
+    filter: brightness(1.2);
+  }
+
+  /* Stats */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .stat-card {
+    padding: var(--space-xl);
+    text-align: center;
+  }
+
+  .stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    color: var(--color-accent);
+    margin-bottom: var(--space-xs);
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+    opacity: 0.7;
+  }
+
+  /* CTA */
+  .cta-content {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .cta-content h2 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .cta-content p {
+    margin-bottom: var(--space-xl);
+    opacity: 0.8;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-xl);
+    background: var(--color-accent);
+    color: var(--color-white);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-md);
+    transition: all 0.2s ease;
+  }
+
+  .btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .projects-hero h1 {
+      font-size: 2.5rem;
+    }
+
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .filter-section {
+      position: relative;
+      top: 0;
+    }
+  }
+</style>

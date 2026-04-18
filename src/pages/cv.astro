@@ -1,0 +1,603 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const experience = [
+  {
+    title: 'Research Assistant',
+    organization: 'Geoseismal Research Center',
+    location: 'Yogyakarta, Indonesia',
+    period: 'Feb 2026 – Present',
+    highlights: [
+      'Conducting geophysics research with focus on seismic data analysis and interpretation.',
+      'Developing Python-based data pipelines for real-time waveform processing using ObsPy.',
+      'Automating seismic metadata extraction and indexing into a knowledge graph system.',
+    ],
+  },
+  {
+    title: 'Geophysics Software Intern — Earthquake Early Warning Systems',
+    organization: 'BMKG (Badan Meteorologi, Klimatologi, dan Geofisika)',
+    location: 'Jakarta, Indonesia',
+    period: 'Feb 2024 – Jun 2024',
+    highlights: [
+      'Engineered end-to-end data pipelines in Python (ObsPy, FDSN client) to ingest, process, and analyze 58-station seismic data in real time.',
+      'Optimized recursive STA/LTA parameters for P-wave detection, significantly reducing false triggers under noisy field conditions.',
+      'Implemented magnitude estimation using the Mpd method, achieving MAE ≈ 0.42.',
+      'Integrated HYPO71 for hypocenter calculation and developed PyQt5 GUI with Folium-based real-time mapping.',
+    ],
+  },
+  {
+    title: 'Laboratory Teaching Assistant — Computational Methods',
+    organization: 'Universitas Gadjah Mada',
+    location: 'Yogyakarta, Indonesia',
+    period: 'Aug 2023 – Jan 2024',
+    highlights: [
+      'Mentored 50+ undergraduate students in Python programming for scientific computing.',
+      'Developed hands-on practicum on building interactive regression tools using Tkinter.',
+      'Evaluated student work with rubric-based feedback emphasizing reproducibility and code readability.',
+    ],
+  },
+];
+
+const education = [
+  {
+    degree: 'Bachelor of Science in Geophysics',
+    institution: 'Universitas Gadjah Mada',
+    location: 'Yogyakarta, Indonesia',
+    period: '2019 – 2026',
+    details: [
+      'GPA: 3.35 / 4.00',
+      'Thesis: "Performance Evaluation of Earthquake Parameter Estimation in an Ensemble Machine Learning-Based Early Warning System"',
+      'Specialization: Signal Processing, Statistical Analysis, Scientific Computing',
+      'Relevant coursework: Seismology, Gravity & Magnetic Methods, Remote Sensing, Numerical Methods',
+    ],
+  },
+];
+
+const skills = [
+  {
+    category: 'Programming Languages',
+    items: ['Python', 'MATLAB', 'R', 'SQL', 'JavaScript'],
+  },
+  {
+    category: 'Seismology & Geophysics',
+    items: ['ObsPy', 'FDSN', 'HYPO71', 'SAC', 'GMT'],
+  },
+  {
+    category: 'Data Science & ML',
+    items: ['NumPy', 'Pandas', 'Scikit-learn', 'TensorFlow', 'PyTorch'],
+  },
+  {
+    category: 'Visualization & GIS',
+    items: ['Matplotlib', 'Seaborn', 'Folium', 'QGIS', 'ArcGIS'],
+  },
+  {
+    category: 'Tools & Infrastructure',
+    items: ['Git', 'Docker', 'Jupyter', 'Linux/Unix', 'REST APIs'],
+  },
+  {
+    category: 'Languages',
+    items: ['Bahasa Indonesia (Native)', 'English (Professional)'],
+  },
+];
+
+const publications = [
+  {
+    title: 'Performance Evaluation of Earthquake Parameter Estimation in an Ensemble Machine Learning-Based Early Warning System',
+    venue: 'Undergraduate Thesis, Universitas Gadjah Mada',
+    year: '2026',
+    status: 'Undergraduate Thesis',
+  },
+];
+
+const certifications = [
+  {
+    title: 'Machine Learning Specialization',
+    issuer: 'Coursera (Stanford Online)',
+    year: '2024',
+  },
+  {
+    title: 'Python for Everybody',
+    issuer: 'Coursera (University of Michigan)',
+    year: '2023',
+  },
+];
+---
+
+<Layout 
+  title="CV | Ajam Jamaludin"
+  description="Curriculum Vitae of Ajam Jamaludin - Geophysics Researcher"
+>
+  <main>
+    <!-- Header -->
+    <section class="cv-header">
+      <div class="container">
+        <span class="hud-label">CURRICULUM VITAE</span>
+        <h1>Ajam Jamaludin</h1>
+        <p class="title">Geophysics Researcher | Seismology enthusiast</p>
+        
+        <div class="contact-info">
+          <a href="mailto:ajamj@ugm.ac.id" class="contact-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+            ajamj@ugm.ac.id
+          </a>
+          <a href="https://github.com/ajamj" class="contact-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.1-1.1-.2-2.2-.8-3.1-.6-1-1.8-1.5-2.8-1.2-.7.2-1.2.8-1.3 1.5-.2 1.2-.6 2.1-1.1 2.9"/><path d="M9 22v-4a4.8 4.8 0 0 0-1-3.5c-3 0-6-2-6-5.5.1-1.1.2-2.2.8-3.1.6-1 1.8-1.5 2.8-1.2.7.2 1.2.8 1.3 1.5.2 1.2.6 2.1 1.1 2.9"/><path d="M16 10.5a2.5 2.5 0 0 1-2.5 2.5c0 1.5 1.5 2.5 2.5 2.5s2.5-1 2.5-2.5a2.5 2.5 0 0 1-2.5-2.5Z"/><path d="M9 10.5a2.5 2.5 0 0 1-2.5 2.5c0 1.5 1.5 2.5 2.5 2.5s2.5-1 2.5-2.5a2.5 2.5 0 0 1-2.5-2.5Z"/>
+            </svg>
+            github.com/ajamj
+          </a>
+          <a href="https://linkedin.com/in/ajamj" class="contact-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+            </svg>
+            linkedin.com/in/ajamj
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Professional Experience</h2>
+          <p class="section-subtitle hud-label">Work History</p>
+        </div>
+        
+        <div class="experience-list">
+          {experience.map((job) => (
+            <div class="experience-item">
+              <div class="exp-header">
+                <div>
+                  <h3>{job.title}</h3>
+                  <span class="exp-org">{job.organization}</span>
+                  <span class="exp-location">{job.location}</span>
+                </div>
+                <span class="exp-period hud-label">{job.period}</span>
+              </div>
+              <ul class="exp-highlights">
+                {job.highlights.map((bullet) => (
+                  <li>{bullet}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Education -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Education</h2>
+          <p class="section-subtitle hud-label">Academic Background</p>
+        </div>
+        
+        <div class="education-list">
+          {education.map((edu) => (
+            <div class="education-item">
+              <div class="edu-header">
+                <div>
+                  <h3>{edu.degree}</h3>
+                  <span class="edu-institution">{edu.institution}</span>
+                  <span class="edu-location">{edu.location}</span>
+                </div>
+                <span class="edu-period hud-label">{edu.period}</span>
+              </div>
+              <ul class="edu-details">
+                {edu.details.map((detail) => (
+                  <li>{detail}</li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Skills & Technologies</h2>
+          <p class="section-subtitle hud-label">Technical Competencies</p>
+        </div>
+        
+        <div class="skills-grid">
+          {skills.map((skillGroup) => (
+            <div class="skill-category glass-card">
+              <h3>{skillGroup.category}</h3>
+              <div class="skill-items">
+                {skillGroup.items.map((skill) => (
+                  <span class="skill-tag">{skill}</span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Publications -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Publications</h2>
+          <p class="section-subtitle hud-label">Research Output</p>
+        </div>
+        
+        <div class="publications-list">
+          {publications.map((pub) => (
+            <div class="publication-item glass-card">
+              <span class="pub-year hud-label">{pub.year}</span>
+              <h3>{pub.title}</h3>
+              <p class="pub-venue">{pub.venue}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2 class="section-title">Certifications</h2>
+          <p class="section-subtitle hud-label">Professional Development</p>
+        </div>
+        
+        <div class="certs-list">
+          {certifications.map((cert) => (
+            <div class="cert-item">
+              <span class="cert-year hud-label">{cert.year}</span>
+              <h3>{cert.title}</h3>
+              <span class="cert-issuer">{cert.issuer}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Print Button -->
+    <section class="section">
+      <div class="container text-center">
+        <p>Need a printable version?</p>
+        <button onclick="window.print()" class="btn btn-primary">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/>
+          </svg>
+          Print / Save as PDF
+        </button>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+  }
+
+  .cv-header {
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(180deg, var(--color-surface-low) 0%, var(--color-bg) 100%);
+    padding: var(--space-3xl) 0;
+  }
+
+  .cv-header h1 {
+    font-size: 3rem;
+    margin: var(--space-xs) 0 var(--space-sm) 0;
+  }
+
+  .title {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-xl);
+  }
+
+  .contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-lg);
+  }
+
+  .contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    color: var(--color-text);
+    opacity: 0.8;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .contact-link:hover {
+    color: var(--color-accent);
+    opacity: 1;
+  }
+
+  .section {
+    padding: var(--space-3xl) 0;
+  }
+
+  .section-alt {
+    background-color: var(--color-surface-low);
+  }
+
+  .section-header {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .section-title {
+    margin-bottom: var(--space-xs);
+  }
+
+  .section-subtitle {
+    color: var(--color-accent);
+  }
+
+  /* Experience */
+  .experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+
+  .experience-item {
+    padding: var(--space-xl);
+    background: rgba(23, 31, 51, 0.4);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+  }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+  }
+
+  .exp-header h3 {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-xs);
+  }
+
+  .exp-org {
+    display: block;
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+
+  .exp-location {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.7;
+  }
+
+  .exp-period {
+    color: var(--color-accent);
+  }
+
+  .exp-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .exp-highlights li {
+    position: relative;
+    padding-left: var(--space-lg);
+    margin-bottom: var(--space-sm);
+    opacity: 0.85;
+  }
+
+  .exp-highlights li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+  }
+
+  /* Education */
+  .education-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .education-item {
+    padding: var(--space-xl);
+    background: rgba(23, 31, 51, 0.4);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+  }
+
+  .edu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+  }
+
+  .edu-header h3 {
+    font-size: 1.15rem;
+    margin-bottom: var(--space-xs);
+  }
+
+  .edu-institution {
+    display: block;
+    color: var(--color-accent);
+    font-weight: 500;
+  }
+
+  .edu-location {
+    display: block;
+    font-size: 0.9rem;
+    opacity: 0.7;
+  }
+
+  .edu-period {
+    color: var(--color-accent);
+  }
+
+  .edu-details {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .edu-details li {
+    position: relative;
+    padding-left: var(--space-lg);
+    margin-bottom: var(--space-xs);
+    opacity: 0.85;
+  }
+
+  .edu-details li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color-accent);
+  }
+
+  /* Skills */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .skill-category {
+    padding: var(--space-lg);
+  }
+
+  .skill-category h3 {
+    font-size: 1rem;
+    margin-bottom: var(--space-md);
+    color: var(--color-accent);
+  }
+
+  .skill-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .skill-tag {
+    display: inline-block;
+    padding: var(--space-xs) var(--space-sm);
+    background: var(--color-surface-high);
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+  }
+
+  /* Publications */
+  .publications-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .publication-item {
+    padding: var(--space-lg);
+  }
+
+  .pub-year {
+    display: block;
+    margin-bottom: var(--space-sm);
+    color: var(--color-accent);
+  }
+
+  .publication-item h3 {
+    font-size: 1.1rem;
+    line-height: 1.4;
+    margin-bottom: var(--space-xs);
+  }
+
+  .pub-venue {
+    opacity: 0.8;
+    margin: 0;
+  }
+
+  /* Certifications */
+  .certs-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+  }
+
+  .cert-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-lg);
+    padding: var(--space-md) 0;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .cert-year {
+    color: var(--color-accent);
+    min-width: 60px;
+  }
+
+  .cert-item h3 {
+    flex: 1;
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .cert-issuer {
+    opacity: 0.7;
+  }
+
+  /* Print Button */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md) var(--space-xl);
+    background: var(--color-accent);
+    color: var(--color-white);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  @media print {
+    .cv-header,
+    .section,
+    .btn {
+      background: white !important;
+      color: #1a1a1a !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .cv-header h1 {
+      font-size: 2.25rem;
+    }
+  }
+</style>
