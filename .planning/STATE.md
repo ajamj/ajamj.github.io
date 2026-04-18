@@ -21,7 +21,7 @@ See: .planning/PROJECT.md (updated 2026-04-18)
 | 2 | Content | Completed | 1/1 | 100% |
 | 3 | Contact & SEO | Completed | 2/2 | 100% |
 | 4 | Polish | Completed | 1/1 | 100% |
-| 5 | Blog Implementation | In Progress | TBD | - |
+| 5 | Blog Implementation | In Progress | 1/1 | - |
 | 6 | Interactive Data Visualizations | Not started | TBD | - |
 
 ## v1.1 Enhancement Complete

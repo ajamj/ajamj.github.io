@@ -73,9 +73,9 @@ Build a clean, fast, academic personal portfolio website and blog for Ajam Jamal
 **Requirements**: STRU-05, CONT-07, BLOG-01, BLOG-02, BLOG-03
 **Success Criteria** (what must be TRUE):
   1. User can create blog posts using .md or .mdx files
-  2. Blog listing page exists with previews of posts
-  3. Posts use a specialized layout optimized for technical geophysics analysis
-**Plans**: TBD
+  2. Blog listing page exists with previews of posts and tag filtering
+  3. Posts use a specialized layout optimized for technical geophysics analysis with code highlighting
+**Plans**: 1 plan (IN PROGRESS)
 **UI hint**: yes
 
 ### Phase 6: Interactive Data Visualizations
@@ -98,9 +98,9 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete | 2026-04-16 |
 | 2. Content | 1/1 | Complete | 2026-04-16 |
-| 3. Contact & SEO | 1/2 | In Progress | - |
-| 4. Polish | 0/1 | Not started | - |
-| 5. Blog Implementation | 0/0 | Not started | - |
+| 3. Contact & SEO | 2/2 | Complete | 2026-04-18 |
+| 4. Polish | 1/1 | Complete | 2026-04-18 |
+| 5. Blog Implementation | 1/1 | In Progress | - |
 | 6. Interactive Data Visualizations | 0/0 | Not started | - |
 
 ---

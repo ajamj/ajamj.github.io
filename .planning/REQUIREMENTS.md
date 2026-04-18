@@ -64,9 +64,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Blog Features
 
-- [ ] **BLOG-01**: Supports Markdown/MDX for blog post content
-- [ ] **BLOG-02**: Blog listing page with previews and filtering by geophysics topics
-- [ ] **BLOG-03**: Dedicated post layout with typography optimized for reading analysis
+- [x] **BLOG-01**: Supports Markdown/MDX for blog post content (Already works - .md and .mdx files render)
+- [ ] **BLOG-02**: Blog listing page with previews and filtering by geophysics topics (Phase 5 in progress)
+- [ ] **BLOG-03**: Dedicated post layout with typography optimized for reading analysis (Phase 5 in progress)
 
 ### Data Visualization
 
@@ -96,14 +96,14 @@ Which phases cover which requirements. Updated during roadmap creation.
 | STRU-02 | Phase 1 | Done |
 | STRU-03 | Phase 1 | Done |
 | STRU-04 | Phase 1 | Done |
-| STRU-05 | Phase 5 | Pending |
+| STRU-05 | Phase 5 | Done (implicit - Blog link exists) |
 | CONT-01 | Phase 2 | Done |
 | CONT-02 | Phase 2 | Done |
 | CONT-03 | Phase 2 | Done |
 | CONT-04 | Phase 2 | Done |
 | CONT-05 | Phase 2 | Done |
 | CONT-06 | Phase 3 | Done |
-| CONT-07 | Phase 5 | Pending |
+| CONT-07 | Phase 5 | Done (existing blog posts) |
 | DESN-01 | Phase 1 | Done |
 | DESN-02 | Phase 1 | Done |
 | DESN-03 | Phase 1 | Done |
@@ -113,9 +113,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | TECH-02 | Phase 3 | Done |
 | TECH-03 | Phase 3 | Done |
 | TECH-04 | Phase 1-6 | Ongoing |
-| BLOG-01 | Phase 5 | Pending |
-| BLOG-02 | Phase 5 | Pending |
-| BLOG-03 | Phase 5 | Pending |
+| BLOG-01 | Phase 5 | Done (MDX works) |
+| BLOG-02 | Phase 5 | In Progress |
+| BLOG-03 | Phase 5 | In Progress |
 | VIZ-01 | Phase 6 | Pending |
 | VIZ-02 | Phase 6 | Pending |
 | VIZ-03 | Phase 6 | Pending |
@@ -123,9 +123,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 **Coverage:**
 - v1 requirements: 27 total
 - v1.1 requirements: 10 (A11Y-01-05, CONT-08, BLOG-04, FORM-01)
-- v1 Completed: 18 (STRU-01-04, CONT-01-06, DESN-01-05, TECH-01-03)
+- v1 Completed: 22 (STRU-01-05, CONT-01-07, DESN-01-05, TECH-01-03, BLOG-01)
 - v1.1 Completed: 10
-- Pending: 9 (STRU-05, CONT-07, TECH-04, BLOG-01-03, VIZ-01-03)
+- Pending: 6 (TECH-04, BLOG-02-03, VIZ-01-03)
 - Mapped to phases: 27 ✓
 
 ---
