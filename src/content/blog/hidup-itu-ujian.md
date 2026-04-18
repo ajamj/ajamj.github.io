@@ -3,7 +3,7 @@ title: "Hidup itu Ujian"
 author: "Ajam Jamaludin"
 date: 2023-05-06
 tags: ["jurnal"]
-description: "A brief intro about resilience and testing in both life and seismic modeling."
+description: "Beberapa waktu yang lalu, saya bertemu dengan salah seorang dokter senior, sebut saja namanya dr. Moet. Pada pertemuan itu juga hadir 3 dokter yang merupakan junior-junior beliau."
 ---
 
 # “Hidup itu Ujian”

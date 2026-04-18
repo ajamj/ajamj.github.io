@@ -40,6 +40,22 @@ console.log('Rendering content for:', entry.slug);
 	</article>
 </Layout>
 
+<script>
+	const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+	if (!prefersReducedMotion) {
+		const observer = new IntersectionObserver((entries) => {
+			entries.forEach(entry => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add('visible');
+				}
+			});
+		}, { threshold: 0.1 });
+		document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
+	} else {
+		document.querySelectorAll('.scroll-reveal').forEach(el => el.classList.add('visible'));
+	}
+</script>
+
 <style>
 	.blog-post {
 		max-width: 850px;
