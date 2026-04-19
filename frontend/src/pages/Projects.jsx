@@ -1,14 +1,25 @@
 import { useState, useEffect } from 'react'
+import { api } from '../services/api'
 import ProjectCard from '../components/ProjectCard'
 
 function Projects() {
   const [projects, setProjects] = useState([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
-    // Will fetch from API in Phase 10
-    setProjects([])
-    setLoading(false)
+    async function loadProjects() {
+      try {
+        const data = await api.getProjects()
+        setProjects(data)
+      } catch (err) {
+        setError('Failed to load projects')
+        console.error(err)
+      } finally {
+        setLoading(false)
+      }
+    }
+    loadProjects()
   }, [])
 
   return (
