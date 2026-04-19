@@ -1,0 +1,35 @@
+.header {
+  padding: 1rem 2rem;
+  border-bottom: 1px solid #eee;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+
+.nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #555;
+  transition: color 0.2s;
+}
+
+.nav a:hover,
+.nav a.active {
+  color: #000;
+}

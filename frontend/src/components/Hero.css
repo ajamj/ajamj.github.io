@@ -1,0 +1,29 @@
+.hero {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin: 0 0 0.5rem;
+  color: #1a1a1a;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: #666;
+  margin: 0 0 1rem;
+}
+
+.hero-description {
+  font-size: 1.125rem;
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}

@@ -1,0 +1,46 @@
+.blog-card {
+  padding: 1.25rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+}
+
+.blog-card-link {
+  text-decoration: none;
+}
+
+.blog-card-link h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1.25rem;
+  color: #1a1a1a;
+  transition: color 0.2s;
+}
+
+.blog-card-link:hover h3 {
+  color: #2563eb;
+}
+
+.blog-date {
+  color: #888;
+  font-size: 0.875rem;
+  margin: 0 0 0.75rem;
+}
+
+.blog-excerpt {
+  color: #555;
+  margin: 0 0 1rem;
+  line-height: 1.5;
+}
+
+.blog-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.blog-tag {
+  background: #f0f0f0;
+  color: #555;
+  padding: 0.125rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+}
