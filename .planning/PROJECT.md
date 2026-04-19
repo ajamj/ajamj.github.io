@@ -39,8 +39,8 @@ Visitors can quickly understand Ajam's expertise, explore portfolio projects (se
 - **Owner**: Ajam Jamaludin — junior geophysics researcher, class of 2026, Universitas Gadjah Mada
 - **Domain**: Personal portfolio / academic research / technical blog
 - **Audience**: Academic peers, potential collaborators, prospective employers, geophysics enthusiasts
-- **Stack preference**: Astro, TypeScript, Vanilla CSS
-- **Deployment**: GitHub Pages (using git best practices: feature branches, no direct push to main)
+- **Stack preference**: React Vite + Django (MIGRATING), TypeScript, Vanilla CSS
+- **Deployment**: Cloudflare Pages + Railway/Django (MIGRATING)
 
 ## Constraints
 
