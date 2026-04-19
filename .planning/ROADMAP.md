@@ -31,7 +31,7 @@ Build a clean, fast, academic personal portfolio website and blog for Ajam Jamal
 
 ## v2.0 Fullstack Migration (2026-04-19)
 
-- [ ] **Phase 07: Backend Foundation** — Django project, PostgreSQL, models, admin
+- [x] **Phase 07: Backend Foundation** — Django project, PostgreSQL, models, admin (completed 2026-04-19)
 - [ ] **Phase 08: Backend API** — REST Framework, endpoints, serializers
 - [ ] **Phase 09: Frontend Foundation** — React Vite, routing, components
 - [ ] **Phase 10: Frontend Integration** — API connection, pages
