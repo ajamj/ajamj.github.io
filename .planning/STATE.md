@@ -21,8 +21,10 @@ See: .planning/PROJECT.md (updated 2026-04-18)
 | 2 | Content | Completed | 1/1 | 100% |
 | 3 | Contact & SEO | Completed | 2/2 | 100% |
 | 4 | Polish | Completed | 1/1 | 100% |
-| 5 | Blog Implementation | In Progress | 1/1 | - |
-| 6 | Interactive Data Visualizations | Not started | TBD | - |
+| 5 | Blog Implementation | Completed | 1/1 | 100% |
+| 6 | Interactive Data Visualizations | Completed | 1/1 | 100% |
+| 7 | Multi-Page Structure | Completed | 1/1 | 100% |
+| 8 | Personal Portrait | Completed | 1/1 | 100% |
 
 ## v1.1 Enhancement Complete
 
@@ -39,8 +41,14 @@ See: .planning/PROJECT.md (updated 2026-04-18)
 
 ## Pending Todos (Next Phase)
 
-- **refactor-to-multi-page-structure**: Refactor to multi-page website structure (besar)
-- **integrate-personal-portrait**: Integrate personal portrait (besar)
+- **refactor-to-multi-page-structure**: Refactor to multi-page website structure ✅ DONE
+- **integrate-personal-portrait**: Integrate personal portrait ✅ DONE
+
+## Accumulated Context
+
+### Pending Todos
+
+- **2026-04-19** Migrate to Cloudflare with React Vite frontend (Area: general)
 
 ## Notes
 
