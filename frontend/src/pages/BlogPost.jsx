@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
+import DOMPurify from 'dompurify'
 
 function BlogPost() {
   const { slug } = useParams()
@@ -15,13 +16,14 @@ function BlogPost() {
   if (loading) return <div>Loading...</div>
   if (!post) return <div>Post not found</div>
 
+  const sanitizedContent = DOMPurify.sanitize(post.content)
+
   return (
     <div className="blog-post">
       <h1>{post.title}</h1>
       <p className="post-date">{post.date}</p>
       <div className="post-content">
-        {/* Content rendered as HTML */}
-        <div dangerouslySetInnerHTML={{ __html: post.content }} />
+        <div dangerouslySetInnerHTML={{ __html: sanitizedContent }} />
       </div>
     </div>
   )
