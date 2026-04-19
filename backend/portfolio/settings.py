@@ -20,10 +20,12 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "rest_framework",
+    "corsheaders",
     "api",
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -31,6 +33,13 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+]
+
+# CORS - allow Cloudflare Pages and localhost origins
+CORS_ALLOWED_ORIGINS = [
+    "https://ajamj.pages.dev",
+    "http://localhost:5173",
+    "http://localhost:3000",
 ]
 
 ROOT_URLCONF = "portfolio.urls"
