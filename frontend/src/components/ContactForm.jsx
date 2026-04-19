@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { api } from '../services/api'
 import './ContactForm.css'
 
 function ContactForm() {
@@ -7,37 +8,39 @@ function ContactForm() {
     email: '',
     message: ''
   })
-  const [status, setStatus] = useState(null)
+  const [status, setStatus] = useState('idle') // idle, submitting, success, error
+  const [errorMessage, setErrorMessage] = useState('')
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
+    const { name, value } = e.target
+    setFormData(prev => ({ ...prev, [name]: value }))
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setStatus('submitting')
+    setErrorMessage('')
 
     try {
-      const response = await fetch('/api/contact/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(formData)
-      })
-
-      if (response.ok) {
-        setStatus('success')
-        setFormData({ name: '', email: '', message: '' })
-      } else {
-        setStatus('error')
-      }
+      await api.submitContact(formData)
+      setStatus('success')
+      setFormData({ name: '', email: '', message: '' })
     } catch (error) {
       setStatus('error')
+      setErrorMessage('Failed to send message. Please try again.')
     }
+  }
+
+  if (status === 'success') {
+    return (
+      <div className="contact-success">
+        <h3>Message Sent!</h3>
+        <p>Thank you for your message. I'll get back to you soon.</p>
+        <button onClick={() => setStatus('idle')} className="btn">
+          Send Another Message
+        </button>
+      </div>
+    )
   }
 
   return (
