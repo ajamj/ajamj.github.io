@@ -1,14 +1,18 @@
 {
-  "mode": "yolo",
+  "project_name": "Codebase Mapping Unified Flow",
+  "mode": "auto",
+  "phases": 4,
   "granularity": "fine",
-  "parallelization": true,
-  "commit_docs": true,
-  "model_profile": "quality",
-  "workflow": {
-    "research": true,
-    "plan_check": true,
-    "verifier": true,
-    "nyquist_validation": true,
-    "auto_advance": true
-  }
+  "steps": [
+    "questioning",
+    "research",
+    "requirements",
+    "roadmap"
+  ],
+  "gateways": {
+    "verification": true,
+    "approvals": true,
+    "routing": true
+  },
+  "auto_reference": "Questioning documented in REFERENCES.md; research results in RESEARCH.md"
 }
