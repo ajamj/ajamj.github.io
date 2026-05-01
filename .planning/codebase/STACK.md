@@ -1,68 +1,41 @@
-# Technology Stack
+## STACK
 
-**Analysis Date:** 2026-04-16
+Overview
+This document captures the current codebase technology footprint.
 
-## Languages
+Repository scope
+Ajam's static site lives in the root and uses plain HTML/CSS/JS with no framework or build step.
 
-**Primary:**
-- TypeScript 5.0 - Used for all logic and component scripts in `src/`
-- Astro - Component-based framework for static site generation
+Primary language(s)
+- HTML
+- CSS
+- JavaScript
 
-**Secondary:**
-- CSS (Tailwind 4.0) - Used for styling in `src/styles/global.css` and component `<style>` blocks
-- Markdown/MDX - Used for blog content in `src/content/blog/`
+Frameworks and runtimes
+- None (static hosting)
 
-## Runtime
+Build/run process
+- No bundler, no npm scripts
+- Local preview via simple static server
 
-**Environment:**
-- Node.js 20 - Build and development environment
+Deployment
+- GitHub Pages on main/root
+- Auto-serve after push, typical ~2 minutes
 
-**Package Manager:**
-- npm 10.x - Dependency management
-- Lockfile: `package-lock.json` present
+Directory layout (highlights)
+- index.html: landing page
+- assets/: images, fonts, icons
+- scripts/: small JS
+- .planning/: planning artifacts
 
-## Frameworks
+Developer notes
+- Use plain diff and minimal changes
+- Avoid heavy tooling
 
-**Core:**
-- Astro 5.0.0 - Static Site Generator for content-driven websites
+Known constraints
+- No server-side code
+- No external dependencies
 
-**Testing:**
-- Not detected - No testing framework (Jest/Vitest) found in `package.json`
-
-**Build/Dev:**
-- Vite (Internal to Astro) - Build tool and dev server
-- Tailwind CSS 4.2.2 - Utility-first CSS framework with Vite plugin `@tailwindcss/vite`
-
-## Key Dependencies
-
-**Critical:**
-- `astro` ^5.0.0 - Core framework
-- `tailwindcss` ^4.2.2 - Styling engine
-
-**Infrastructure:**
-- `astro-seo` ^1.1.0 - SEO management for pages
-- `@astrojs/sitemap` ^3.7.2 - Automated sitemap generation
-- `astro-icon` ^1.1.5 - SVG icon management
-
-## Configuration
-
-**Environment:**
-- Environment variables managed via standard `.env` (note: existence of `.env` files not checked for security)
-
-**Build:**
-- `astro.config.mjs` - Main Astro configuration
-- `tsconfig.json` - TypeScript compiler settings (extends `astro/tsconfigs/strict`)
-- `package.json` - Build scripts and metadata
-
-## Platform Requirements
-
-**Development:**
-- Node.js 18.17.1 or higher
-- npm (Node Package Manager)
-
-**Production:**
-- GitHub Pages - Static hosting environment
-
----
-
-*Stack analysis: 2026-04-16*
+Next steps
+- Review codebase docs
+- Prepare for /gsd-plan-phase

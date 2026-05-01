@@ -1,63 +1,41 @@
-# External Integrations
+## INTEGRATIONS
 
-**Analysis Date:** 2026-04-16
+External integrations
+This codebase currently integrates only with static hosting; no external APIs.
 
-## APIs & External Services
+Data sources
+- None
 
-**Visualizations:**
-- Custom SVG - No external charting libraries (D3.js, Chart.js) currently integrated. Interactive data is handled via native SVG and CSS animations in `src/components/ResearchDataViz.astro`.
+Webhooks
+- None
 
-**Icons:**
-- `astro-icon` - Used for icon management in components.
+API Clients
+- None
 
-## Data Storage
+Dependency considerations
+- No runtime dependencies
 
-**Databases:**
-- None - Static content approach.
+Security posture
+- No inbound interfaces
 
-**File Storage:**
-- Astro Content Collections - Markdown files located in `src/content/blog/` used as the primary data source for the blog.
+Local mocks
+- Not applicable
 
-**Caching:**
-- None - Static site generation relies on browser caching and CDN (GitHub Pages).
+Future integration plans
+- Consider adding a minimal Contact API or external analytics if closing a gap
 
-## Authentication & Identity
+Operational notes
+- All assets are served from repo
 
-**Auth Provider:**
-- None - Public personal website.
+Team responsibilities
+- Frontend maintainers
+- DevOps (if necessary)
 
-## Monitoring & Observability
+Onboarding
+- Map external integration patterns to code changes when needed
 
-**Error Tracking:**
-- None detected.
+Risks
+- External integration introduces risk surface; require gating
 
-**Logs:**
-- Browser console logging only.
-
-## CI/CD & Deployment
-
-**Hosting:**
-- GitHub Pages - Project is configured for deployment to `https://ajamj.github.io`.
-
-**CI Pipeline:**
-- GitHub Actions - Workflow in `.github/workflows/deploy.yml` automates build and deployment on push to `main`.
-
-## Environment Configuration
-
-**Required env vars:**
-- `SITE` - Defined in `astro.config.mjs` as `https://ajamj.github.io`.
-
-**Secrets location:**
-- GitHub Actions secrets - Used for deployment permissions (`GITHUB_TOKEN`).
-
-## Webhooks & Callbacks
-
-**Incoming:**
-- Netlify Forms (Attempted) - `src/components/ContactForm.astro` contains `data-netlify="true"`, but project is deployed to GitHub Pages. This integration will not function without migration to Netlify or an alternative service like Formspree.
-
-**Outgoing:**
-- None detected.
-
----
-
-*Integration audit: 2026-04-16*
+Next steps
+- Prepare for planning
