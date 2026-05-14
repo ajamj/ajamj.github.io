@@ -1,14 +1,25 @@
 import { useState, useEffect } from 'react'
+import { api } from '../services/api'
 import BlogCard from '../components/BlogCard'
 
 function Blog() {
   const [posts, setPosts] = useState([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
 
   useEffect(() => {
-    // Will fetch from API in Phase 10
-    setPosts([])
-    setLoading(false)
+    async function loadPosts() {
+      try {
+        const data = await api.getPosts()
+        setPosts(data)
+      } catch (err) {
+        setError('Failed to load blog posts')
+        console.error(err)
+      } finally {
+        setLoading(false)
+      }
+    }
+    loadPosts()
   }, [])
 
   return (
