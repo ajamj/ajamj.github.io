@@ -35,11 +35,14 @@ MIDDLEWARE = [
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
-# CORS - allow Cloudflare Pages and localhost origins
+# CORS configuration
 CORS_ALLOWED_ORIGINS = [
-    "https://ajamj.pages.dev",
-    "http://localhost:5173",
-    "http://localhost:3000",
+    origin.strip()
+    for origin in os.environ.get(
+        "CORS_ALLOWED_ORIGINS",
+        "https://ajamj.github.io,https://ajamj.pages.dev,http://localhost:5173",
+    ).split(",")
+    if origin.strip()
 ]
 
 ROOT_URLCONF = "portfolio.urls"
