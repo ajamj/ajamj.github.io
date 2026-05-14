@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { api } from '../services/api'
 import ProjectCard from '../components/ProjectCard'
+import DataVizSection from '../components/DataVizSection'
 
 function Home() {
   const [featuredProjects, setFeaturedProjects] = useState([])
@@ -52,6 +53,8 @@ function Home() {
         )}
         <Link to="/projects" className="view-all">View All Projects →</Link>
       </section>
+
+      <DataVizSection />
     </div>
   )
 }
