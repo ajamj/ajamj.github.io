@@ -1,16 +1,17 @@
 # STATE
 
-Current phase: 11 - D3 Viz Port
+Current phase: 12 - Deployment
 Milestones
 - 0: Planning setup
-- 1-10: Complete Implementation and Integration (COMPLETE)
-- 11: Viz Port (COMPLETE)
+- 1-11: Implementation and Viz Port (COMPLETE)
 - 12: Deployment (IN PROGRESS)
 
 Memory snapshot
-- Phase 11 (D3 Viz Port) completed with 11-01-SUMMARY.md.
-- Next objective: Final deployment to production environment.
+- Phase 11 (D3 Viz Port) verified and closed.
+- Phase 12 (Deployment) initialized with 12-01-PLAN.md.
+- Next objective: Configure production environments and CI/CD.
 
 Next actions
-- Define Phase 12 plan: `.planning/phases/12-deployment/12-01-PLAN.md`.
-- Configure production build scripts and environment variables.
+- Create production environment files for frontend and backend.
+- Update CORS settings in Django.
+- Revise .github/workflows/deploy.yml.
