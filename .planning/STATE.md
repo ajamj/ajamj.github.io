@@ -13,7 +13,6 @@ Memory snapshot
 - React/Django folders (`frontend/`, `backend/`) remain for reference but are not part of the production static build.
 
 Next actions
-- Unstash and review Redesign Concept work.
-- Initialize Phase 13: Implementation of minimal design in Astro.
-- Optimize Astro build for GitHub Pages.
-- (Optional) Clean up deprecated React/Django code to reduce repo weight.
+- Final project audit and visual check.
+- Monitor GitHub Actions for successful deployment.
+- Resume and integrate stashed "redesign concept" if needed.
