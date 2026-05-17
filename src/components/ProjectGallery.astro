@@ -2,6 +2,13 @@
 // ProjectGallery.astro — Technical research project showcase
 const projects = [
   {
+    title: 'Gempa.jl: High-Performance Seismology',
+    description: 'A modern framework in pure Julia for seismic signal processing, phase picking, and earthquake location. Outperforms traditional tools with 20x speedups in filtering and FFT operations.',
+    tags: ['Julia', 'Seismic DSP', 'High-Performance', 'Open Source'],
+    category: 'TECHNICAL FRAMEWORK',
+    url: 'https://github.com/ajamj/Gempa.jl'
+  },
+  {
     title: 'Earthquake Early Warning System (EEWS)',
     description: 'Developed ensemble ML-based EEWS prototype with real-time P-wave detection and magnitude estimation using ObsPy and FDSN client. Achieved MAE ≈ 0.42 against BMKG catalog.',
     tags: ['Python', 'ObsPy', 'Machine Learning', 'Seismic Processing'],
@@ -34,6 +41,11 @@ const projects = [
             <span class="project-tag">{tag}</span>
           ))}
         </div>
+        {project.url && (
+          <div class="project-footer">
+            <a href={project.url} target="_blank" rel="noopener noreferrer" class="contact-icon">View Repository →</a>
+          </div>
+        )}
       </div>
     </article>
   ))}
@@ -90,6 +102,7 @@ const projects = [
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-top: auto;
+    margin-bottom: var(--space-md);
   }
 
   .project-tag {
@@ -103,6 +116,11 @@ const projects = [
     text-transform: uppercase;
     letter-spacing: 0.05em;
     font-weight: 500;
+  }
+
+  .project-footer {
+    display: flex;
+    justify-content: flex-end;
   }
 
   @media (max-width: 600px) {
