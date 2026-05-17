@@ -1,0 +1,50 @@
+{
+  "branch": "chore/add-todo-blog-desc",
+  "handoff_path": ".planning/.continue-here.md",
+  "current_session": {
+    "status": "paused_after_design_gate",
+    "completed": [
+      "Brainstormed website redesign direction.",
+      "Wrote .planning/REDESIGN-CONCEPT.md.",
+      "Revised .planning/REDESIGN-CONCEPT.md.",
+      "Passed Design Review Gate with Product, Architect, UX, Security, and CTO all APPROVED."
+    ]
+  },
+  "concept": {
+    "direction": "Minimal, elegant, professional signal.",
+    "language": "English-first.",
+    "stack": "Retain Astro static site.",
+    "privacy": [
+      "Use privacy-safe summaries.",
+      "Do not include sensitive project methods or data.",
+      "No tracking."
+    ],
+    "content_rules": [
+      "No placeholders.",
+      "No dummy links."
+    ]
+  },
+  "remaining_work": [
+    "Create implementation plan.",
+    "Inspect current Astro homepage and components.",
+    "Implement minimal redesign.",
+    "Verify npm run build.",
+    "Verify responsive behavior.",
+    "Verify accessibility basics.",
+    "Verify SEO/meta.",
+    "Confirm no tracking.",
+    "Perform privacy review."
+  ],
+  "human_action": [
+    "Confirm public email, CV, and social links, or omit them."
+  ],
+  "blockers": [],
+  "constraints": [
+    "No blocking constraints discovered through failure.",
+    "Unrelated dirty frontend CSS/JSX files and backend pycache exist; leave untouched."
+  ],
+  "historical_placeholder_mentions": [
+    ".planning/phases/01-foundation/01-01-SUMMARY.md:41",
+    ".planning/phases/09-frontend-foundation/09-01-SUMMARY.md:93"
+  ]
+}
