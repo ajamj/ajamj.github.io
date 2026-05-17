@@ -1,5 +1,5 @@
 ---
-// SkillsChart.astro — Technical stack with obsidian-emerald aesthetic
+// SkillsChart.astro — Technical stack with obsidian-seismic aesthetic
 const skillGroups = [
   { 
     category: 'Programming', 
@@ -133,14 +133,14 @@ const barSkills = [
 
   .bar-bg {
     height: 6px;
-    background: rgba(16, 185, 129, 0.1);
+    background: var(--color-accent-subtle);
     border-radius: var(--radius-full);
     overflow: hidden;
   }
 
   .bar-fill {
     height: 100%;
-    background: linear-gradient(90deg, var(--color-accent), #6ffbbe);
+    background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light));
     box-shadow: 0 0 10px var(--color-accent-glow);
     border-radius: var(--radius-full);
     transition: width 1s ease-out;

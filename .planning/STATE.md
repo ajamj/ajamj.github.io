@@ -7,7 +7,7 @@ Milestones
 - 13-16: Academic Redesign in Astro (COMPLETE)
 
 Memory snapshot
-- Site is now a high-end, obsidian-emerald dark themed portfolio.
+- Site is now a high-end, obsidian-seismic dark themed portfolio.
 - Purely static Astro architecture, fully responsive and accessible.
 - Final audit passed: images optimized, links verified, deployment successful.
 - Deprecated code and CV assets removed.

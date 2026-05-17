@@ -6,7 +6,7 @@
    ============================================================ */
 
 :root {
-  /* Dark palette - Obsidian-Emerald */
+  /* Dark palette - Obsidian-Seismic */
   --color-bg: #0a0f0d;
   --color-surface: rgba(20, 26, 23, 0.6);
   --color-surface-alt: #121814;
@@ -17,10 +17,10 @@
   --color-text-muted: #a0ada5;
   --color-text-light: #6b7280;
 
-  --color-accent: #10b981;
-  --color-accent-light: #34d399;
-  --color-accent-subtle: rgba(16, 185, 129, 0.1);
-  --color-accent-glow: rgba(16, 185, 129, 0.3);
+  --color-accent: #3b82f6;
+  --color-accent-light: #60a5fa;
+  --color-accent-subtle: rgba(59, 130, 246, 0.1);
+  --color-accent-glow: rgba(59, 130, 246, 0.3);
 
   /* Typography */
   --font-heading: 'Lora', Georgia, 'Times New Roman', serif;

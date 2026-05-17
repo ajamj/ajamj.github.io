@@ -6,3 +6,8 @@ backend/.env
 backend/__pycache__/
 backend/*.pyc
 backend/db.sqlite3
+
+# Beads / Dolt files (added by bd init)
+.dolt/
+*.db
+.beads-credential-key

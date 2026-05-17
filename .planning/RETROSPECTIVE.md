@@ -25,6 +25,6 @@
    - *Impact:* Improved focus on the active Astro codebase.
 
 ### Visual Patterns
-- **Theme**: Obsidian-Emerald (#0a0f0d background / #10b981 accent).
+- **Theme**: Obsidian-Seismic (#0a0f0d background / #3b82f6 accent).
 - **Surface**: Glassmorphism (rgba(20, 26, 23, 0.6) with 12px blur).
 - **Navigation**: Sliding drawer for mobile with 44x44px touch targets.

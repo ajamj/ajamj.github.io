@@ -157,8 +157,8 @@
   }
 
   .legend-dot.shallow {
-    background: #10b981;
-    box-shadow: 0 0 8px #10b981;
+    background: var(--color-accent);
+    box-shadow: 0 0 8px var(--color-accent);
   }
 
   .legend-dot.intermediate {
@@ -211,7 +211,7 @@
 
   // Color scale based on depth
   function getColor(depth) {
-    if (depth < 20) return '#10b981';  // Shallow - green
+    if (depth < 20) return '#3b82f6';  // Shallow - Seismic Blue
     if (depth < 40) return '#f59e0b'; // Intermediate - amber
     return '#ef4444';                   // Deep - red
   }
