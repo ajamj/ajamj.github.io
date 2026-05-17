@@ -10,7 +10,7 @@ Memory snapshot
 - Site is now a high-end, obsidian-seismic dark themed portfolio.
 - Purely static Astro architecture, fully responsive and accessible.
 - Final audit passed: images optimized, links verified, deployment successful.
-- Deprecated code and CV assets removed.
+- Deprecated code, CV assets, and Projects page/section removed.
 
 Next actions
 - Enter maintenance mode.
