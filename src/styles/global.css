@@ -1,172 +1,294 @@
 @import "tailwindcss";
 
-/* Global styles - Academic Dark Mode / Digital Lithosphere */
+/* ============================================================
+   Global Styles — Minimal Academic Geoscience Portfolio
+   Light, calm, precise. Serif headings + sans-serif body.
+   ============================================================ */
 
 :root {
-	--grid-size: 40px;
-	--grid-color: rgba(16, 185, 129, 0.03);
+  /* Light palette */
+  --color-bg: #fafaf8;
+  --color-surface: #ffffff;
+  --color-surface-alt: #f5f5f0;
+
+  --color-text: #2d2d2d;
+  --color-text-muted: #6b7280;
+  --color-text-light: #9ca3af;
+
+  --color-accent: #2d7a6f;
+  --color-accent-light: #3a9a8c;
+  --color-accent-subtle: rgba(45, 122, 111, 0.08);
+
+  --color-border: #e5e5e0;
+  --color-border-light: #f0f0eb;
+
+  /* Typography */
+  --font-heading: 'Lora', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Spacing — generous, calm rhythm */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 4rem;
+  --space-3xl: 6rem;
+
+  /* Layout */
+  --max-width: 720px;
+  --max-width-wide: 960px;
+  --radius: 6px;
+
+  /* Transitions */
+  --transition: 0.2s ease;
+}
+
+/* ---- Base ---- */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-	background-color: var(--color-bg);
-	background-image: 
-		linear-gradient(var(--grid-color) 1px, transparent 1px),
-		linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
-	background-size: var(--grid-size) var(--grid-size);
-	font-family: var(--font-body);
-	color: var(--color-text);
-	position: relative;
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-body::before {
-	content: "";
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
-	background-size: 100% 3px, 3px 100%;
-	pointer-events: none;
-	z-index: 100;
-	opacity: 0.3;
+/* ---- Typography ---- */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  line-height: 1.3;
+  color: var(--color-text);
+  margin-top: 0;
 }
 
-/* Subtle fade-in animation for sections */
-.fade-in {
-	opacity: 0;
-	transform: translateY(24px);
-	animation: fadeInUp 0.8s cubic-bezier(.4,0,.2,1) 0.1s forwards;
+h1 { font-size: clamp(2rem, 4vw, 3rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2.25rem); }
+h3 { font-size: clamp(1.25rem, 2.5vw, 1.5rem); }
+
+p {
+  margin-top: 0;
+  margin-bottom: var(--space-lg);
 }
 
-@keyframes fadeInUp {
-	to {
-		opacity: 1;
-		transform: none;
-	}
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition);
 }
 
-/* Digital Lithosphere Card Hover */
-.card-hover {
-	transition: all 0.3s cubic-bezier(.4,0,.2,1);
-}
-.card-hover:hover,
-.card-hover:focus {
-	transform: translateY(-4px) scale(1.02);
-	box-shadow: 0 0 30px var(--color-accent-glow);
-	border-color: var(--color-accent);
+a:hover {
+  color: var(--color-accent-light);
+  text-decoration: underline;
 }
 
-/* Technical Button Animation */
-.btn-animated {
-	display: inline-block;
-	padding: var(--space-sm) var(--space-lg);
-	background: var(--color-surface-high);
-	color: var(--color-accent);
-	border: 1px solid var(--color-accent);
-	border-radius: var(--radius-sm);
-	font-family: var(--font-heading);
-	font-weight: 500;
-	transition: all 0.2s ease;
+/* ---- Sections ---- */
+
+section {
+  padding: var(--space-2xl) var(--space-md);
 }
 
-.btn-animated:hover,
-.btn-animated:focus {
-	background: var(--color-accent);
-	color: var(--color-bg);
-	box-shadow: 0 0 15px var(--color-accent-glow);
-	transform: translateY(-2px);
-}
-
-/* --- Digital Lithosphere Surface Logic --- */
-
-body {
-	background-color: var(--color-bg);
-	font-family: var(--font-body);
-	color: var(--color-text);
-}
-
-/* Tonal Sectioning (No-Line Rule) */
 section:nth-child(even) {
-	background-color: var(--color-surface-low);
+  background-color: var(--color-surface-alt);
 }
 
 section:nth-child(odd) {
-	background-color: var(--color-bg);
+  background-color: var(--color-bg);
 }
 
-/* Scroll Reveal */
+.container {
+  max-width: var(--max-width-wide);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.container--narrow {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+/* ---- Section Headers ---- */
+
+.section-header {
+  margin-bottom: var(--space-xl);
+}
+
+.section-title {
+  margin-bottom: var(--space-xs);
+}
+
+.section-subtitle {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-family: var(--font-body);
+  font-weight: 500;
+  margin: 0;
+}
+
+/* ---- Cards ---- */
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: var(--space-lg);
+  transition: box-shadow var(--transition), border-color var(--transition);
+}
+
+.card:hover {
+  border-color: var(--color-accent);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* ---- Buttons ---- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: 0.625rem 1.25rem;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition);
+  text-decoration: none;
+}
+
+.btn:hover {
+  text-decoration: none;
+}
+
+.btn--primary {
+  background: var(--color-accent);
+  color: #fff;
+  border-color: var(--color-accent);
+}
+
+.btn--primary:hover {
+  background: var(--color-accent-light);
+  border-color: var(--color-accent-light);
+  color: #fff;
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.btn--outline:hover {
+  background: var(--color-accent-subtle);
+  color: var(--color-accent);
+}
+
+/* ---- Utility ---- */
+
+.text-center {
+  text-align: center;
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---- Scroll Reveal ---- */
+
 .scroll-reveal {
-	opacity: 0;
-	transform: translateY(32px);
-	transition: opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1);
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
+
 .scroll-reveal.visible {
-	opacity: 1;
-	transform: none;
+  opacity: 1;
+  transform: none;
 }
 
-/* --- Technical HUD Labels --- */
-.hud-label {
-	font-family: var(--font-heading);
-	font-size: 0.65rem;
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
-	color: var(--color-text-muted);
-	opacity: 0.7;
+/* ---- Subtle Waveform Motif ---- */
+
+.waveform-divider {
+  width: 100%;
+  height: 40px;
+  overflow: hidden;
+  opacity: 0.15;
 }
 
-/* Wave Divider (Refined for Dark Mode) */
-.wave-divider {
-	display: block;
-	width: 100%;
-	height: 48px;
-	fill: var(--color-surface-low);
+.waveform-divider svg {
+  width: 100%;
+  height: 100%;
 }
 
-/* Vertical Timeline Pulse Animation */
-@keyframes seismic-pulse {
-	0% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
-	70% { box-shadow: 0 0 0 15px rgba(16, 185, 129, 0); }
-	100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+/* ---- Accent Bar ---- */
+
+.accent-bar {
+  width: 32px;
+  height: 2px;
+  background: var(--color-accent);
+  margin-bottom: var(--space-md);
 }
 
-.timeline-pulse {
-	animation: seismic-pulse 5s infinite cubic-bezier(0.4, 0, 0.6, 1);
+/* ---- Responsive ---- */
+
+@media (max-width: 768px) {
+  :root {
+    --space-2xl: 3rem;
+    --space-3xl: 4rem;
+  }
+
+  section {
+    padding: var(--space-xl) var(--space-md);
+  }
 }
 
-/* Reduced Motion Support */
+/* ---- Reduced Motion ---- */
+
 @media (prefers-reduced-motion: reduce) {
-	.fade-in {
-		opacity: 1;
-		transform: none;
-		animation: none;
-	}
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 
-	.scroll-reveal {
-		opacity: 1;
-		transform: none;
-		transition: none;
-	}
-
-	.card-hover,
-	.card-hover:hover,
-	.card-hover:focus {
-		transform: none;
-		transition: none;
-	}
-
-	.btn-animated,
-	.btn-animated:hover,
-	.btn-animated:focus {
-		transform: none;
-	}
-
-	.timeline-pulse {
-		animation: none;
-	}
-
-	body {
-		animation: none;
-	}
+  html {
+    scroll-behavior: auto;
+  }
 }

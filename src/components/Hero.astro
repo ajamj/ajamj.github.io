@@ -3,187 +3,95 @@ import ResumeButton from './ResumeButton.astro';
 ---
 
 <section id="hero" class="hero-section">
-  <div class="seismic-bg" aria-hidden="true">
-    <svg viewBox="0 0 1000 300" preserveAspectRatio="none" class="waveform">
-      <path d="M0,150 Q50,140 100,160 T200,140 T300,160 T400,130 T500,170 T600,140 T700,160 T800,130 T900,170 T1000,150" fill="none" stroke="var(--color-accent)" stroke-width="2" class="wave-path"></path>
-      <path d="M0,170 Q50,160 100,180 T200,160 T300,180 T400,150 T500,190 T600,160 T700,180 T800,150 T900,190 T1000,170" fill="none" stroke="var(--color-accent)" stroke-width="1" opacity="0.4" class="wave-path delay-1"></path>
+  <div class="hero-inner">
+    <!-- Subtle waveform motif -->
+    <svg class="hero-waveform" viewBox="0 0 800 60" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,30 C40,30 60,10 100,30 C140,50 160,30 200,30 C240,30 260,10 300,30 C340,50 360,30 400,30 C440,30 460,10 500,30 C540,50 560,30 600,30 C640,30 660,10 700,30 C740,50 760,30 800,30" fill="none" stroke="var(--color-accent)" stroke-width="1" opacity="0.3"/>
     </svg>
-  </div>
 
-  <div class="hud-top-left hud-label">LAT: -7.7956 / LON: 110.3695</div>
-  <div class="hud-top-right hud-label">STATION: UGM01 | 100Hz</div>
-  <div class="hud-bottom-left hud-label">SYSTEM STATUS: ACTIVE</div>
-  <div class="hud-bottom-right hud-label">REAL-TIME MONITORING</div>
-
-  <div class="hero-content fade-in">
-    <!-- Portrait with Glow Effect -->
-    <div class="portrait-container">
-      <div class="portrait-glow" aria-hidden="true"></div>
-      <div class="portrait">
-        <!-- Placeholder: Initials Avatar - Replace with actual photo -->
-        <!-- To use real photo: <img src="/path/to/photo.jpg" alt="Ajam Jamaludin" class="portrait-img" /> -->
-        <span class="portrait-initials" aria-label="Ajam Jamaludin">AJ</span>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Geophysics Researcher</p>
+      <h1 class="hero-title">Ajam Jamaludin</h1>
+      <p class="hero-subtitle">
+        Computational seismology and earthquake early warning systems.<br />
+        Based at Universitas Gadjah Mada, Yogyakarta.
+      </p>
+      <div class="hero-actions">
+        <ResumeButton />
+        <a href="/projects" class="btn btn--outline">View Research</a>
       </div>
-    </div>
-
-    <h1 class="hero-title">Ajam Jamaludin</h1>
-    <p class="hero-subtitle">Junior Geophysics Researcher | Computational Seismology</p>
-    <div class="hero-actions">
-      <ResumeButton />
     </div>
   </div>
 </section>
 
 <style>
   .hero-section {
-    position: relative;
-    overflow: hidden;
+    min-height: 80vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background-color: var(--color-bg);
-    min-height: 100vh;
-  }
-
-  .seismic-bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-    opacity: 0.25;
-    pointer-events: none;
-    background-image: radial-gradient(circle at 2px 2px, rgba(16, 185, 129, 0.05) 1px, transparent 0);
-    background-size: 24px 24px;
-  }
-
-  .waveform {
-    width: 100%;
-    height: 100%;
-  }
-
-  .wave-path {
-    stroke-dasharray: 1000;
-    stroke-dashoffset: 1000;
-    animation: draw 8s linear infinite;
-  }
-
-  .delay-1 {
-    animation-delay: -4s;
-  }
-
-  @keyframes draw {
-    to {
-      stroke-dashoffset: -1000;
-    }
-  }
-
-  .hud-label {
-    position: absolute;
-    padding: var(--space-md);
-    z-index: 2;
-  }
-
-  .hud-top-left { top: 0; left: 0; }
-  .hud-top-right { top: 0; right: 0; }
-  .hud-bottom-left { bottom: 0; left: 0; }
-  .hud-bottom-right { bottom: 0; right: 0; }
-
-  .hero-content {
+    padding: calc(var(--space-3xl) + 60px) var(--space-md) var(--space-3xl);
+    background: var(--color-bg);
     position: relative;
-    z-index: 10;
-    max-width: 800px;
-    padding: var(--space-xl);
-    background: rgba(11, 19, 38, 0.6);
-    backdrop-filter: blur(8px);
-    border-radius: var(--radius-md);
+  }
+
+  .hero-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+
+  .hero-waveform {
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    max-width: 600px;
+    height: 60px;
+    opacity: 0.25;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
   }
 
   .hero-title {
-    margin-bottom: var(--space-xs);
-    text-shadow: 0 0 20px var(--color-accent-glow);
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 500;
+    line-height: 1.15;
+    margin-bottom: var(--space-lg);
+    letter-spacing: -0.02em;
   }
 
   .hero-subtitle {
-    font-size: 1.25rem;
-    color: var(--color-accent);
-    font-family: var(--font-heading);
-    margin-bottom: var(--space-xl);
-    font-weight: 500;
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    max-width: 480px;
+    margin: 0 auto var(--space-xl);
   }
 
   .hero-actions {
     display: flex;
     gap: var(--space-md);
     justify-content: center;
-    align-items: center;
     flex-wrap: wrap;
   }
 
-  /* Portrait Styles */
-  .portrait-container {
-    position: relative;
-    display: inline-block;
-    margin-bottom: var(--space-lg);
-  }
-
-  .portrait-glow {
-    position: absolute;
-    inset: -8px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(16, 185, 129, 0.3) 0%, transparent 70%);
-    animation: glow-pulse 3s ease-in-out infinite;
-    z-index: 0;
-  }
-
-  .portrait {
-    position: relative;
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    background: var(--color-surface-high);
-    border: 3px solid var(--color-accent);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-    overflow: hidden;
-  }
-
-  .portrait-initials {
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--color-accent);
-    text-transform: uppercase;
-  }
-
-  .portrait-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  @keyframes glow-pulse {
-    0%, 100% {
-      opacity: 0.6;
-      transform: scale(1);
+  @media (max-width: 640px) {
+    .hero-section {
+      min-height: 70vh;
+      padding-top: calc(80px + var(--space-xl));
     }
-    50% {
-      opacity: 1;
-      transform: scale(1.05);
-    }
-  }
 
-  /* Reduced motion for portrait glow */
-  @media (prefers-reduced-motion: reduce) {
-    .portrait-glow {
-      animation: none;
-      opacity: 0.8;
+    .hero-waveform {
+      display: none;
     }
-  }
-
-  @media (max-width: 768px) {
-    .hud-label { display: none; }
-    .hero-title { font-size: 2.5rem; }
   }
 </style>

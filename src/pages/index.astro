@@ -2,56 +2,69 @@
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import ProjectGallery from '../components/ProjectGallery.astro';
-import ResearchDataViz from '../components/ResearchDataViz.astro';
 import CareerTimeline from '../components/CareerTimeline.astro';
 import PublicationList from '../components/PublicationList.astro';
 import SkillsChart from '../components/SkillsChart.astro';
-import BlogPreview from '../components/BlogPreview.astro';
 import ContactForm from '../components/ContactForm.astro';
 ---
 
-<Layout title="Ajam Jamaludin | Geophysics Researcher">
-  <!-- Hero Section with Seismic Background -->
+<Layout title="Ajam Jamaludin — Geophysics Researcher">
   <Hero />
 
   <main>
     <!-- Featured Projects -->
     <section id="projects" class="scroll-reveal">
-      <div class="section-header">
-        <h2 class="section-title text-center">Featured Research Projects</h2>
-        <p class="section-subtitle hud-label text-center">Core Computational Contributions</p>
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">Selected Research</h2>
+          <p class="section-subtitle">Projects in computational seismology and data processing</p>
+        </div>
+        <ProjectGallery />
       </div>
-      <ProjectGallery />
     </section>
 
-    <!-- Research Data Visualization (Empirical Evidence) -->
-    <ResearchDataViz />
-
-    <!-- Vertical Experience Timeline -->
-    <CareerTimeline />
+    <!-- Experience Timeline -->
+    <section id="experience" class="scroll-reveal">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">Experience</h2>
+          <p class="section-subtitle">Research and professional background</p>
+        </div>
+        <CareerTimeline />
+      </div>
+    </section>
 
     <!-- Publications -->
-    <PublicationList />
+    <section id="publications" class="scroll-reveal">
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">Publications</h2>
+          <p class="section-subtitle">Peer-reviewed work and preprints</p>
+        </div>
+        <PublicationList />
+      </div>
+    </section>
 
     <!-- Skills & Tools -->
     <section id="skills" class="scroll-reveal">
-      <div class="section-header">
-        <h2 class="section-title text-center">Technical Stack</h2>
-        <p class="section-subtitle hud-label text-center">Computational & Domain Tools</p>
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">Technical Skills</h2>
+          <p class="section-subtitle">Tools and frameworks used in research</p>
+        </div>
+        <SkillsChart />
       </div>
-      <SkillsChart />
     </section>
 
-    <!-- Technical Blog -->
-    <BlogPreview />
-
-    <!-- Contact Section -->
+    <!-- Contact -->
     <section id="contact" class="scroll-reveal">
-      <div class="section-header">
-        <h2 class="section-title text-center">Connect</h2>
-        <p class="section-subtitle hud-label text-center">Collaboration & Inquiries</p>
+      <div class="container">
+        <div class="section-header text-center">
+          <h2 class="section-title">Get in Touch</h2>
+          <p class="section-subtitle">Open to collaboration and research inquiries</p>
+        </div>
+        <ContactForm />
       </div>
-      <ContactForm />
     </section>
   </main>
 </Layout>
@@ -66,7 +79,7 @@ import ContactForm from '../components/ContactForm.astro';
   }
 
   .section-header {
-    margin-bottom: var(--space-2xl);
+    margin-bottom: var(--space-xl);
   }
 
   .section-title {
@@ -75,31 +88,20 @@ import ContactForm from '../components/ContactForm.astro';
 </style>
 
 <script>
-  // Respect reduced motion preference
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   if (!prefersReducedMotion) {
-    const observerOptions = {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.1
-    };
-
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
         }
       });
-    }, observerOptions);
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-    document.querySelectorAll('.scroll-reveal').forEach(el => {
-      observer.observe(el);
-    });
+    document.querySelectorAll('.scroll-reveal').forEach(el => observer.observe(el));
   } else {
-    // Show all immediately for users who prefer reduced motion
-    document.querySelectorAll('.scroll-reveal').forEach(el => {
-      el.classList.add('visible');
-    });
+    document.querySelectorAll('.scroll-reveal').forEach(el => el.classList.add('visible'));
   }
 </script>

@@ -1,22 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  /* Digital Lithosphere - Light Mode (High Contrast) */
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --text: #3f3f46;
+  --text-h: #09090b;
+  --accent: #059669; /* Emerald 600 */
+  --accent-glow: rgba(16, 185, 129, 0.2);
+  --border: #e4e4e7;
+  --glass-bg: rgba(255, 255, 255, 0.7);
+  --glass-border: rgba(16, 185, 129, 0.1);
+  
+  --font-heading: 'Archivo', sans-serif;
+  --font-body: 'Space Grotesk', sans-serif;
+  --mono: ui-monospace, 'Cascadia Code', monospace;
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
+  font: 18px/1.6 var(--font-body);
+  letter-spacing: -0.01em;
   color-scheme: light dark;
   color: var(--text);
   background: var(--bg);
@@ -30,82 +31,105 @@
   }
 }
 
+:root[data-theme="dark"] {
+  --bg: #09090b;
+  --surface: #18181b;
+  --text: #a1a1aa;
+  --text-h: #f4f4f5;
+  --accent: #10b981; /* Emerald 500 */
+  --accent-glow: rgba(16, 185, 129, 0.4);
+  --border: #27272a;
+  --glass-bg: rgba(24, 24, 27, 0.6);
+  --glass-border: rgba(16, 185, 129, 0.2);
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
+    --bg: #09090b;
+    --surface: #18181b;
+    --text: #a1a1aa;
+    --text-h: #f4f4f5;
+    --accent: #10b981; /* Emerald 500 */
+    --accent-glow: rgba(16, 185, 129, 0.4);
+    --border: #27272a;
+    --glass-bg: rgba(24, 24, 27, 0.6);
+    --glass-border: rgba(16, 185, 129, 0.2);
   }
 }
 
 body {
   margin: 0;
+  background-color: var(--bg);
+  min-height: 100vh;
 }
 
 #root {
-  width: 1126px;
+  width: 1280px;
   max-width: 100%;
   margin: 0 auto;
-  text-align: center;
   border-inline: 1px solid var(--border);
-  min-height: 100svh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
 }
 
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
+h1, h2, h3, h4, .hud-label {
+  font-family: var(--font-heading);
+  font-weight: 600;
   color: var(--text-h);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  line-height: 0.9;
+  margin: 2rem 0;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
   border-radius: 4px;
-  color: var(--text-h);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+.card-hover:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 20px var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+.hud-label {
+  font-size: 0.75rem;
+  color: var(--accent);
+  opacity: 0.8;
+}
+
+.btn {
+  font-family: var(--font-heading);
+  background: var(--accent);
+  color: #000;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.2s ease;
+}
+
+.btn:hover {
+  filter: brightness(1.1);
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
 }

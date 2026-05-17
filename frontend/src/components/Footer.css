@@ -1,7 +1,8 @@
 .footer {
-  padding: 1.5rem 2rem;
-  border-top: 1px solid #eee;
-  margin-top: 2rem;
+  padding: 4rem 2rem;
+  border-top: 1px solid var(--border);
+  margin-top: 6rem;
+  background: var(--surface);
 }
 
 .footer-container {
@@ -9,25 +10,55 @@
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
 }
 
-.footer p {
-  color: #666;
-  margin: 0;
+.footer-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.footer-info p {
+  font-family: var(--font-heading);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--text-h);
+}
+
+.academic-affiliation {
+  font-size: 0.65rem;
+  color: var(--text);
+  opacity: 0.7;
+  letter-spacing: 0.1em;
 }
 
 .footer-links {
   display: flex;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 .footer-links a {
-  color: #555;
   text-decoration: none;
-  transition: color 0.2s;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  transition: all 0.2s ease;
 }
 
 .footer-links a:hover {
-  color: #000;
+  color: var(--accent);
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 3rem;
+  }
+  .footer-links {
+    width: 100%;
+    justify-content: space-between;
+  }
 }

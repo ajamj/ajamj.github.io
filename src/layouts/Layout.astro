@@ -12,7 +12,7 @@ interface Props {
 
 const { 
   title, 
-  description = 'Personal portfolio of Ajam Jamaludin - Geophysics Researcher',
+  description = 'Personal portfolio of Ajam Jamaludin — Geophysics Researcher',
   canonical = Astro.url.href,
   image = '/og-image.png'
 } = Astro.props;
@@ -25,12 +25,12 @@ const {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <meta name="theme-color" content="#0D7377" />
+    <meta name="theme-color" content="#2d7a6f" />
     
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonical} />
-    <meta property="og:site_name" content="Ajam Jamaludin Portfolio" />
+    <meta property="og:site_name" content="Ajam Jamaludin" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={new URL(image, Astro.url)} />
@@ -41,22 +41,15 @@ const {
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={new URL(image, Astro.url)} />
-    <meta property="twitter:creator" content="@ajamj" />
 
     <title>{title}</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@400;500;600&display=swap" rel="stylesheet" />
   </head>
   <body>
-    <div class="hud-corners">
-      <div class="corner top-left"></div>
-      <div class="corner top-right"></div>
-      <div class="corner bottom-left"></div>
-      <div class="corner bottom-right"></div>
-    </div>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <a href="#main-content" class="sr-only">Skip to main content</a>
     <Header />
     <main id="main-content">
       <slot />
@@ -64,159 +57,3 @@ const {
     <Footer />
   </body>
 </html>
-
-<style is:global>
-  :root {
-    --color-bg: #0b1326;
-    --color-surface-low: #131b2e;
-    --color-surface: #171f33;
-    --color-surface-high: #222a3d;
-    --color-surface-highest: #2d3449;
-    
-    --color-text: #dae2fd;
-    --color-text-muted: #6B7280;
-    
-    --color-accent: #10b981;
-    --color-accent-glow: rgba(16, 185, 129, 0.4);
-    
-    --color-white: #FFFFFF;
-    --color-border: rgba(60, 74, 66, 0.2);
-    
-    --font-heading: 'Space Grotesk', system-ui, sans-serif;
-    --font-body: 'Inter', system-ui, sans-serif;
-
-    --space-xs: 0.5rem;
-    --space-sm: 0.75rem;
-    --space-md: 1rem;
-    --space-lg: 1.5rem;
-    --space-xl: 2rem;
-    --space-2xl: 3rem;
-    --space-3xl: 4rem;
-    --radius-sm: 0.375rem;
-    --radius-md: 0.5rem;
-    --radius-full: 999px;
-  }
-
-  .hud-corners .corner {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    border: 1px solid var(--color-accent);
-    z-index: 1000;
-    pointer-events: none;
-    opacity: 0.4;
-  }
-
-  .corner.top-left { top: 10px; left: 10px; border-right: none; border-bottom: none; }
-  .corner.top-right { top: 10px; right: 10px; border-left: none; border-bottom: none; }
-  .corner.bottom-left { bottom: 10px; left: 10px; border-right: none; border-top: none; }
-  .corner.bottom-right { bottom: 10px; right: 10px; border-left: none; border-top: none; }
-
-  * {
-    box-sizing: border-box;
-  }
-
-  html {
-    scroll-behavior: smooth;
-    background-color: var(--color-bg);
-  }
-
-  body {
-    margin: 0;
-    padding-top: 60px;
-    background-color: var(--color-bg);
-    color: var(--color-text);
-    font-family: var(--font-body);
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-heading);
-    color: var(--color-text);
-    letter-spacing: -0.02em;
-  }
-
-  h1 {
-    font-size: 3.052rem;
-    font-weight: 700;
-    line-height: 1.1;
-    margin: 0 0 var(--space-lg) 0;
-  }
-
-  h2 {
-    font-size: 2.25rem;
-    font-weight: 600;
-    line-height: 1.2;
-    margin: 0 0 var(--space-xl) 0;
-  }
-
-  h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin: 0 0 var(--space-sm) 0;
-  }
-
-  p {
-    margin: 0 0 var(--space-md) 0;
-    opacity: 0.9;
-  }
-
-  a {
-    color: var(--color-accent);
-    text-decoration: none;
-    transition: all 0.2s ease;
-  }
-
-  a:hover {
-    filter: brightness(1.2);
-  }
-
-  section {
-    min-height: 100vh;
-    padding: var(--space-xl) var(--space-md);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  .glass-card {
-    background: rgba(23, 31, 51, 0.4);
-    backdrop-filter: blur(12px);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-md);
-    padding: var(--space-xl);
-  }
-
-  @media (min-width: 768px) {
-    body {
-      padding-top: 70px;
-    }
-
-    section {
-      padding: var(--space-3xl) var(--space-xl);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    html {
-      scroll-behavior: auto;
-    }
-  }
-
-  .skip-link {
-    position: absolute;
-    top: -100%;
-    left: 0;
-    background: var(--color-accent);
-    color: var(--color-white);
-    padding: var(--space-sm) var(--space-md);
-    z-index: 9999;
-    text-decoration: none;
-    font-weight: 500;
-  }
-
-  .skip-link:focus {
-    top: 0;
-  }
-</style>

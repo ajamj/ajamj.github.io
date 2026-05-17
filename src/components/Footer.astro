@@ -3,15 +3,32 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer>
-  <p>&copy; {currentYear} Ajam Jamaludin. All rights reserved.</p>
+  <div class="footer-inner">
+    <p>&copy; {currentYear} Ajam Jamaludin</p>
+    <p class="footer-note">Geophysics Researcher · Yogyakarta, Indonesia</p>
+  </div>
 </footer>
 
 <style>
   footer {
     padding: var(--space-xl) var(--space-md);
     text-align: center;
-    font-size: 0.875rem;
-    color: var(--color-text);
-    opacity: 0.7;
+    border-top: 1px solid var(--color-border-light);
+    background: var(--color-surface);
+  }
+
+  .footer-inner {
+    max-width: var(--max-width-wide);
+    margin: 0 auto;
+  }
+
+  footer p {
+    margin: 0;
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+  }
+
+  .footer-note {
+    margin-top: var(--space-xs);
   }
 </style>

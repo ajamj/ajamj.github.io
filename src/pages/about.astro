@@ -19,22 +19,18 @@ const researchInterests = [
   {
     title: 'Seismic Data Processing',
     description: 'Developing automated algorithms for earthquake detection, phase picking, and magnitude estimation using machine learning approaches.',
-    icon: '〰',
   },
   {
     title: 'Earthquake Early Warning Systems',
     description: 'Building real-time seismic monitoring pipelines with optimized parameter estimation for rapid and accurate hazard assessment.',
-    icon: '⚡',
   },
   {
     title: 'Seismic Hazard Analysis',
     description: 'Analyzing ground motion characteristics and probabilistic seismic hazard modeling for infrastructure resilience.',
-    icon: '📊',
   },
   {
     title: 'Knowledge Graph Integration',
     description: 'Connecting seismic metadata into structured knowledge systems for enhanced data discovery and analysis.',
-    icon: '🔗',
   },
 ];
 
@@ -67,37 +63,29 @@ const timeline = [
 ---
 
 <Layout 
-  title="About | Ajam Jamaludin"
+  title="About — Ajam Jamaludin"
   description="Extended biography and research interests of Ajam Jamaludin, Geophysics Researcher"
 >
   <main>
     <!-- Hero Section -->
     <section class="about-hero">
       <div class="container">
-        <div class="hero-content">
-          <span class="hud-label">PROFILE EXTENDED</span>
-          <h1>About Me</h1>
-          <p class="hero-intro">
-            I'm a geophysics researcher focused on seismic data analysis and earthquake early warning systems. 
-            My work combines computational methods with real-time seismic monitoring to improve earthquake 
-            detection and hazard assessment.
-          </p>
-        </div>
+        <div class="accent-bar"></div>
+        <span class="page-label">About</span>
+        <h1>Geophysics Researcher</h1>
+        <p class="hero-intro">
+          I'm a geophysics researcher focused on seismic data analysis, earthquake early warning systems, and computational methods for real-time hazard assessment. My work bridges signal processing, machine learning, and domain expertise to build reliable systems for earthquake monitoring.
+        </p>
       </div>
     </section>
 
     <!-- Research Interests -->
-    <section class="section">
+    <section class="research-interests">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Research Interests</h2>
-          <p class="section-subtitle hud-label">Core Focus Areas</p>
-        </div>
-        
+        <h2>Research Interests</h2>
         <div class="interests-grid">
           {researchInterests.map((interest) => (
-            <div class="interest-card glass-card">
-              <span class="interest-icon">{interest.icon}</span>
+            <div class="card interest-card">
               <h3>{interest.title}</h3>
               <p>{interest.description}</p>
             </div>
@@ -107,47 +95,37 @@ const timeline = [
     </section>
 
     <!-- Education -->
-    <section class="section section-alt">
+    <section class="education-section">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Education</h2>
-          <p class="section-subtitle hud-label">Academic Background</p>
-        </div>
-        
-        <div class="education-list">
-          {education.map((edu) => (
-            <div class="education-item glass-card">
-              <span class="hud-label">{edu.period}</span>
+        <h2>Education</h2>
+        {education.map((edu) => (
+          <div class="card education-card">
+            <div class="edu-header">
               <h3>{edu.degree}</h3>
-              <span class="edu-institution">{edu.institution}</span>
-              <ul class="edu-details">
-                {edu.details.map((detail) => (
-                  <li>{detail}</li>
-                ))}
-              </ul>
+              <span class="edu-period">{edu.period}</span>
             </div>
-          ))}
-        </div>
+            <p class="edu-institution">{edu.institution}</p>
+            <ul class="edu-details">
+              {edu.details.map((detail) => (
+                <li>{detail}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
     </section>
 
     <!-- Timeline -->
-    <section class="section">
+    <section class="timeline-section">
       <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Journey</h2>
-          <p class="section-subtitle hud-label">Key Milestones</p>
-        </div>
-        
-        <div class="journey-timeline">
-          {timeline.map((item, index) => (
-            <div class="journey-item">
-              <div class="journey-marker">
-                <span class="journey-year">{item.year}</span>
-              </div>
-              <div class="journey-content glass-card">
+        <h2>Career Timeline</h2>
+        <div class="timeline">
+          {timeline.map((item, i) => (
+            <div class="timeline-item">
+              <div class="timeline-year">{item.year}</div>
+              <div class="timeline-content">
                 <h3>{item.title}</h3>
-                <span class="journey-org">{item.organization}</span>
+                <p class="timeline-org">{item.organization}</p>
                 <p>{item.description}</p>
               </div>
             </div>
@@ -155,287 +133,168 @@ const timeline = [
         </div>
       </div>
     </section>
-
-    <!-- Skills Summary -->
-    <section class="section section-alt">
-      <div class="container">
-        <div class="section-header">
-          <h2 class="section-title">Technical Skills</h2>
-          <p class="section-subtitle hud-label">Tools & Technologies</p>
-        </div>
-        <SkillsChart />
-      </div>
-    </section>
-
-    <!-- CV Link -->
-    <section class="section">
-      <div class="container text-center">
-        <div class="cta-content">
-          <h2>View Full Curriculum Vitae</h2>
-          <p>Download or view my complete CV with all publications, experience, and details.</p>
-          <a href="/cv" class="btn btn-primary">
-            <span>View CV</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 12h14M12 5l7 7-7 7"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-    </section>
   </main>
 </Layout>
 
 <style>
-  .container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 var(--space-md);
-  }
-
   .about-hero {
-    min-height: 50vh;
-    display: flex;
-    align-items: center;
-    background: linear-gradient(180deg, var(--color-surface-low) 0%, var(--color-bg) 100%);
-    padding: var(--space-3xl) 0;
+    padding-top: calc(80px + var(--space-2xl));
+    padding-bottom: var(--space-2xl);
   }
 
-  .hero-content {
-    max-width: 700px;
+  .page-label {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin-bottom: var(--space-md);
   }
 
-  .hero-content h1 {
-    font-size: 3.5rem;
+  .about-hero h1 {
     margin-bottom: var(--space-lg);
   }
 
   .hero-intro {
-    font-size: 1.25rem;
-    opacity: 0.85;
-    line-height: 1.7;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: var(--color-text-muted);
+    max-width: 600px;
   }
 
-  .section {
-    padding: var(--space-3xl) 0;
+  .accent-bar {
+    width: 32px;
+    height: 2px;
+    background: var(--color-accent);
+    margin-bottom: var(--space-md);
   }
 
-  .section-alt {
-    background-color: var(--color-surface-low);
+  .research-interests h2,
+  .education-section h2,
+  .timeline-section h2 {
+    margin-bottom: var(--space-xl);
   }
 
-  .section-header {
-    text-align: center;
-    margin-bottom: var(--space-2xl);
-  }
-
-  .section-title {
-    margin-bottom: var(--space-xs);
-  }
-
-  .section-subtitle {
-    color: var(--color-accent);
-  }
-
-  /* Interests Grid */
   .interests-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: var(--space-lg);
   }
 
-  .interest-card {
-    padding: var(--space-xl);
-    transition: all 0.3s ease;
-  }
-
-  .interest-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--color-accent);
-  }
-
-  .interest-icon {
-    font-size: 2rem;
-    display: block;
-    margin-bottom: var(--space-md);
-  }
-
   .interest-card h3 {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     margin-bottom: var(--space-sm);
   }
 
   .interest-card p {
-    opacity: 0.8;
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
     margin: 0;
   }
 
-  /* Education */
-  .education-list {
-    max-width: 700px;
-    margin: 0 auto;
+  .education-card {
+    margin-bottom: var(--space-lg);
   }
 
-  .education-item {
-    padding: var(--space-xl);
+  .edu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+    margin-bottom: var(--space-xs);
   }
 
-  .education-item h3 {
-    margin: var(--space-sm) 0;
+  .edu-header h3 {
+    font-size: 1.125rem;
+    margin: 0;
+  }
+
+  .edu-period {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
   }
 
   .edu-institution {
-    display: block;
-    color: var(--color-accent);
-    font-family: var(--font-heading);
     font-weight: 500;
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
   }
 
   .edu-details {
-    list-style: none;
-    padding: 0;
     margin: 0;
+    padding-left: var(--space-lg);
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
   }
 
   .edu-details li {
-    position: relative;
-    padding-left: var(--space-lg);
     margin-bottom: var(--space-xs);
-    opacity: 0.85;
   }
 
-  .edu-details li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--color-accent);
-  }
-
-  /* Journey Timeline */
-  .journey-timeline {
+  .timeline {
     position: relative;
-    max-width: 700px;
-    margin: 0 auto;
-    padding-left: var(--space-2xl);
+    padding-left: var(--space-xl);
   }
 
-  .journey-timeline::before {
+  .timeline::before {
     content: '';
     position: absolute;
-    left: 24px;
+    left: 6px;
     top: 0;
     bottom: 0;
-    width: 2px;
-    background: linear-gradient(to bottom, var(--color-accent), transparent);
-    opacity: 0.3;
+    width: 1px;
+    background: var(--color-border);
   }
 
-  .journey-item {
+  .timeline-item {
     position: relative;
-    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-xl);
   }
 
-  .journey-item:last-child {
-    margin-bottom: 0;
-  }
-
-  .journey-marker {
+  .timeline-item::before {
+    content: '';
     position: absolute;
-    left: -49px;
-    top: 0;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--color-bg);
-    border: 2px solid var(--color-accent);
+    left: calc(-1 * var(--space-xl) + 2px);
+    top: 6px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
+    background: var(--color-accent);
+    border: 2px solid var(--color-bg);
   }
 
-  .journey-year {
-    font-family: var(--font-heading);
+  .timeline-year {
+    font-size: 0.75rem;
     font-weight: 600;
-    font-size: 0.85rem;
     color: var(--color-accent);
-  }
-
-  .journey-content {
-    padding: var(--space-lg);
-  }
-
-  .journey-content h3 {
-    font-size: 1.1rem;
+    letter-spacing: 0.05em;
     margin-bottom: var(--space-xs);
   }
 
-  .journey-org {
-    display: block;
-    color: var(--color-accent);
+  .timeline-content h3 {
+    font-size: 1.0625rem;
+    margin: 0 0 var(--space-xs);
+  }
+
+  .timeline-org {
     font-weight: 500;
-    margin-bottom: var(--space-sm);
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
+    margin: 0 0 var(--space-sm);
   }
 
-  .journey-content p {
+  .timeline-content p {
+    font-size: 0.9375rem;
+    color: var(--color-text-muted);
     margin: 0;
-    opacity: 0.8;
   }
 
-  /* CTA */
-  .cta-content {
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
-  .cta-content h2 {
-    margin-bottom: var(--space-sm);
-  }
-
-  .cta-content p {
-    margin-bottom: var(--space-xl);
-    opacity: 0.8;
-  }
-
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-sm);
-    padding: var(--space-md) var(--space-xl);
-    background: var(--color-accent);
-    color: var(--color-white);
-    font-family: var(--font-heading);
-    font-weight: 600;
-    text-decoration: none;
-    border-radius: var(--radius-md);
-    transition: all 0.2s ease;
-  }
-
-  .btn:hover {
-    filter: brightness(1.1);
-    transform: translateY(-2px);
-  }
-
-  .text-center {
-    text-align: center;
-  }
-
-  @media (max-width: 768px) {
-    .hero-content h1 {
-      font-size: 2.5rem;
-    }
-
-    .journey-timeline {
-      padding-left: var(--space-xl);
-    }
-
-    .journey-marker {
-      left: -37px;
-      width: 40px;
-      height: 40px;
-    }
-
-    .journey-timeline::before {
-      left: 19px;
+  @media (max-width: 640px) {
+    .edu-header {
+      flex-direction: column;
+      gap: 0;
     }
   }
 </style>

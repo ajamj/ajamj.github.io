@@ -1,15 +1,19 @@
 # STATE
 
-Current phase: 12 - Deployment
+Current phase: 13 - Redesign (Astro-First)
 Milestones
 - 0: Planning setup
-- 1-12: Complete Migration and Deployment Config (COMPLETE)
+- 1-12: Framework Exploration (React/Django merged, now deprecated)
+- 13: Minimal Academic Redesign in Astro (ACTIVE)
 
 Memory snapshot
-- Phase 12 (Deployment) completed with 12-01-SUMMARY.md.
-- Migration Retrospective documented.
-- All tasks in the 12-phase roadmap have been implemented and verified.
+- Cloudflare and Dynamic Migration (Django/React) cancelled.
+- Project Direction: Purely static website using Astro, hosted on GitHub Pages.
+- Redesign Concept approved: focus on minimal, academic, English-first portfolio.
+- React/Django folders (`frontend/`, `backend/`) remain for reference but are not part of the production static build.
 
 Next actions
-- Final project audit and stakeholder sign-off.
-- Close the migration branch and merge into main.
+- Unstash and review Redesign Concept work.
+- Initialize Phase 13: Implementation of minimal design in Astro.
+- Optimize Astro build for GitHub Pages.
+- (Optional) Clean up deprecated React/Django code to reduce repo weight.

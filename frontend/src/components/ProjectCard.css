@@ -1,58 +1,79 @@
 .project-card {
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  overflow: hidden;
-  transition: box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 1.5rem;
+  text-align: left;
 }
 
-.project-card:hover {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+.card-hud {
+  margin-bottom: 1rem;
+  font-size: 0.65rem;
+}
+
+.card-image-wrapper {
+  margin: 0 -1.5rem 1.5rem -1.5rem;
+  overflow: hidden;
+  height: 220px;
+  border-block: 1px solid var(--border);
 }
 
 .project-image {
   width: 100%;
-  height: 200px;
+  height: 100%;
   object-fit: cover;
+  opacity: 0.8;
+  filter: grayscale(0.5);
+  transition: all 0.5s ease;
+}
+
+.project-card:hover .project-image {
+  opacity: 1;
+  filter: grayscale(0);
+  transform: scale(1.05);
 }
 
 .project-content {
-  padding: 1.25rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .project-content h3 {
-  margin: 0 0 0.5rem;
+  margin-bottom: 0.75rem;
   font-size: 1.25rem;
-  color: #1a1a1a;
 }
 
 .project-content p {
-  color: #555;
-  margin: 0 0 1rem;
+  font-size: 0.9375rem;
   line-height: 1.5;
+  margin-bottom: 1.5rem;
+  color: var(--text);
 }
 
 .tech-stack {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 .tech-tag {
-  background: #f5f5f5;
-  color: #555;
-  padding: 0.25rem 0.75rem;
-  border-radius: 4px;
-  font-size: 0.875rem;
+  font-family: var(--font-heading);
+  font-size: 0.7rem;
+  color: var(--accent);
+  border: 1px solid var(--glass-border);
+  padding: 0.2rem 0.6rem;
+  text-transform: uppercase;
 }
 
-.project-link {
-  display: inline-block;
-  color: #2563eb;
-  text-decoration: none;
-  font-weight: 500;
+.card-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
 }
 
-.project-link:hover {
-  text-decoration: underline;
+.btn-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.75rem;
 }
