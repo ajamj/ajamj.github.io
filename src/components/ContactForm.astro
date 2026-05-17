@@ -7,22 +7,27 @@
   <form class="contact-form" name="contact" method="POST" data-netlify="true" aria-label="Contact form">
     <input type="hidden" name="form-name" value="contact" />
     
+    <!-- Honeypot anti-spam field -->
+    <p class="hidden">
+      <label>Don’t fill this out if you’re human: <input name="bot-field" /></label>
+    </p>
+
     <div class="input-group">
       <label for="name" class="hud-label">Name</label>
-      <input id="name" name="name" type="text" required autocomplete="name" placeholder="Full Name" />
+      <input id="name" name="name" type="text" required autocomplete="name" placeholder="Full Name" maxlength="100" />
     </div>
 
     <div class="input-group">
       <label for="email" class="hud-label">Email</label>
-      <input id="email" name="email" type="email" required autocomplete="email" placeholder="Email Address" />
+      <input id="email" name="email" type="email" required autocomplete="email" placeholder="Email Address" maxlength="100" />
     </div>
 
     <div class="input-group">
       <label for="message" class="hud-label">Message</label>
-      <textarea id="message" name="message" rows="5" required placeholder="Project inquiry or research collaboration..."></textarea>
+      <textarea id="message" name="message" rows="5" required placeholder="Project inquiry or research collaboration..." maxlength="1000"></textarea>
     </div>
 
-    <button type="submit" class="btn-animated">Transmit Message</button>
+    <button type="submit" class="btn btn--primary">Transmit Message</button>
   </form>
 
   <div class="contact-footer">
@@ -45,54 +50,64 @@
   .contact-container {
     max-width: 600px;
     margin: 0 auto;
-    padding: var(--space-2xl);
+    padding: var(--space-xl);
+    background: var(--color-surface);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+  }
+
+  .hidden {
+    display: none;
   }
 
   .contact-form {
     display: flex;
     flex-direction: column;
-    gap: var(--space-xl);
-    margin-bottom: var(--space-2xl);
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
   }
 
   .input-group {
     display: flex;
     flex-direction: column;
-    gap: var(--space-xs);
+    gap: 0.5rem;
   }
 
   .contact-form input,
   .contact-form textarea {
-    background: var(--color-surface-low);
-    border: none;
-    border-bottom: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-    padding: var(--space-md);
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--color-border);
+    border-radius: 4px;
+    padding: 0.875rem;
     font-size: 1rem;
     font-family: var(--font-body);
     color: var(--color-text);
-    transition: all 0.2s ease;
+    transition: all var(--transition);
   }
 
   .contact-form textarea {
-    resize: none;
+    resize: vertical;
+    min-height: 120px;
   }
 
   .contact-form input:focus,
   .contact-form textarea:focus {
     outline: none;
-    background: var(--color-surface);
-    border-bottom-color: var(--color-accent);
-    box-shadow: 0 4px 12px var(--color-accent-glow);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--color-accent);
+    box-shadow: 0 0 15px var(--color-accent-glow);
   }
 
   .contact-form button {
     width: 100%;
     margin-top: var(--space-md);
+    padding: 1rem;
+    font-size: 1rem;
   }
 
   .contact-footer {
-    padding-top: var(--space-xl);
+    padding-top: var(--space-lg);
     border-top: 1px solid var(--color-border);
     text-align: center;
   }
@@ -101,7 +116,7 @@
     display: flex;
     gap: var(--space-xl);
     justify-content: center;
-    margin-top: var(--space-md);
+    margin-top: 0.75rem;
   }
 
   .contact-icon {
@@ -111,19 +126,23 @@
     text-transform: uppercase;
     letter-spacing: 0.05em;
     color: var(--color-text-muted);
-    opacity: 0.7;
-    transition: all 0.2s ease;
+    transition: all var(--transition);
+    text-decoration: none;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
   }
 
   .contact-icon:hover {
     color: var(--color-accent);
-    opacity: 1;
     text-shadow: 0 0 10px var(--color-accent-glow);
   }
 
-  @media (max-width: 600px) {
-    .contact-container {
-      padding: var(--space-xl);
+  @media (max-width: 480px) {
+    .contact-social {
+      flex-direction: column;
+      gap: 0.5rem;
+      align-items: center;
     }
   }
 </style>
