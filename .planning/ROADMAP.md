@@ -26,3 +26,17 @@
   - Objective: Clean up deprecated assets and optimize deployment workflow.
   - Success Criteria: 100/100 Lighthouse performance, successful automated deploy to jamj.github.io.
   - Status: COMPLETE
+- **Phase 15: Dark Theme & Mobile-First Fluid Optimization**
+  - Objective: Transition to a high-contrast dark theme and implement fluid responsive layouts.
+  - Success Criteria: 95+ Mobile Lighthouse score, cohesive dark aesthetic, flawless scaling.
+  - Status: COMPLETE
+
+- **Phase 16: Codebase Consolidation & Final Audit**
+  - Objective: Clean up deprecated code and perform final quality assurance.
+  - Success Criteria: Zero unused React/Django folders, verified 100/100 Lighthouse scores, no broken links.
+  - Status: COMPLETE
+
+## Milestone 4: Maintenance & Content (ACTIVE)
+- **Phase 17: Ongoing Maintenance**
+  - Objective: Keep dependencies updated and add new research insights.
+  - Status: READY

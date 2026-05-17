@@ -1,21 +1,17 @@
 # STATE
 
-Current phase: 13 - Redesign (Astro-First)
+Current phase: 16 - Final Audit (COMPLETE)
 Milestones
 - 0: Planning setup
-- 1-12: Framework Exploration (React/Django merged, now deprecated)
-- 13: Minimal Academic Redesign in Astro (ACTIVE)
+- 1-12: Framework Exploration (Deprecated)
+- 13-16: Academic Redesign in Astro (COMPLETE)
 
 Memory snapshot
-- Cloudflare and Dynamic Migration (Django/React) cancelled.
-- Project Direction: Purely static website using Astro, hosted on GitHub Pages.
-- Redesign Concept: Minimal, academic, English-first portfolio.
-- CV page and download buttons removed as requested.
-- Blog integrated into homepage.
-- Profile picture added to Hero section.
-- React/Django folders (`frontend/`, `backend/`) remain for reference but are not part of the production static build.
+- Site is now a high-end, obsidian-emerald dark themed portfolio.
+- Purely static Astro architecture, fully responsive and accessible.
+- Final audit passed: images optimized, links verified, deployment successful.
+- Deprecated code and CV assets removed.
 
 Next actions
-- Final project audit and visual check.
-- Monitor GitHub Actions for successful deployment.
-- (Optional) Clean up deprecated React/Django code to reduce repo weight.
+- Enter maintenance mode.
+- Regularly update research content.
