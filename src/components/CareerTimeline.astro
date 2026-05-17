@@ -12,7 +12,7 @@ const experience = [
     ],
   },
   {
-    title: 'Geophysics Software Intern — Earthquake Early Warning Systems',
+    title: 'Geophysics Software Intern — Earthquake Early Warning Systems',      
     organization: 'BMKG (Badan Meteorologi, Klimatologi, dan Geofisika)',
     period: 'Feb 2024 – Jun 2024',
     highlights: [
@@ -45,31 +45,33 @@ const experience = [
 ];
 ---
 
-<section id="experience" class="timeline-section scroll-reveal">
-  <div class="section-header">
-    <h2 class="section-title">Research & Career Journey</h2>
-    <p class="section-subtitle hud-label">System Logs: Professional History</p>
-  </div>
+<section id="experience" class="timeline-section scroll-reveal" aria-labelledby="experience-title">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2 id="experience-title" class="section-title">Research & Career Journey</h2>
+      <p class="section-subtitle hud-label">System Logs: Professional History</p>    
+    </div>
 
-  <div class="timeline-container">
-    <div class="timeline-track"></div>
-    
-    <div class="timeline-items">
-      {experience.map((item) => (
-        <div class="timeline-item">
-          <div class="timeline-node timeline-pulse"></div>
-          <div class="timeline-content glass-card card-hover">
-            <span class="timeline-period hud-label">{item.period}</span>
-            <h3>{item.title}</h3>
-            <span class="timeline-org">{item.organization}</span>
-            <ul class="timeline-highlights">
-              {item.highlights.map((bullet) => (
-                <li>{bullet}</li>
-              ))}
-            </ul>
+    <div class="timeline-container">
+      <div class="timeline-track" aria-hidden="true"></div>
+
+      <div class="timeline-items" role="list">
+        {experience.map((item) => (
+          <div class="timeline-item" role="listitem">
+            <div class="timeline-node" aria-hidden="true"></div>
+            <div class="timeline-content glass-card card-hover">
+              <span class="timeline-period hud-label">{item.period}</span>
+              <h3>{item.title}</h3>
+              <span class="timeline-org">{item.organization}</span>
+              <ul class="timeline-highlights">
+                {item.highlights.map((bullet) => (
+                  <li>{bullet}</li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   </div>
 </section>
@@ -77,36 +79,31 @@ const experience = [
 <style>
   .timeline-section {
     position: relative;
-    padding: var(--space-3xl) var(--space-md);
-    background-color: var(--color-surface-low);
-  }
-
-  .section-header {
-    text-align: center;
-    margin-bottom: var(--space-3xl);
+    padding: var(--space-section-padding) 0;
+    background-color: var(--color-bg);
   }
 
   .timeline-container {
     position: relative;
-    max-width: 900px;
-    margin: 0 auto;
-    padding-left: var(--space-2xl);
+    max-width: 800px;
+    margin: var(--space-xl) auto 0;
+    padding-left: var(--space-xl);
   }
 
   .timeline-track {
     position: absolute;
-    left: 7px;
+    left: 0;
     top: 0;
     bottom: 0;
     width: 2px;
-    background: linear-gradient(to bottom, transparent, var(--color-accent) 15%, var(--color-accent) 85%, transparent);
-    opacity: 0.3;
+    background: linear-gradient(to bottom, transparent, var(--color-accent) 10%, var(--color-accent) 90%, transparent);
+    opacity: 0.2;
   }
 
   .timeline-items {
     display: flex;
     flex-direction: column;
-    gap: var(--space-2xl);
+    gap: var(--space-lg);
   }
 
   .timeline-item {
@@ -115,40 +112,47 @@ const experience = [
 
   .timeline-node {
     position: absolute;
-    left: -33px;
+    left: -24px;
     top: 24px;
-    width: 16px;
-    height: 16px;
+    width: 10px;
+    height: 10px;
     background-color: var(--color-accent);
     border-radius: 50%;
     z-index: 5;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: crosshair;
-  }
-
-  .timeline-node:hover {
-    transform: scale(1.6);
-    box-shadow: 0 0 20px var(--color-accent);
+    box-shadow: 0 0 10px var(--color-accent-glow);
   }
 
   .timeline-content {
-    padding: var(--space-xl);
-    border-left: 2px solid transparent;
+    padding: var(--space-lg);
+    background: var(--color-surface);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    transition: all var(--transition);
   }
 
   .timeline-content:hover {
-    border-left-color: var(--color-accent);
+    border-color: var(--color-accent);
+    box-shadow: 0 0 15px var(--color-accent-glow);
   }
 
   .timeline-period {
     display: block;
+    font-size: 0.75rem;
     margin-bottom: var(--space-xs);
+  }
+
+  .timeline-content h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+    color: var(--color-text);
   }
 
   .timeline-org {
     display: block;
     color: var(--color-accent);
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
     font-weight: 500;
     margin-bottom: var(--space-md);
   }
@@ -161,11 +165,11 @@ const experience = [
 
   .timeline-highlights li {
     position: relative;
-    padding-left: var(--space-lg);
-    margin-bottom: var(--space-sm);
-    font-size: 0.95rem;
+    padding-left: 1.25rem;
+    margin-bottom: var(--space-xs);
+    font-size: 0.9rem;
     line-height: 1.5;
-    opacity: 0.85;
+    color: var(--color-text-muted);
   }
 
   .timeline-highlights li::before {
@@ -173,17 +177,15 @@ const experience = [
     position: absolute;
     left: 0;
     color: var(--color-accent);
+    opacity: 0.8;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 640px) {
     .timeline-container {
-      padding-left: var(--space-xl);
+      padding-left: 1.5rem;
     }
     .timeline-node {
-      left: -25px;
-    }
-    .timeline-track {
-      left: 15px;
+      left: -19px;
     }
   }
 </style>
