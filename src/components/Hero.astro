@@ -1,5 +1,4 @@
 ---
-import ResumeButton from './ResumeButton.astro';
 ---
 
 <section id="hero" class="hero-section">
@@ -10,6 +9,11 @@ import ResumeButton from './ResumeButton.astro';
     </svg>
 
     <div class="hero-content">
+      <div class="hero-visual">
+        <div class="profile-frame">
+          <img src="/img/self-portrait.jpg" alt="Ajam Jamaludin" class="profile-img" />
+        </div>
+      </div>
       <p class="hero-eyebrow">Geophysics Researcher</p>
       <h1 class="hero-title">Ajam Jamaludin</h1>
       <p class="hero-subtitle">
@@ -17,7 +21,7 @@ import ResumeButton from './ResumeButton.astro';
         Based at Universitas Gadjah Mada, Yogyakarta.
       </p>
       <div class="hero-actions">
-        <ResumeButton />
+        <a href="/blog" class="btn btn--primary">Read Blog</a>
         <a href="/projects" class="btn btn--outline">View Research</a>
       </div>
     </div>
@@ -39,6 +43,31 @@ import ResumeButton from './ResumeButton.astro';
   .hero-inner {
     max-width: var(--max-width);
     margin: 0 auto;
+  }
+
+  .hero-visual {
+    margin-bottom: var(--space-xl);
+    display: flex;
+    justify-content: center;
+  }
+
+  .profile-frame {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--color-accent);
+    padding: 6px;
+    background: var(--color-bg);
+    box-shadow: 0 0 30px var(--color-accent-glow);
+  }
+
+  .profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    filter: grayscale(0.2) contrast(1.1);
   }
 
   .hero-waveform {
