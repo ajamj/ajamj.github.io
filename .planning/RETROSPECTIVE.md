@@ -1,24 +1,30 @@
-# Migration Retrospective: Astro to React/Django
+# Project Retrospective & Learnings
 
-## Project Overview
-Successful migration of a geophysics researcher's portfolio from a static Astro site to a modern decoupled architecture.
+## Milestone 3: Academic Redesign (Astro)
 
-## Architectural Changes
-- **Frontend**: Migrated from Astro to React 19 + Vite 8.
-- **Backend**: Implemented Django REST Framework (DRF) for dynamic data management.
-- **Data Viz**: Ported D3.js seismic visualizations into interactive React components.
-- **Integration**: Established a secure API service layer with CORS and production env gating.
+### Core Learnings
 
-## Key Decisions
-1. **D3 Porting**: Used `useRef` and `useEffect` hooks to bridge D3's imperative DOM manipulation with React's declarative lifecycle.
-2. **CORS Gating**: Configured dynamic origin validation in Django based on environment variables to support multi-platform hosting (Cloudflare/GitHub Pages).
-3. **Decoupled CI/CD**: Unified the build process in GitHub Actions while maintaining independent frontend/backend workflows.
+1. **Astro static architecture is significantly more efficient than dynamic frameworks (Django/React) for academic portfolios.**
+   - *Rationale:* Provides better performance (lower TTI), zero server maintenance, and easier deployment to GitHub Pages.
+   - *Impact:* Reduced complexity and hosting costs.
 
-## Lessons Learned
-- **D3/React Sync**: Managing SVG resizing in React requires careful cleanup of event listeners to prevent memory leaks.
-- **State Reconciliation**: Frequent updates to `STATE.md` are critical for maintaining continuity in long-running migrations.
+2. **CSS clamp() function effectively reduces media query complexity.**
+   - *Rationale:* Allows for fluid visual consistency across all device sizes (mobile to 4K) without writing hundreds of lines of breakpoint-specific code.
+   - *Impact:* Maintainable and robust responsive styling.
 
-## Final Status
-Migration: **COMPLETE**
-Performance: **OPTIMIZED**
-Scalability: **READY**
+3. **Astro <Image /> component is mandatory for asset optimization.**
+   - *Rationale:* Automates WebP conversion, resizing, and critical PII protection by stripping EXIF/location metadata.
+   - *Impact:* Faster load times and improved privacy.
+
+4. **Honeypot fields are the preferred anti-spam solution for static contact forms.**
+   - *Rationale:* Lightweight, CSS-hidden inputs successfully catch basic bots without requiring intrusive CAPTCHAs.
+   - *Impact:* Better UX for real users while maintaining security.
+
+5. **Early removal of deprecated experimental code is crucial.**
+   - *Rationale:* Deleting unused framework folders (React/Django) reduces cognitive load during development and keeps the repository footprint lean.
+   - *Impact:* Improved focus on the active Astro codebase.
+
+### Visual Patterns
+- **Theme**: Obsidian-Emerald (#0a0f0d background / #10b981 accent).
+- **Surface**: Glassmorphism (rgba(20, 26, 23, 0.6) with 12px blur).
+- **Navigation**: Sliding drawer for mobile with 44x44px touch targets.
