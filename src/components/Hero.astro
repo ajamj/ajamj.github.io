@@ -1,7 +1,9 @@
 ---
+import { Image } from 'astro:assets';
+import portrait from '../assets/self-portrait.jpg';
 ---
 
-<section id="hero" class="hero-section">
+<section id="hero" class="hero-section" aria-labelledby="hero-title">
   <div class="hero-inner">
     <!-- Subtle waveform motif -->
     <svg class="hero-waveform" viewBox="0 0 800 60" preserveAspectRatio="none" aria-hidden="true">
@@ -11,11 +13,19 @@
     <div class="hero-content">
       <div class="hero-visual">
         <div class="profile-frame">
-          <img src="/img/self-portrait.jpg" alt="Ajam Jamaludin" class="profile-img" />
+          <Image 
+            src={portrait} 
+            alt="Ajam Jamaludin" 
+            width={280} 
+            height={280}
+            loading="eager"
+            decoding="async"
+            class="profile-img" 
+          />
         </div>
       </div>
       <p class="hero-eyebrow">Geophysics Researcher</p>
-      <h1 class="hero-title">Ajam Jamaludin</h1>
+      <h1 id="hero-title" class="hero-title">Ajam Jamaludin</h1>
       <p class="hero-subtitle">
         Computational seismology and earthquake early warning systems.<br />
         Based at Universitas Gadjah Mada, Yogyakarta.
@@ -30,36 +40,39 @@
 
 <style>
   .hero-section {
-    min-height: 80vh;
+    min-height: clamp(60vh, 80vh, 900px);
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: calc(var(--space-3xl) + 60px) var(--space-md) var(--space-3xl);
+    padding: var(--space-section-padding) var(--space-md);
     background: var(--color-bg);
     position: relative;
+    overflow: hidden;
   }
 
   .hero-inner {
-    max-width: var(--max-width);
+    max-width: var(--max-width-wide);
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
   }
 
   .hero-visual {
-    margin-bottom: var(--space-xl);
+    margin-bottom: var(--space-lg);
     display: flex;
     justify-content: center;
   }
 
   .profile-frame {
-    width: 140px;
-    height: 140px;
+    width: clamp(110px, 15vw, 140px);
+    height: clamp(110px, 15vw, 140px);
     border-radius: 50%;
     overflow: hidden;
     border: 2px solid var(--color-accent);
     padding: 6px;
     background: var(--color-bg);
-    box-shadow: 0 0 30px var(--color-accent-glow);
+    box-shadow: 0 0 20px var(--color-accent-glow);
   }
 
   .profile-img {
@@ -67,42 +80,44 @@
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
-    filter: grayscale(0.2) contrast(1.1);
+    filter: grayscale(0.1) contrast(1.05);
   }
 
   .hero-waveform {
     position: absolute;
-    top: 60px;
+    top: 10%;
     left: 50%;
     transform: translateX(-50%);
     width: 80%;
     max-width: 600px;
     height: 60px;
-    opacity: 0.25;
+    opacity: 0.2;
+    pointer-events: none;
   }
 
   .hero-eyebrow {
     font-size: 0.8125rem;
     font-weight: 500;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
     color: var(--color-accent);
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-sm);
   }
 
   .hero-title {
-    font-size: clamp(2.25rem, 5vw, 3.5rem);
-    font-weight: 500;
-    line-height: 1.15;
-    margin-bottom: var(--space-lg);
+    font-size: var(--font-size-h1);
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: var(--space-md);
     letter-spacing: -0.02em;
+    color: var(--color-text);
   }
 
   .hero-subtitle {
-    font-size: clamp(1rem, 2vw, 1.125rem);
+    font-size: var(--font-size-body);
     color: var(--color-text-muted);
-    line-height: 1.7;
-    max-width: 480px;
+    line-height: 1.6;
+    max-width: 520px;
     margin: 0 auto var(--space-xl);
   }
 
@@ -113,14 +128,21 @@
     flex-wrap: wrap;
   }
 
-  @media (max-width: 640px) {
-    .hero-section {
-      min-height: 70vh;
-      padding-top: calc(80px + var(--space-xl));
+  @media (max-width: 480px) {
+    .hero-actions {
+      flex-direction: column;
+      align-items: stretch;
     }
 
-    .hero-waveform {
-      display: none;
+    .hero-actions .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-section {
+      padding-top: 100px;
     }
   }
 </style>
