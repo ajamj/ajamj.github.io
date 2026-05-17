@@ -7,90 +7,94 @@ const latestPosts = (await getCollection('blog'))
   .slice(0, 2);
 ---
 
-<section id="blog" class="blog-section scroll-reveal">
-  <div class="section-header">
-    <h2 class="section-title text-center">Technical Research Blog</h2>
-    <p class="section-subtitle hud-label text-center">Insights into Computational Geophysics</p>
-  </div>
+<section id="blog" class="blog-section scroll-reveal" aria-labelledby="blog-title">
+  <div class="container">
+    <div class="section-header">
+      <h2 id="blog-title" class="section-title text-center">Technical Research Blog</h2>
+      <p class="section-subtitle hud-label text-center">Insights into Computational Geophysics</p>
+    </div>
 
-  <div class="blog-grid">
-    {latestPosts.map((post) => (
-      <article class="blog-card glass-card card-hover">
-        <div class="card-hud hud-label">TOPIC: {post.data.tags[0] || 'RESEARCH'}</div>
-        <h3>{post.data.title}</h3>
-        <p class="blog-summary">
-          {post.data.description}
-        </p>
-        <div class="blog-footer">
-          <a href={`/blog/${post.slug}`} class="btn-animated">Read Full Article</a>
-        </div>
-      </article>
-    ))}
-    
-    {latestPosts.length === 1 && (
-      <article class="blog-card glass-card card-hover">
-        <div class="card-hud hud-label">TOPIC: MACHINE LEARNING</div>
-        <h3>Ensemble ML in Early Warning Systems</h3>
-        <p class="blog-summary">
-          Technical breakdown of how multi-model voting enhances P-wave detection reliability in the BMKG EEWS prototype.
-        </p>
-        <div class="blog-footer">
-          <a href="#" class="btn-animated">Coming Soon</a>
-        </div>
-      </article>
-    )}
-  </div>
+    <div class="blog-grid" role="list">
+      {latestPosts.map((post) => (
+        <article class="blog-card glass-card card-hover" role="listitem">
+          <div class="card-hud hud-label">TOPIC: {post.data.tags[0] || 'RESEARCH'}</div>
+          <h3>{post.data.title}</h3>
+          <p class="blog-summary">
+            {post.data.description}
+          </p>
+          <div class="blog-footer">
+            <a href={`/blog/${post.slug}`} class="btn-animated">Read Full Article</a>
+          </div>
+        </article>
+      ))}
 
-  <div class="blog-view-all">
-    <a href="/blog" class="contact-icon">View All Insights →</a>
+      {latestPosts.length === 1 && (
+        <article class="blog-card glass-card card-hover" role="listitem">
+          <div class="card-hud hud-label">TOPIC: MACHINE LEARNING</div>
+          <h3>Ensemble ML in Early Warning Systems</h3>
+          <p class="blog-summary">
+            Technical breakdown of how multi-model voting enhances P-wave detection reliability in the BMKG EEWS prototype.
+          </p>
+          <div class="blog-footer">
+            <a href="#" class="btn-animated">Coming Soon</a>
+          </div>
+        </article>
+      )}
+    </div>
+
+    <div class="blog-view-all">
+      <a href="/blog" class="contact-icon">View All Insights →</a>
+    </div>
   </div>
 </section>
 
 <style>
   .blog-section {
-    padding: var(--space-3xl) var(--space-md);
-    background-color: var(--color-surface-low);
-  }
-
-  .text-center {
-    text-align: center;
-  }
-
-  .section-header {
-    text-align: center;
-    margin-bottom: var(--space-3xl);
+    padding: var(--space-section-padding) 0;
+    background-color: var(--color-bg);
   }
 
   .blog-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: var(--space-xl);
-    max-width: 1000px;
-    margin: 0 auto;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-xl);
   }
 
   .blog-card {
     display: flex;
     flex-direction: column;
-    padding: var(--space-xl);
-    min-height: 300px;
+    padding: var(--space-lg);
+    min-height: 280px;
+    background: var(--color-surface);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    transition: all var(--transition);
+  }
+
+  .blog-card:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 0 20px var(--color-accent-glow);
+    transform: translateY(-4px);
   }
 
   .card-hud {
     margin-bottom: var(--space-sm);
+    font-size: 0.75rem;
   }
 
   .blog-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: var(--space-md);
+    font-size: 1.25rem;
+    margin-bottom: var(--space-sm);
     color: var(--color-accent);
   }
 
   .blog-summary {
     font-size: 0.95rem;
     line-height: 1.6;
-    opacity: 0.8;
-    margin-bottom: var(--space-xl);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-lg);
     flex-grow: 1;
   }
 
@@ -110,20 +114,18 @@ const latestPosts = (await getCollection('blog'))
     font-weight: 500;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    color: var(--color-text-muted);
-    opacity: 0.7;
-    transition: all 0.2s ease;
+    color: var(--color-accent);
+    transition: all var(--transition);
+    text-decoration: none;
   }
 
   .contact-icon:hover {
-    color: var(--color-accent);
-    opacity: 1;
     text-shadow: 0 0 10px var(--color-accent-glow);
   }
 
   @media (max-width: 600px) {
     .blog-card {
-      padding: var(--space-lg);
+      padding: var(--space-md);
     }
   }
 </style>

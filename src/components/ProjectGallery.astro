@@ -22,9 +22,9 @@ const projects = [
 ];
 ---
 
-<div class="gallery-grid">
+<div class="gallery-grid" role="list">
   {projects.map((project) => (
-    <article class="project-card glass-card card-hover" tabindex="0">
+    <article class="project-card glass-card card-hover" tabindex="0" role="listitem">
       <div class="card-hud hud-label">{project.category}</div>
       <div class="project-content">
         <h3>{project.title}</h3>
@@ -42,58 +42,72 @@ const projects = [
 <style>
   .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: var(--space-xl);
-    max-width: 1200px;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+    gap: var(--space-lg);
+    max-width: var(--max-width-wide);
     margin: 0 auto;
-    padding: 0 var(--space-md);
   }
 
   .project-card {
     display: flex;
     flex-direction: column;
-    padding: var(--space-xl);
-    min-height: 320px;
-    border-top: 2px solid transparent;
+    padding: var(--space-lg);
+    min-height: 300px;
+    background: var(--color-surface);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    transition: all var(--transition);
   }
 
   .project-card:hover {
-    border-top-color: var(--color-accent);
+    border-color: var(--color-accent);
+    box-shadow: 0 0 20px var(--color-accent-glow);
+    transform: translateY(-4px);
   }
 
   .card-hud {
     margin-bottom: var(--space-sm);
+    font-size: 0.75rem;
   }
 
   .project-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: var(--space-md);
+    font-size: 1.25rem;
+    margin-bottom: var(--space-sm);
     color: var(--color-accent);
+    line-height: 1.3;
   }
 
   .project-card p {
     font-size: 0.95rem;
     line-height: 1.6;
-    opacity: 0.85;
-    margin-bottom: var(--space-xl);
+    color: var(--color-text-muted);
+    margin-bottom: var(--space-lg);
   }
 
   .tags {
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-xs);
+    gap: 0.5rem;
     margin-top: auto;
   }
 
   .project-tag {
-    font-family: var(--font-heading);
+    font-family: var(--font-body);
     font-size: 0.7rem;
-    padding: 0.2rem 0.6rem;
-    background: rgba(16, 185, 129, 0.1);
+    padding: 0.25rem 0.6rem;
+    background: var(--color-accent-subtle);
     color: var(--color-accent);
-    border: 1px solid rgba(16, 185, 129, 0.2);
-    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border-light);
+    border-radius: 4px;
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    font-weight: 500;
+  }
+
+  @media (max-width: 600px) {
+    .project-card {
+      padding: var(--space-md);
+    }
   }
 </style>
